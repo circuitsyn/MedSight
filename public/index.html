@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>MedSight - Landing Page</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="./assets/images/MedSight Logo.PNG" type="image/png" sizes="32x32">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+    <!-- Custom CSS-->
+    <link rel="stylesheet" href="./css/style.css">
+    
+  </head>
+  <body>
+    
+    <!-- NavBar -->
+    <nav class="navbar bg-opique navbar-dark navWrap">      
+            <!-- Toggler/collapsibe Button -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+              <span><i class="fas fa-bars"></i>
+                </span>
+            </button>
+    
+            <!-- Navbar links -->
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Card Submissions</a>
+                  </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Our Story</a>
+                </li>
+                <li class="nav-item">
+                        <a class="nav-link" href="#">Contact Us</a>
+                </li>
+                
+              </ul>
+            </div> 
+        </nav>
+
+
+    <div class="container mainSurveyArea mt-2 mb-2">
+        
+
+        <!-- Intro instructions -->
+        <div class="row">
+            <h2 class="d-flex align-items-center mt-4 titleFont">
+                Make sure to fill your card out to completion so we can get you the best results over time!
+            </h2>
+        </div>
+        <hr>
+
+        <!-- user details -->
+        <div class="row">
+            <h3>
+                About You
+            </h3>
+        </div>
+
+        <div class="row">
+            <p class="mb-0 mt-1 p-1">
+                Bestowed Name of The Cursed (Required):
+            </p>
+            <input id="nameInput" class="form-control" type="text" placeholder="Enter your name here">
+        </div>
+
+        <div class="row">
+            <p class="mb-0 mt-1 p-1">
+                Link to Photo Image (Required)
+            </p>
+            <input id="imageInput" class="form-control" type="text" placeholder="Provide a link to a picture of that lovely ugly mug here">
+        </div>
+
+        <hr>
+    
+    
+        <!-- Questions -->
+        <!-- Question 1-->
+        <div class="row d-flex flex-column mt-4 mb-4">
+
+            <h4>Inquiry 1:</h4>
+            <p class="mb-0 mt-1 p-1">
+                You prefer to operate under bridges.
+            </p>
+            
+            <select id="q1" class="custom-select" style="width: 200px">
+                <option selected>Pick on a scale of 1 - 5</option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+                </select>
+        </div>
+
+        <!-- Question 2-->
+        <div class="row d-flex flex-column mt-4 mb-4">
+
+            <h4>Inquiry 2:</h4>
+            <p class="mb-0 mt-1 p-1">
+                You often ask three riddle questions before anyone shall pass.
+            </p>
+            
+            <select id="q2" class="custom-select" style="width: 200px">
+                <option selected>Pick on a scale of 1 - 5</option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+                </select>
+        </div>
+
+        
+
+        <!-- Submit Button -->
+        <div class="row ">
+            <input id="submit" class="btn btn-warning pt-3 pb-3 pl-5 pr-5 font-weight-bold " type="submit" value="Submit New Card">
+        </div>
+        
+        <hr>
+        
+    </div>
+
+        <!-- footer -->
+        <footer>
+            
+        
+        </footer>
+    
+    
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+  </body>
+</html>
+
+
+
+
+
