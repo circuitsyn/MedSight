@@ -11,8 +11,9 @@ body, html {
     background: rgba(255,255,255,0.9);
     border-radius: 45px;
     padding: 2% 4% 2% 4%;
-    border: 2px;
-    border-color: 
+    border-width: 5px;
+    border-style: solid;
+    border-color: #420b56; 
 }
 
 .titleFont {
@@ -24,6 +25,7 @@ body, html {
     stroke: white;
     -webkit-box-shadow: none;
     box-shadow: none;
+    padding: 10px 15px 10px 15px;
 }
 
 .nav-link {
@@ -41,4 +43,29 @@ body, html {
 
 .fa-bars {
     color: white;
+}
+
+#healthFact {
+    text-align: center;
+}
+
+.healthFactArea {
+    background: rgba(255,255,255,0.9);
+    border-radius: 45px;
+    padding: 2% 4% 2% 4%;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #420b56;
+}
+
+.mainImgArea {
+    background: rgba(255,255,255,1);
+    border-radius: 45px;
+    padding: 2% 4% 2% 4%;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #420b56;
+    margin: auto;
+    height: auto;
+    width: 300px;
 }
