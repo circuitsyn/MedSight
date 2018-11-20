@@ -1,0 +1,71 @@
+body, html {
+    height: 100%;
+    background-image: url("../assets/images/waterfallBG.jpg");
+    background-position: center;
+    /* background-repeat: no-repeat; */
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.mainSurveyArea {
+    background: rgba(255,255,255,0.9);
+    border-radius: 45px;
+    padding: 2% 4% 2% 4%;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #420b56; 
+}
+
+.titleFont {
+    text-align: center;
+}
+
+.navbar-toggler {
+    background-color: #420b56;
+    stroke: white;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    padding: 10px 15px 10px 15px;
+}
+
+.nav-link {
+    color: white !important;
+    opacity: 1;
+}
+
+#navbarNav {
+    background-color: white;
+    padding: 10px 0px 10px 0px;
+    border-radius: 15px;
+    width: 20%;
+    
+}
+
+.fa-bars {
+    color: white;
+}
+
+#healthFact {
+    text-align: center;
+}
+
+.healthFactArea {
+    background: rgba(255,255,255,0.9);
+    border-radius: 45px;
+    padding: 2% 4% 2% 4%;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #420b56;
+}
+
+.mainImgArea {
+    background: rgba(255,255,255,1);
+    border-radius: 45px;
+    padding: 2% 4% 2% 4%;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #420b56;
+    margin: auto;
+    height: auto;
+    width: 300px;
+}
