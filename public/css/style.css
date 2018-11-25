@@ -115,3 +115,9 @@ body, html {
 }
 
 /*---------------------------------- slider styling end ----------------------------------*/
+
+.allergyIcons{
+    height: auto;
+    width: 40px;
+}
+
