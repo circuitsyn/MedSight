@@ -291,6 +291,39 @@
                 </select>
         </div>
 
+        <!-- Table for API and auto data -->
+        <hr>
+        <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th scope="col" class="bg-warning">Automatic Data</th>
+                    <td class="bg-warning"></td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Location</th>
+                    <td id="autoLocation">filler</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Humidity</th>
+                    <td id="autoHumidity">filler</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Pollen</th>
+                    <td id="autoPollen">filler</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Pollution</th>
+                    <td id="autoPollution">filler</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Time</th>
+                    <td id="autoTime">filler</td>
+                  </tr>
+                </tbody>
+              </table>
+
         <!-- Notes Input Area -->
         <div class="row mt-4 mb-4">
             <div class="input-group">
@@ -301,8 +334,9 @@
             </div>
         </div>
 
+
         <!-- Submit Button -->
-        <div class="row ">
+        <div class="row container">
             <input id="submit" class="btn btn-warning pt-3 pb-3 pl-5 pr-5 font-weight-bold " type="submit" value="Submit New Card">
         </div>
         
