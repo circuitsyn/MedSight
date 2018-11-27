@@ -12,7 +12,7 @@ module.exports = function(sequelize, DataTypes) {
     PainLocationEpidermis: DataTypes.STRING,
     SliderStressSlider: DataTypes.DECIMAL,
     SymptomIntensitySlider: DataTypes.DECIMAL,
-    LocationLat: D43567789583487376781645ataTypes.DECIMAL,
+    LocationLat: DataTypes.DECIMAL,
     LocationLong: DataTypes.DECIMAL,
     Humidity: DataTypes.DECIMAL,
     Pollen: DataTypes.STRING,
