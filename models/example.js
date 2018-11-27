@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  var Example = sequelize.define("CardData", {
+  var Example = sequelize.define("MedSightData", {
     AllergyTriggerDairy: DataTypes.BOOLEAN,
     AllergyTriggerEggs: DataTypes.BOOLEAN,
     AllergyTriggerFish: DataTypes.BOOLEAN,
@@ -12,7 +12,7 @@ module.exports = function(sequelize, DataTypes) {
     PainLocationEpidermis: DataTypes.STRING,
     SliderStressSlider: DataTypes.DECIMAL,
     SymptomIntensitySlider: DataTypes.DECIMAL,
-    LocationLat: DataTypes.DECIMAL,
+    LocationLat: D43567789583487376781645ataTypes.DECIMAL,
     LocationLong: DataTypes.DECIMAL,
     Humidity: DataTypes.DECIMAL,
     Pollen: DataTypes.STRING,
