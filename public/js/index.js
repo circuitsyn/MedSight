@@ -1,6 +1,17 @@
 // Get references to page elements
-var $exampleText = $("#example-text");
-var $exampleDescription = $("#example-description");
+var $muscularQ = $("#muscularQ");
+var $skeletalQ = $("#skeletalQ");
+var $epidermisQ = $("#epidermisQ");
+var $dairyCheck = $("#dairyCheck");
+var $eggCheck = $("#eggCheck");
+var $seafoodCheck = $("#seafoodCheck");
+var $soyCheck = $("#soyCheck");
+var $sweetsCheck = $("#sweetsCheck");
+var $nutsCheck = $("#nutsCheck");
+var $wheatCheck = $("#wheatCheck");
+var $stressRange = $("#stressRange");
+var $symptomRange = $("#symptomRange");
+var $notesInput = $("#notesInput");
 var $submitBtn = $("#submit");
 var $exampleList = $("#example-list");
 
@@ -65,8 +76,8 @@ var handleFormSubmit = function(event) {
   event.preventDefault();
 
   var example = {
-    text: $exampleText.val().trim(),
-    description: $exampleDescription.val().trim()
+    text: $nameInput.val().trim(),
+    description: $imageInput.val().trim()
   };
 
   if (!(example.text && example.description)) {
@@ -78,8 +89,8 @@ var handleFormSubmit = function(event) {
     refreshExamples();
   });
 
-  $exampleText.val("");
-  $exampleDescription.val("");
+  $nameInput.val("");
+  $imageInput.val("");
 };
 
 // handleDeleteBtnClick is called when an example's delete button is clicked
