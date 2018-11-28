@@ -85,6 +85,11 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true,
       defaultValue: null
     },
+    Notes: {
+      type: DataTypes.TEXT,
+      allowNull: true,
+      defaultValue: null
+    },
     TimeStamp: {
       type: DataTypes.STRING,
       allowNull: false,
