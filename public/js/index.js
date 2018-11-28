@@ -1,6 +1,5 @@
 // Get references to page elements
-var $nameInput = $("#nameInput");
-var $imageInput = $("#imageInput");
+var $muscularQ = $("#muscularQ");
 var $skeletalQ = $("#skeletalQ");
 var $epidermisQ = $("#epidermisQ");
 var $dairyCheck = $("#dairyCheck");
@@ -10,9 +9,8 @@ var $soyCheck = $("#soyCheck");
 var $sweetsCheck = $("#sweetsCheck");
 var $nutsCheck = $("#nutsCheck");
 var $wheatCheck = $("#wheatCheck");
-var $questionOne = $("#q1");
-var $questionTwo = $("#q2");
-var $myRange = $("#myRange");
+var $stressRange = $("#stressRange");
+var $symptomRange = $("#symptomRange");
 var $notesInput = $("#notesInput");
 var $submitBtn = $("#submit");
 var $exampleList = $("#example-list");
