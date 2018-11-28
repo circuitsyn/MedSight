@@ -128,10 +128,10 @@ body, html {
     position: relative;
   }
   
-  .quizimgblock img.quizitems {
+  /* .quizimgblock img.quizitems {
     width: 100%;
     height: auto;
-  }
+  } */
   .quizimgblock a:hover img{
     opacity: 0.5;
   }
@@ -150,10 +150,10 @@ body, html {
     border: 0px !important;
   }
   .quizimgblock a:hover .check {
-    opacity: 1;
+    opacity: 0.6;
   }
   .quiz-answer.active .check {
-    opacity: 1;
+    opacity: 0.9;
   }
   .quizimgblock a:hover .check img {
     opacity: 1 !important;
@@ -204,9 +204,14 @@ body, html {
     box-shadow: 0 0 0 1px #f58029, inset 0 1px 1px #b14f07;
   }
   
+  .allergyIcons{
+    height: 80px;
+    width: 80px;
+}
+
+
   
-  
-  @media only screen and (max-width: 767px) {
+  /* @media only screen and (max-width: 767px) {
     .check { 
       top:35%; 
       left:35%; 
@@ -242,12 +247,13 @@ body, html {
   
   @media screen (min-width: 1200px) {
    
-  }  
+  }   */
 
+  .check {
+    height: 30px;
+    width: 30px;
+}
 /* --------------------------- clickable image styling end ---------------------------- */
 
-.allergyIcons{
-    height: 80px;
-    width: 80px;
-}
+
 

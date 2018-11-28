@@ -114,6 +114,7 @@ $exampleList.on("click", ".delete", handleDeleteBtnClick);
 $(".quizbutton").hide();
 
 $(".quiz-answer").click(function() {
+  event.preventDefault();
   $(this).toggleClass("active");
   if ($(".quiz-answer.active").length > 0) {
     $(".quizbutton").show();
