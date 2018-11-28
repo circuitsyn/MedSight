@@ -14,7 +14,7 @@ module.exports = function(app) {
   app.get("/card-block/:id", function(req, res) {
     db.MedSightData.findOne({ where: { id: req.params.id } }).then(function(dbExamples) {
       res.render("card-block", {
-        examples: dbExamples
+        medsightdata: dbExamples
       });
     });
   });
