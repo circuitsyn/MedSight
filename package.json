@@ -12,8 +12,9 @@
   "license": "ISC",
   "dependencies": {
     "dotenv": "^6.0.0",
-    "express": "^4.16.3",
+    "express": "^4.16.4",
     "express-handlebars": "^3.0.0",
+    "mysql": "^2.16.0",
     "mysql2": "^1.5.3",
     "sequelize": "^4.38.0"
   },
@@ -25,5 +26,18 @@
     "eslint-plugin-prettier": "^2.6.2",
     "mocha": "^5.2.0",
     "prettier": "^1.13.7"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/circuitsyn/MedSight.git"
+  },
+  "keywords": [],
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/circuitsyn/MedSight/issues"
+  },
+  "homepage": "https://github.com/circuitsyn/MedSight#readme"
 }
