@@ -251,7 +251,11 @@ body, html {
 
   .check {
     height: 30px;
+    position: relative !important;
     width: 30px;
+    bottom:50% !important; 
+    right: 100% !important; 
+    /* transform:translate(-35%, -35%); */
 }
 /* --------------------------- clickable image styling end ---------------------------- */
 
