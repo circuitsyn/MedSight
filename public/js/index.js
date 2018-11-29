@@ -117,7 +117,9 @@ $(".quiz-answer").click(function() {
     // $(".quizbutton").show();
     $(this).toggleClass("active");
     $(this).attr("value", "1");
+    console.log("I should be value 1")
   } else {
+    console.log("I should be value 0")
     $(this).toggleClass("active");
     $(this).removeAttr("value");
     $(this).attr("value", "0");
