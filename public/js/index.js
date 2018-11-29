@@ -111,12 +111,12 @@ $exampleList.on("click", ".delete", handleDeleteBtnClick);
 
 // ------------------- Event Listener Section for Clickable Images -------------------------
 
-$(".quizbutton").hide();
+// $(".quizbutton").hide();
 
 $(".quiz-answer").click(function() {
   event.preventDefault();
   $(this).toggleClass("active");
-  if ($(".quiz-answer.active").length > 0) {
+  if ($(".quiz-answer.active")) {
     $(".quizbutton").show();
   } else {
     $(".quizbutton").hide();
