@@ -113,13 +113,14 @@ $exampleList.on("click", ".delete", handleDeleteBtnClick);
 
 $(".quiz-answer").click(function() {
   event.preventDefault();
-  $(this).toggleClass("active");
   if ($(".quiz-answer.active")) {
     // $(".quizbutton").show();
-    $(this).attr({"value": "1" });
+    $(this).toggleClass("active");
+    $(this).attr("value", "1");
   } else {
     $(this).toggleClass("active");
-    $(this).attr({"value": "0" });
+    $(this).removeAttr("value");
+    $(this).attr("value", "0");
     // $(".quizbutton").hide();
   }
 });
