@@ -111,15 +111,16 @@ $exampleList.on("click", ".delete", handleDeleteBtnClick);
 
 // ------------------- Event Listener Section for Clickable Images -------------------------
 
-// $(".quizbutton").hide();
-
 $(".quiz-answer").click(function() {
   event.preventDefault();
   $(this).toggleClass("active");
   if ($(".quiz-answer.active")) {
-    $(".quizbutton").show();
+    // $(".quizbutton").show();
+    $(this).attr({"value": "1" });
   } else {
-    $(".quizbutton").hide();
+    $(this).toggleClass("active");
+    $(this).attr({"value": "0" });
+    // $(".quizbutton").hide();
   }
 });
 
