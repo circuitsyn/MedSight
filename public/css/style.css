@@ -101,7 +101,7 @@ body, html {
     border: none;
     height: 32px;
     width: 32px;
-    background: #420b56;
+    /* background: #420b56; */
     background: url('http://iconizer.net/files/Duesseldorf/orig/heart.png') no-repeat;
     margin-top: 0px;
     border-radius: 0 !important;
