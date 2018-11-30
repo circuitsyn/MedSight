@@ -108,10 +108,3 @@ var handleDeleteBtnClick = function() {
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
 $exampleList.on("click", ".delete", handleDeleteBtnClick);
-
-// -----------slider tool tip attempt------------//
-// $("#stressRange").slider({
-//   formatter: function(value) {
-//     return "Current value: " + value;
-//   }
-// });
