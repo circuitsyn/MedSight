@@ -113,15 +113,16 @@ $exampleList.on("click", ".delete", handleDeleteBtnClick);
 
 $(".quiz-answer").click(function() {
   event.preventDefault();
-  if ($(".quiz-answer.active")) {
+  console.log($(this).attr("value"));
+  if ($(this).attr("value") === "0") {
     // $(".quizbutton").show();
     $(this).toggleClass("active");
     $(this).attr("value", "1");
-    console.log("I should be value 1")
+    console.log("I should value 1");
   } else {
-    console.log("I should be value 0")
+    console.log("I should be value 0");
     $(this).toggleClass("active");
-    $(this).removeAttr("value");
+    // $(this).removeAttr("value");
     $(this).attr("value", "0");
     // $(".quizbutton").hide();
   }
