@@ -102,7 +102,7 @@ body, html {
     height: 32px;
     width: 32px;
     /* background: #420b56; */
-    background: url('http://iconizer.net/files/Duesseldorf/orig/heart.png') no-repeat;
+    background: url('http://i66.tinypic.com/33clnx2.png');
     margin-top: 0px;
     border-radius: 0 !important;
 }
@@ -139,6 +139,7 @@ body, html {
   .quizimgblock div.quiz-answer:hover .check {
     opacity: 0.6;
   }
+  
   .quiz-answer.active .check {
     opacity: 0.9;
   }
