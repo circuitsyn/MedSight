@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  var Example = sequelize.define("MedSightData", {
+  var MedSightData = sequelize.define("MedSightData", {
     AllergyTriggerDairy: {
       type: DataTypes.BOOLEAN, 
       defaultValue: false,
@@ -96,5 +96,5 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: 'Sat Jan 1 1983 00:00:00 GMT-0000'
     }
   });
-  return Example;
+  return MedSightData;
 };

@@ -1,31 +1,3 @@
-    <!-- NavBar -->
-    <nav class="navbar bg-opique navbar-dark navWrap">      
-            <!-- Toggler/collapsibe Button -->
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-              <span><i class="fas fa-bars fa-2x"></i>
-                </span>
-            </button>
-    
-            <!-- Navbar links -->
-            <div class="collapse navbar-collapse" id="collapsibleNavbar">
-              <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Card Submissions</a>
-                  </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Dashboard</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Our Story</a>
-                </li>
-                <li class="nav-item">
-                        <a class="nav-link" href="#">Contact Us</a>
-                </li>
-                
-              </ul>
-            </div> 
-        </nav>
-
     <!-- Main Logo Section -->
     <div class="container mt-0 mb-5">
         <div class="row">
@@ -52,40 +24,18 @@
             </h2>
         </div>
         <hr>
-
-        <!-- user details -->
-        <div class="row">
-            <h3>
-                About You
-            </h3>
-        </div>
-
-        <div class="row">
-            <p class="mb-0 mt-1 p-1">
-                Bestowed Name of The Cursed (Required):
-            </p>
-            <input id="nameInput" class="form-control" type="text" placeholder="Enter your name here">
-        </div>
-
-        <div class="row">
-            <p class="mb-0 mt-1 p-1">
-                Link to Photo Image (Required)
-            </p>
-            <input id="imageInput" class="form-control" type="text" placeholder="Provide a link to a picture of that lovely ugly mug here">
-        </div>
-
-        <hr>
-    
     
         <!-- Questions -->
         <!--Pain Location Section Start-->
         <!-- Muscle Pain -->
-        <div class="row mt-2 mb-2 d-flex justify-content-center">
-            <div class="row">
-                <div class="col-md-12">
-                    <h4>Pain Selection Location</h4>
-                </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h4>Pain Selection Location</h4>
             </div>
+        </div>
+        <div class="row mt-2 mb-2 d-flex justify-content-center">
+            
             <div class="row mt-2 mb-4">
                 <div class="col-md-4">
 
@@ -167,117 +117,92 @@
                     </select>
                 </div>
             </div>
-
+        </div>
         <!-- Allergy Trigger Section -->
-        <div class="row mt-4 mb-4">
-            <div class="container">
-                <div class="row">         
-                    <h4>Allergy Triggers:</h4>  
-                </div>
-                <div class="row">    
-                    <p>Select any common allergy trigger foods you may have consumed</p>   
-                </div>
-                <div class="row d-flex justify-content-center m-auto">
-                    <!-- Dairy Question Checkbox -->
-                    <div class="col-md-1 input-group-prepend custom-control custom-checkbox ml-1 mr-1">
-                        <img class="allergyIcons" src="assets/images/cowIcon.png" alt="dairy icon">
-                        <input id="dairyCheck" type="checkbox" class="custom-control-input" value="dairy" name="example1">
-                        <label class="custom-control-label m-2" for="dairyCheck"></label>
-                    </div>
+        <div class="container">
+            <div class="row">         
+                <h4>Allergy Triggers:</h4>  
+            </div>
+            <div class="row">    
+                <p>Click to select any common allergy trigger foods you may have consumed.</p>   
+            </div>
+         
+        <section>	
+            <div class="quizimgblock">
+                <div class="container">
+                    <div class="row mt-2 mb-4 d-flex justify-content-center">
 
-                    <!-- Eggs Question Checkbox -->
-                    <div class="col-md-1 input-group-prepend custom-control custom-checkbox ml-1 mr-1">
-                        <img class="allergyIcons" src="assets/images/eggs.png" alt="egg icon">
-                        <input id="eggCheck" type="checkbox" class="custom-control-input" value="eggs" name="example1">
-                        <label class="custom-control-label" for="eggCheck"></label>
-                    </div>
+                        {{!-- Dairy Question Checkbox --}}
+                        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                            <div id="dairyCheck" value="0" href="#" class="quiz-answer">
+                                <img class="check" src="assets/images/checkmark2trans.png" alt="check">
+                                <img class="allergyIcons" src="assets/images/cowIcon.png" alt="dairy icon">
+                            </div>
+                        </div>
 
-                    <!-- Seafood Question Checkbox -->
-                    <div class="col-md-1 input-group-prepend custom-control custom-checkbox ml-1 mr-1">
-                        <img class="allergyIcons" src="assets/images/fish.png" alt="seafood icon">
-                        <input id="seafoodCheck" type="checkbox" class="custom-control-input" value="seafood"  name="example1">
-                        <label class="custom-control-label" for="seafoodCheck"></label>
-                    </div>
+                        {{!-- Eggs Question Checkbox --}}
+                        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                            <div id="eggCheck" value="0" href="#" class="quiz-answer">
+                                <img class="check" src="assets/images/checkmark2trans.png" alt="check">
+                                <img class="allergyIcons" src="assets/images/eggs.png" alt="egg icon">
+                            </div>
+                        </div>
 
-                    <!-- Soy Question Checkbox -->
-                    <div class="col-md-1 input-group-prepend custom-control custom-checkbox ml-1 mr-1">
-                        <img class="allergyIcons" src="assets/images/soy.png" alt="soy icon">
-                        <input id="soyCheck" type="checkbox" class="custom-control-input" value="soy" name="example1">
-                        <label class="custom-control-label" for="soyCheck"></label>
-                    </div>
+                        {{!-- Seafood Question Checkbox --}}
+                        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                            <div id="seafoodCheck" value="0" href="#" class="quiz-answer">
+                                <img class="check" src="assets/images/checkmark2trans.png" alt="check">
+                                <img class="allergyIcons" src="assets/images/fish.png" alt="seafood icon">
+                            </div>
+                        </div>
 
-                    <!-- Sweets Question Checkbox -->
-                    <div class="col-md-1 input-group-prepend custom-control custom-checkbox ml-1 mr-1">
-                        <img class="allergyIcons" src="assets/images/sweets.png" alt="sweets icon">
-                        <input id="sweetsCheck" type="checkbox" class="custom-control-input" value="sweets" name="example1">
-                        <label class="custom-control-label" for="sweetsCheck"></label>
-                    </div>
+                        {{!-- Soy Question Checkbox --}}
+                        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                            <div id="soyCheck" value="0" href="#" class="quiz-answer">
+                                <img class="check" src="assets/images/checkmark2trans.png" alt="check">
+                                <img class="allergyIcons" src="assets/images/soy.png" alt="soy icon">
+                            </div>
+                        </div>
 
-                    <!-- Nuts Question Checkbox -->
-                    <div class="col-md-1 input-group-prepend custom-control custom-checkbox ml-1 mr-1">
-                        <img class="allergyIcons" src="assets/images/nutsIcon.png" alt="nuts icon">
-                        <input id="nutsCheck" type="checkbox" class="custom-control-input" value="nuts"  name="example1">
-                        <label class="custom-control-label" for="nutsCheck"></label>
-                    </div>
+                        {{!-- Nuts Question Checkbox --}}
+                        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                            <div id="nutsCheck" value="0" href="#" class="quiz-answer">
+                                <img class="check" src="assets/images/checkmark2trans.png" alt="check">
+                                <img class="allergyIcons" src="assets/images/nutsIcon.png" alt="nuts icon">
+                            </div>
+                        </div>
 
-                    <!-- Wheat Question Checkbox -->
-                    <div class="col-md-1 input-group-prepend custom-control custom-checkbox ml-1 mr-1">
-                        <img class="allergyIcons" src="assets/images/wheatIcon.png" alt="wheat icon">
-                        <input id="wheatCheck" type="checkbox" class="custom-control-input" value="wheat" name="example1">
-                        <label class="custom-control-label" for="wheatCheck"></label>
+                        {{!-- Wheat Question Checkbox --}}
+                        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                            <div id="wheatCheck" value="0" href="#" class="quiz-answer">
+                                <img class="check" src="assets/images/checkmark2trans.png" alt="check">
+                                <img class="allergyIcons" src="assets/images/wheatIcon.png" alt="wheat icon">
+                            </div>
+                        </div>
+
+                        {{!-- Sweets Question Checkbox --}}
+                        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                            <div id="sweetsCheck" value="0" href="#" class="quiz-answer">
+                                <img class="check" src="assets/images/checkmark2trans.png" alt="check">
+                                <img class="allergyIcons" src="assets/images/sweets.png" alt="sweetsCheck">
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
-        </div>
-
-        
-
-        <!-- Question 1-->
-        <div class="row d-flex flex-column mt-4 mb-4">
-
-            <h4>Inquiry 1:</h4>
-            <p class="mb-0 mt-1 p-1">
-                You prefer to operate under bridges.
-            </p>
-            
-            <select id="q1" class="custom-select" style="width: 200px">
-                <option selected>Pick on a scale of 1 - 5</option>
-                <option value="1">1 (Strongly Disagree)</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5 (Strongly Agree)</option>
-                </select>
-        </div>
-
-        <!-- Question 2-->
-        <div class="row d-flex flex-column mt-4 mb-4">
-
-            <h4>Inquiry 2:</h4>
-            <p class="mb-0 mt-1 p-1">
-                You often ask three riddle questions before anyone shall pass.
-            </p>
-            
-            <select id="q2" class="custom-select" style="width: 200px">
-                <option selected>Pick on a scale of 1 - 5</option>
-                <option value="1">1 (Strongly Disagree)</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5 (Strongly Agree)</option>
-                </select>
-        </div>
-
+        </section>
 
 
         <!-- Discomfort Sliders -->
         <!-- Stress Level Slider -->
         <hr>
+        <div class="container">
         <div class="row mb-2 mt-2">
             <h4>Stress Level Slider</h4>
             <p>Please touch or click and hold the heart on the scale and drag it toward green for less stress and right for more stress that you are experiencing below:</p>
             <div class="slidecontainer">
-                <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+                <input type="range" min="0" max="10" value="null" class="slider" id="stressRange" data-slider-id="stressRangeId">
             </div>
         </div>
         <!-- Intensity Level Slider -->
@@ -285,8 +210,9 @@
             <h4>Symptom Intensity Level Slider</h4>
             <p>Please touch or click and hold the heart on the scale and drag it toward green for less intensity and right for more intensity of the symptom that you are experiencing below:</p>
             <div class="slidecontainer">
-                <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+                <input type="range" min="0" max="10" value="null" class="slider" id="symptomRange" data-slider-id="intensityRangeId">
             </div>
+        </div>
         </div>
 
         <!-- Table for API and auto data -->
@@ -323,6 +249,7 @@
               </table>
 
         <!-- Notes Input Area -->
+        <div class="container">
         <div class="row mt-4 mb-4">
             <div class="input-group">
                 <div class="input-group-prepend">
@@ -330,6 +257,7 @@
                 </div>
                 <textarea id="notesInput" class="form-control" aria-label="With textarea"></textarea>
             </div>
+        </div>
         </div>
 
         <!-- Submit Button -->
@@ -346,3 +274,6 @@
             
         
         </footer>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
