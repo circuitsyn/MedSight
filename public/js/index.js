@@ -8,7 +8,7 @@ $(document).ready(function() {
       navigator.geolocation.getCurrentPosition(function(data) {
         $.ajax({
           url:
-            "http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=QvPGj6SnS5rle74KztExEVKhXCJrJi5e&q=" +
+            "http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=7a4dhv24Cy3KXKLaJ7jh5g0EAPhGjmit&q=" +
             data.coords.latitude +
             "%2C" +
             data.coords.longitude +
@@ -34,7 +34,7 @@ $(document).ready(function() {
       url:
         "http://dataservice.accuweather.com/forecasts/v1/daily/1day/" +
         key +
-        "?apikey=QvPGj6SnS5rle74KztExEVKhXCJrJi5e&details=true&metric=true",
+        "?apikey=7a4dhv24Cy3KXKLaJ7jh5g0EAPhGjmit&details=true&metric=true",
       method: "GET"
     }).done(function(data) {
       console.log(data.DailyForecasts[0].AirAndPollen[0].Category);
@@ -52,7 +52,7 @@ $(document).ready(function() {
       url:
         "http://dataservice.accuweather.com/currentconditions/v1/" +
         key +
-        "?apikey=QvPGj6SnS5rle74KztExEVKhXCJrJi5e&details=true",
+        "?apikey=7a4dhv24Cy3KXKLaJ7jh5g0EAPhGjmit&details=true",
       method: "GET"
     }).done(function(data) {
       var date = moment
