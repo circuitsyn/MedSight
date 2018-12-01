@@ -67,7 +67,7 @@ $(document).ready(function() {
   }
 });
 // ========== END ACCUWEATHER/GEOLOCATION CALL ========= //
-
+// ---------- Beginning of New, Edit, and Delete submissions ------------- //
 // Get references to page elements
 var muscularQ = $("#muscularQ");
 var skeletalQ = $("#skeletalQ");
@@ -115,7 +115,8 @@ var API = {
   }
 };
 
-// refreshExamples gets new examples from the db and repopulates the list
+
+// refreshCards gets new cards from the db and repopulates the list
 // var refreshExamples = function() {
 //   API.getExamples().then(function(data) {
 //     var $examples = data.map(function(example) {
@@ -145,53 +146,37 @@ var API = {
 // };
 
 // handleFormSubmit is called whenever we submit a new example
-// Save the new example to the db and refresh the list
+// Save the new card to the db and refresh the list
 var handleFormSubmit = function(event) {
   event.preventDefault();
 
   var medsightdata = {
-    AllergyTriggerDairy: dairyCheck,
-    AllergyTriggerEggs: eggCheck.val().trim(),
-    AllergyTriggerFish: seafoodCheck.val().trim(),
-    AllergyTriggerSoy: soyCheck.val().trim(),
-    AllergyTriggerSweets: sweetsCheck.val().trim(),
-    AllergyTriggerNuts: nutsCheck.val().trim(),
-    AllergyTriggerWheat: wheatCheck.val().trim(),
+    AllergyTriggerDairy: parseInt(dairyCheck.attr("value")),
+    AllergyTriggerEggs: parseInt(eggCheck.attr("value")),
+    AllergyTriggerFish: parseInt(seafoodCheck.attr("value")),
+    AllergyTriggerSoy: parseInt(soyCheck.attr("value")),
+    AllergyTriggerSweets: parseInt(sweetsCheck.attr("value")),
+    AllergyTriggerNuts: parseInt(nutsCheck.attr("value")),
+    AllergyTriggerWheat: parseInt(wheatCheck.attr("value")),
     PainLocationMuscular: muscularQ.val().trim(),
     PainLocationSkeletal: skeletalQ.val().trim(),
     PainLocationEpidermis: epidermisQ.val().trim(),
     SliderStressSlider: stressRange.val().trim(),
     SymptomIntensitySlider: symptomRange.val().trim(),
-    AutoLocation: autoLocation.val().trim(),
-    Humidity: autoHumidity.val().trim(),
-    Pollen: autoPollen.val().trim(),
-    Pollution: autoPollution.val().trim(),
+    AutoLocation: autoLocation.text(),
+    Humidity: autoHumidity.text(),
+    Pollen: autoPollen.text(),
+    Pollution: autoPollution.text(),
     Notes: notesInput.val().trim(),
-    TimeStamp: autoTime.val().trim(),
+    TimeStamp: autoTime.text(),
 
     // ===============================
   };
 
-  // if (!(example.text && example.description)) {
-  //   alert("You must enter an example text and description!");
-  //   return;
-  // }
-
+  // Add our new card
   API.saveCard(medsightdata).then(function() {
     // refreshExamples();
   });
-  // dairyCheck.val("");
-  // eggCheck.val("");
-  // seafoodCheck.val("");
-  // soyCheck.val("");
-  // sweetsCheck.val("");
-  // nutsCheck.val("");
-  // wheatCheck.val("");
-  // muscularQ.val("");
-  // skeletalQ.val("");
-  // epidermisQ.val("");
-  // stressRange.val("");
-  // symptomRange.val("");
 };
 
 // handleDeleteBtnClick is called when an example's delete button is clicked
@@ -206,10 +191,9 @@ var handleDeleteBtnClick = function() {
   });
 };
 
-// Add event listeners to the submit and delete buttons
+// Add event listeners to the submit
 submitBtn.on("click", handleFormSubmit);
-// $exampleList.on("click", ".delete", handleDeleteBtnClick);
-
+// ---------- End of New, Edit, and Delete submissions ------------- //
 // ------------------- Event Listener Section for Clickable Images -------------------------
 
 $(".quiz-answer").click(function() {
