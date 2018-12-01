@@ -6,36 +6,40 @@ var dairyCheck = $("#dairyCheck");
 var eggCheck = $("#eggCheck");
 var seafoodCheck = $("#seafoodCheck");
 var soyCheck = $("#soyCheck");
-var sweetsCheck = $("#sweetsCheck");
 var nutsCheck = $("#nutsCheck");
 var wheatCheck = $("#wheatCheck");
+var sweetsCheck = $("#sweetsCheck");
 var stressRange = $("#stressRange");
 var symptomRange = $("#symptomRange");
+var autoLocation = $("#autoLocation");
+var autoHumidity = $("#autoHumidity");
+var autoPollen = $("#autoPollen");
+var autoPollution = $("#autoPollution");
+var autoTime = $("#autoTime");
 var notesInput = $("#notesInput");
 var submitBtn = $("#submit");
-var exampleList = $("#example-list");
 
 // The API object contains methods for each kind of request we'll make
 var API = {
-  saveExample: function(medsightdata) {
+  saveCard: function(medsightdata) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
       },
       type: "POST",
-      url: "api/examples",
+      url: "api/cards",
       data: JSON.stringify(medsightdata)
     });
   },
-  getExamples: function() {
+  getCards: function() {
     return $.ajax({
-      url: "api/examples",
+      url: "api/cards",
       type: "GET"
     });
   },
-  deleteExample: function(id) {
+  deleteCard: function(id) {
     return $.ajax({
-      url: "api/examples/" + id,
+      url: "api/cards/" + id,
       type: "DELETE"
     });
   }
@@ -76,7 +80,7 @@ var handleFormSubmit = function(event) {
   event.preventDefault();
 
   var medsightdata = {
-    AllergyTriggerDairy: dairyCheck.val().trim(),
+    AllergyTriggerDairy: dairyCheck,
     AllergyTriggerEggs: eggCheck.val().trim(),
     AllergyTriggerFish: seafoodCheck.val().trim(),
     AllergyTriggerSoy: soyCheck.val().trim(),
@@ -87,14 +91,13 @@ var handleFormSubmit = function(event) {
     PainLocationSkeletal: skeletalQ.val().trim(),
     PainLocationEpidermis: epidermisQ.val().trim(),
     SliderStressSlider: stressRange.val().trim(),
-    SymptomIntensitySlider: symptomRange.val().trim()
-    // LocationLat:
-    // LocationLong:
-    // Humidity: 
-    // Pollen: 
-    // Pollution: 
-    // Notes: 
-    // TimeStamp: 
+    SymptomIntensitySlider: symptomRange.val().trim(),
+    AutoLocation: autoLocation.val().trim(),
+    Humidity: autoHumidity.val().trim(),
+    Pollen: autoPollen.val().trim(),
+    Pollution: autoPollution.val().trim(),
+    Notes: notesInput.val().trim(),
+    TimeStamp: autoTime.val().trim(),
 
     // ===============================
   };
@@ -104,7 +107,7 @@ var handleFormSubmit = function(event) {
   //   return;
   // }
 
-  API.saveExample(medsightdata).then(function() {
+  API.saveCard(medsightdata).then(function() {
     // refreshExamples();
   });
   // dairyCheck.val("");
