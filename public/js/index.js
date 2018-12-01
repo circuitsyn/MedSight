@@ -1,3 +1,73 @@
+// ========= BEGIN ACCUWEATHER/GEOLOCATION CALL ========== //
+
+$(document).ready(function() {
+  var x = document.getElementById("autoLocation");
+  //function to get location key from accuweather api
+  function getLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(data) {
+        $.ajax({
+          url:
+            "http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=QvPGj6SnS5rle74KztExEVKhXCJrJi5e&q=" +
+            data.coords.latitude +
+            "%2C" +
+            data.coords.longitude +
+            "&details=true&toplevel=true",
+          method: "GET"
+        }).done(function(data) {
+          console.log(data.LocalizedName);
+          getCurrentConditions(data.Key);
+          getAirAndPollen(data.Key);
+          //append LocalizedName to page
+          $("#autoLocation").append(data.LocalizedName);
+        });
+      });
+    } else {
+      x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+  }
+  getLocation();
+
+  //function to get daily air and pollen conditions
+  function getAirAndPollen(key) {
+    return $.ajax({
+      url:
+        "http://dataservice.accuweather.com/forecasts/v1/daily/1day/" +
+        key +
+        "?apikey=QvPGj6SnS5rle74KztExEVKhXCJrJi5e&details=true&metric=true",
+      method: "GET"
+    }).done(function(data) {
+      console.log(data.DailyForecasts[0].AirAndPollen[0].Category);
+      //add pollen and air quality to html
+      $("#autoPollution").append(
+        data.DailyForecasts[0].AirAndPollen[0].Category
+      );
+      $("#autoPollen").append(data.DailyForecasts[0].AirAndPollen[1].Category);
+    });
+  }
+
+  //function to get humidity and time info
+  function getCurrentConditions(key) {
+    $.ajax({
+      url:
+        "http://dataservice.accuweather.com/currentconditions/v1/" +
+        key +
+        "?apikey=QvPGj6SnS5rle74KztExEVKhXCJrJi5e&details=true",
+      method: "GET"
+    }).done(function(data) {
+      var date = moment
+        .unix(data[0].EpochTime)
+        .format("dddd, MMMM Do, YYYY h:mm A");
+      console.log(date);
+      console.log(data[0].RelativeHumidity);
+      //add time and humidity to page
+      $("#autoTime").append(date);
+      $("#autoHumidity").append(data[0].RelativeHumidity);
+    });
+  }
+});
+// ========== END ACCUWEATHER/GEOLOCATION CALL ========= //
+
 // Get references to page elements
 var muscularQ = $("#muscularQ");
 var skeletalQ = $("#skeletalQ");
