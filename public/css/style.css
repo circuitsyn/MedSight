@@ -99,10 +99,10 @@ body, html {
 .slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     border: none;
-    height: 32px;
     width: 32px;
+    height: 27px;
     /* background: #420b56; */
-    background: url('http://iconizer.net/files/Duesseldorf/orig/heart.png') no-repeat;
+    background: url('http://iconizer.net/files/Duesseldorf/orig/heart.png');
     margin-top: 0px;
     border-radius: 0 !important;
 }
