@@ -70,7 +70,7 @@ body, html {
     width: 300px;
 }
 
-/* ---------------------------------- slider styling start ----------------------------------*/
+/* ---------------------------------- slider styling start --------------------------------- */
 
 .slidecontainer {
     width: 100%; /* Width of the outside container */
@@ -97,13 +97,14 @@ body, html {
 
 /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */ 
 .slider::-webkit-slider-thumb {
-    -webkit-appearance: none; /* Override default look */
-    appearance: none;
-    width: 30px; /* Set a specific slider handle width */
-    height: 30px; /* Slider handle height */
-    background: #420b56; /* Green background */
-    border-radius: 50%;
-    cursor: pointer; /* Cursor on hover */
+    -webkit-appearance: none;
+    border: none;
+    height: 32px;
+    width: 32px;
+    /* background: #420b56; */
+    background: url('http://iconizer.net/files/Duesseldorf/orig/heart.png') no-repeat;
+    margin-top: 0px;
+    border-radius: 0 !important;
 }
 
 .slider::-moz-range-thumb {
@@ -114,10 +115,45 @@ body, html {
     cursor: pointer; /* Cursor on hover */
 }
 
-/*---------------------------------- slider styling end ----------------------------------*/
+/* --------------------------------- slider styling end --------------------------------- */
+/* --------------------------- clickable image styling start ---------------------------- */
 
-.allergyIcons{
+.quizimgblock {
+    text-align: center;
+    margin-bottom: 2em;
+}
+  
+  .check {
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    bottom:5%;
+    right:30%;
+  }
+
+  .quizimgblock div .check {
+    opacity: 0;
+    transition:opacity .5s ease
+  }
+  
+  .quizimgblock div.quiz-answer:hover .check {
+    opacity: 0.6;
+  }
+  .quiz-answer.active .check {
+    opacity: 0.9;
+  }
+  
+  .allergyIcons{
     height: 80px;
     width: 80px;
 }
+
+  /* Add below if image icon fade is desired */
+  /* .quizimgblock a:hover .check img {
+    opacity: 1 !important;
+  } */
+  
+/* --------------------------- clickable image styling end ---------------------------- */
+
+
 
