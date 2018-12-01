@@ -108,3 +108,18 @@ var handleDeleteBtnClick = function() {
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
 $exampleList.on("click", ".delete", handleDeleteBtnClick);
+
+// ------------------- Event Listener Section for Clickable Images -------------------------
+
+$(".quiz-answer").click(function() {
+  event.preventDefault();
+  if ($(this).attr("value") === "0") {
+    $(this).toggleClass("active");
+    $(this).attr("value", "1");
+  } else {
+    $(this).toggleClass("active");
+    $(this).attr("value", "0");
+  }
+});
+
+// ---------------- Event Listener Section for Clickable Images End -------------------------

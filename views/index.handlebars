@@ -124,61 +124,75 @@
                 <h4>Allergy Triggers:</h4>  
             </div>
             <div class="row">    
-                <p>Select any common allergy trigger foods you may have consumed</p>   
+                <p>Click to select any common allergy trigger foods you may have consumed.</p>   
             </div>
-            <div class="row mt-2 mb-4">
-                <div class="row d-flex justify-content-center m-auto">
-                    <!-- Dairy Question Checkbox -->
-                    <div class="col-md-1 input-group-prepend custom-control custom-checkbox ml-1 mr-1">
-                        <img class="allergyIcons" src="assets/images/cowIcon.png" alt="dairy icon">
-                        <input id="dairyCheck" type="checkbox" class="custom-control-input" value="dairy" name="example1">
-                        <label class="custom-control-label" for="dairyCheck"></label>
-                    </div>
+         
+        <section>	
+            <div class="quizimgblock">
+                <div class="container">
+                    <div class="row mt-2 mb-4 d-flex justify-content-center">
 
-                    <!-- Eggs Question Checkbox -->
-                    <div class="col-md-1 input-group-prepend custom-control custom-checkbox ml-1 mr-1">
-                        <img class="allergyIcons" src="assets/images/eggs.png" alt="egg icon">
-                        <input id="eggCheck" type="checkbox" class="custom-control-input" value="eggs" name="example1">
-                        <label class="custom-control-label" for="eggCheck"></label>
-                    </div>
+                        {{!-- Dairy Question Checkbox --}}
+                        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                            <div id="dairyCheck" value="0" href="#" class="quiz-answer">
+                                <img class="check" src="assets/images/checkmark2trans.png" alt="check">
+                                <img class="allergyIcons" src="assets/images/cowIcon.png" alt="dairy icon">
+                            </div>
+                        </div>
 
-                    <!-- Seafood Question Checkbox -->
-                    <div class="col-md-1 input-group-prepend custom-control custom-checkbox ml-1 mr-1">
-                        <img class="allergyIcons" src="assets/images/fish.png" alt="seafood icon">
-                        <input id="seafoodCheck" type="checkbox" class="custom-control-input" value="seafood"  name="example1">
-                        <label class="custom-control-label" for="seafoodCheck"></label>
-                    </div>
+                        {{!-- Eggs Question Checkbox --}}
+                        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                            <div id="eggCheck" value="0" href="#" class="quiz-answer">
+                                <img class="check" src="assets/images/checkmark2trans.png" alt="check">
+                                <img class="allergyIcons" src="assets/images/eggs.png" alt="egg icon">
+                            </div>
+                        </div>
 
-                    <!-- Soy Question Checkbox -->
-                    <div class="col-md-1 input-group-prepend custom-control custom-checkbox ml-1 mr-1">
-                        <img class="allergyIcons" src="assets/images/soy.png" alt="soy icon">
-                        <input id="soyCheck" type="checkbox" class="custom-control-input" value="soy" name="example1">
-                        <label class="custom-control-label" for="soyCheck"></label>
-                    </div>
+                        {{!-- Seafood Question Checkbox --}}
+                        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                            <div id="seafoodCheck" value="0" href="#" class="quiz-answer">
+                                <img class="check" src="assets/images/checkmark2trans.png" alt="check">
+                                <img class="allergyIcons" src="assets/images/fish.png" alt="seafood icon">
+                            </div>
+                        </div>
 
-                    <!-- Sweets Question Checkbox -->
-                    <div class="col-md-1 input-group-prepend custom-control custom-checkbox ml-1 mr-1">
-                        <img class="allergyIcons" src="assets/images/sweets.png" alt="sweets icon">
-                        <input id="sweetsCheck" type="checkbox" class="custom-control-input" value="sweets" name="example1">
-                        <label class="custom-control-label" for="sweetsCheck"></label>
-                    </div>
+                        {{!-- Soy Question Checkbox --}}
+                        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                            <div id="soyCheck" value="0" href="#" class="quiz-answer">
+                                <img class="check" src="assets/images/checkmark2trans.png" alt="check">
+                                <img class="allergyIcons" src="assets/images/soy.png" alt="soy icon">
+                            </div>
+                        </div>
 
-                    <!-- Nuts Question Checkbox -->
-                    <div class="col-md-1 input-group-prepend custom-control custom-checkbox ml-1 mr-1">
-                        <img class="allergyIcons" src="assets/images/nutsIcon.png" alt="nuts icon">
-                        <input id="nutsCheck" type="checkbox" class="custom-control-input" value="nuts"  name="example1">
-                        <label class="custom-control-label" for="nutsCheck"></label>
-                    </div>
+                        {{!-- Nuts Question Checkbox --}}
+                        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                            <div id="nutsCheck" value="0" href="#" class="quiz-answer">
+                                <img class="check" src="assets/images/checkmark2trans.png" alt="check">
+                                <img class="allergyIcons" src="assets/images/nutsIcon.png" alt="nuts icon">
+                            </div>
+                        </div>
 
-                    <!-- Wheat Question Checkbox -->
-                    <div class="col-md-1 input-group-prepend custom-control custom-checkbox ml-1 mr-1">
-                        <img class="allergyIcons" src="assets/images/wheatIcon.png" alt="wheat icon">
-                        <input id="wheatCheck" type="checkbox" class="custom-control-input" value="wheat" name="example1">
-                        <label class="custom-control-label" for="wheatCheck"></label>
+                        {{!-- Wheat Question Checkbox --}}
+                        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                            <div id="wheatCheck" value="0" href="#" class="quiz-answer">
+                                <img class="check" src="assets/images/checkmark2trans.png" alt="check">
+                                <img class="allergyIcons" src="assets/images/wheatIcon.png" alt="wheat icon">
+                            </div>
+                        </div>
+
+                        {{!-- Sweets Question Checkbox --}}
+                        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                            <div id="sweetsCheck" value="0" href="#" class="quiz-answer">
+                                <img class="check" src="assets/images/checkmark2trans.png" alt="check">
+                                <img class="allergyIcons" src="assets/images/sweets.png" alt="sweetsCheck">
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
+
 
         <!-- Discomfort Sliders -->
         <!-- Stress Level Slider -->
