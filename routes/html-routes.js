@@ -4,26 +4,25 @@ module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
     db.MedSightData.findAll({}).then(function(dbExamples) {
-      res.render("index", {
+      res.render("partials/index", {
         msg: "Welcome!",
-        examples: dbExamples
-      });
-    });
-  });
-
-  app.get("/card-block/:id", function(req, res) {
-    db.MedSightData.findOne({ where: { id: req.params.id } }).then(function(dbExamples) {
-      res.render("card-block", {
         medsightdata: dbExamples
       });
     });
   });
 
-  // Load example page and pass in an example by id
-  app.get("/example/:id", function(req, res) {
-    db.MedSightData.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.render("example", {
-        example: dbExample
+  app.get("/cards/", function(req, res) {
+    db.MedSightData.findAll({}).then(function(dbExamples) {
+      res.render("partials/cards", {
+        medsightdata: dbExamples
+      });
+    });
+  });
+
+  app.get("/cards/:id", function(req, res) {
+    db.MedSightData.findOne({ where: { id: req.params.id } }).then(function(dbExamples) {
+      res.render("partials/cards-single", {
+        medsightdata: dbExamples
       });
     });
   });
