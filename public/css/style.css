@@ -120,53 +120,57 @@ body, html {
 .quizimgblock {
     text-align: center;
     margin-bottom: 2em;
-  }
+}
   
-  .wrapper {
-    display: inline-block;
-    vertical-align: top;
-    position: relative;
+  .check {
+    height: 30px;
+    /* position: relative !important; */
+    width: 30px;
+    /* bottom:50% !important;  */
+    /* right: 100% !important;  */
   }
-  
-  /* .quizimgblock img.quizitems {
-    width: 100%;
-    height: auto;
-  } */
-  .quizimgblock a:hover img{
-    /* opacity: 0.7; */
-  }
+
   .quizimgblock .check {
     position: absolute;
-    top:47%;
-    left:47%;
-    transform:translate(-45%, -45%);
+    bottom:5%;
+    right:30%;
   }
-  .quizimgblock a .check {
+  .quizimgblock div .check {
     opacity: 0;
-    z-index: 9;
     transition:opacity .5s ease
   }
-  .quizimgblock .check img {
-    border: 0px !important;
-  }
-  .quizimgblock a:hover .check {
+  
+  .quizimgblock div.quiz-answer:hover .check {
     opacity: 0.6;
   }
   .quiz-answer.active .check {
     opacity: 0.9;
   }
+  
+  .allergyIcons{
+    height: 80px;
+    width: 80px;
+}
+
+  /* .quizimgblock img.quizitems {
+    width: 100%;
+    height: auto;
+  } */
+
+  /* .quizimgblock a:hover img{
+    opacity: 0.7;
+  } */
+
+  /* .quizimgblock .check img {
+    border: 0px !important;
+  } */
+
   /* Add below if image icon fade is desired */
   /* .quizimgblock a:hover .check img {
     opacity: 1 !important;
   } */
-  
-  
-  
-  .quizbutton {
-    text-align: center;
-    margin: 1.25em auto 3em;
-  }
-  .quizbutton .quizbtn {
+
+  /* .quizbutton .quizbtn {
     display: inline-block;
     vertical-align: middle;
     padding: 0.65em 1.75em;
@@ -181,7 +185,7 @@ body, html {
     text-transform: uppercase;
     color: white;
     text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3);
-  }
+  } */
   /* .quizbutton .quizbtn:hover {
     color: white;
     text-decoration: none;
@@ -192,7 +196,7 @@ body, html {
     background-image: -o-linear-gradient(top, #f77f27, #f6700e);
     background-image: linear-gradient(to bottom, #f77f27, #f6700e);
   } */
-  .quizbutton .quizbtn:active {
+  /* .quizbutton .quizbtn:active {
     color: white;
     text-decoration: none;
     background-color: #f6700e;
@@ -203,12 +207,9 @@ body, html {
     background-image: linear-gradient(to bottom, #f6700e, #f77f27);
     -webkit-box-shadow: 0 0 0 1px #f58029, inset 0 1px 1px #b14f07;
     box-shadow: 0 0 0 1px #f58029, inset 0 1px 1px #b14f07;
-  }
+  } */
   
-  .allergyIcons{
-    height: 80px;
-    width: 80px;
-}
+
 
 
   
@@ -250,14 +251,8 @@ body, html {
    
   }   */
 
-  .check {
-    height: 30px;
-    position: relative !important;
-    width: 30px;
-    bottom:50% !important; 
-    right: 100% !important; 
-    /* transform:translate(-35%, -35%); */
-}
+  
+
 /* --------------------------- clickable image styling end ---------------------------- */
 
 
