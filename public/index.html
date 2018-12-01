@@ -314,13 +314,65 @@
     
     
     <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <!-- JQuery -->
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <!-- moment.js link -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js" integrity="sha256-ABVkpwb9K9PxubvRrHMkk6wmWcIHUE9eBxNZLXYQ84k=" crossorigin="anonymous"></script> 
+
+    <script>
+
+        $(document).ready(function() {
+            var x = document.getElementById("autoLocation")
+                
+            function getLocation() {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(function(data){
+                        $.ajax({
+                            url: "http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=QvPGj6SnS5rle74KztExEVKhXCJrJi5e&q=" + data.coords.latitude + "%2C" + data.coords.longitude + "&details=true&toplevel=true",
+                            method: "GET"
+                        }).done(function (data) {
+                            console.log(data.Key);  
+                            console.log(data.LocalizedName); 
+                            getCurrentConditions(data.Key); 
+                            getAirAndPollen(data.Key);
+                        })
+                    });
+                    } else {
+                        x.innerHTML = "Geolocation is not supported by this browser.";
+                    }
+            }
+            getLocation();
+                
+            function getAirAndPollen(key) {
+                $.ajax({
+                    url: "http://dataservice.accuweather.com/forecasts/v1/daily/1day/" + key + "?apikey=QvPGj6SnS5rle74KztExEVKhXCJrJi5e&details=true&metric=true",
+                    method: "GET"
+                }).done(function (data) {
+                    console.log(data.DailyForecasts[0].AirAndPollen[0].Category);
+                    console.log(data.DailyForecasts[0].AirAndPollen[1].Category);
+                })
+            }
+
+            function getCurrentConditions(key) {
+                $.ajax({
+                    url: "http://dataservice.accuweather.com/currentconditions/v1/" + key + "?apikey=QvPGj6SnS5rle74KztExEVKhXCJrJi5e&details=true",
+                    method: "GET"
+                }).done(function (data) {
+                    console.log(data[0].EpochTime);
+                    var date = moment.unix(data[0].EpochTime).format("'dddd, MMMM Do, YYYY h:mm:ss A'");
+                    console.log(date);
+                    console.log(data[0].RelativeHumidity);
+                })
+            }        
+        }); 
+    </script>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
   </body>
 </html>
-
 
 
 
