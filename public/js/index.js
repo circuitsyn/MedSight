@@ -117,9 +117,9 @@ var API = {
 
 
 // refreshCards gets new cards from the db and repopulates the list
-// var refreshExamples = function() {
-//   API.getExamples().then(function(data) {
-//     var $examples = data.map(function(example) {
+// var refreshCards = function() {
+//   API.getCards().then(function(data) {
+//     var cards = data.map(function(medsightdata) {
 //       var $a = $("<a>")
 //         .text(example.text)
 //         .attr("href", "/example/" + example.id);
@@ -141,7 +141,7 @@ var API = {
 //     });
 
 //     $exampleList.empty();
-//     $exampleList.append($examples);
+//     $exampleList.append(cards);
 //   });
 // };
 
@@ -175,7 +175,7 @@ var handleFormSubmit = function(event) {
 
   // Add our new card
   API.saveCard(medsightdata).then(function() {
-    // refreshExamples();
+    // refreshCards();
   });
 };
 
@@ -187,7 +187,7 @@ var handleDeleteBtnClick = function() {
     .attr("data-id");
 
   API.deleteExample(idToDelete).then(function() {
-    refreshExamples();
+    refreshCards();
   });
 };
 
