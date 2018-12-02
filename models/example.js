@@ -60,15 +60,10 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
       defaultValue: 0
     },
-    LocationLat: {
-      type: DataTypes.DECIMAL,
+    AutoLocation: {
+      type: DataTypes.STRING,
       allowNull: false,
-      defaultValue: -62.200249199
-    },
-    LocationLong: {
-      type: DataTypes.DECIMAL,
-      allowNull: false,
-      defaultValue: -58.95916283
+      defaultValue: "Seattle, WA"
     },
     Humidity: {
       type: DataTypes.DECIMAL,
