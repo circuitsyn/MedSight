@@ -19,7 +19,7 @@ $(document).ready(function() {
           getCurrentConditions(data.Key);
           getAirAndPollen(data.Key);
           //append LocalizedName to page
-          $("#autoLocation").append(data.LocalizedName);
+          $("#autoLocation").append(data.LocalizedName + ", " + data.AdministrativeArea.ID);
         });
       });
     } else {
