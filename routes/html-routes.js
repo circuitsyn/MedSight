@@ -18,6 +18,16 @@ module.exports = function(app) {
       });
     });
   });
+
+  // render dashboard handlebars page to the DOM
+  app.get("/dashboard/", function(req, res) {
+    db.MedSightData.findAll({}).then(function(dbExamples) {
+      res.render("partials/dashboard", {
+        medsightdata: dbExamples
+      });
+    });
+  });
+
   // Choose cards by ID
   app.get("/cards/:id", function(req, res) {
     db.MedSightData.findOne({ where: { id: req.params.id } }).then(function(dbExamples) {
@@ -28,6 +38,6 @@ module.exports = function(app) {
   });
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
-    res.render("404");
+    res.render("partials/404");
   });
 };
