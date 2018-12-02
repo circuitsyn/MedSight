@@ -18,7 +18,6 @@ module.exports = function(app) {
       });
     });
   });
-<<<<<<< HEAD
 
   // render dashboard handlebars page to the DOM
   app.get("/dashboard/", function(req, res) {
@@ -29,9 +28,7 @@ module.exports = function(app) {
     });
   });
 
-=======
   // Choose cards by ID
->>>>>>> f897de265cbb35f853bb27ca35a275a7e0539672
   app.get("/cards/:id", function(req, res) {
     db.MedSightData.findOne({ where: { id: req.params.id } }).then(function(dbExamples) {
       res.render("partials/cards-single", {
