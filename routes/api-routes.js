@@ -1,21 +1,21 @@
 var db = require("../models");
 
 module.exports = function(app) {
-  // Get all examples
+  // Get all cards
   app.get("/api/cards", function(req, res) {
     db.MedSightData.findAll({}).then(function(dbExamples) {
       res.json(dbExamples);
     });
   });
 
-  // Create a new example
+  // Create a new card
   app.post("/api/cards", function(req, res) {
     db.MedSightData.create(req.body).then(function(dbExample) {
       res.json(dbExample);
     });
   });
 
-  // Delete an example by id
+  // Delete a card by id
   app.delete("/api/cards/:id", function(req, res) {
     db.MedSightData.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
       res.json(dbExample);
