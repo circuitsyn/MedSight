@@ -65,6 +65,15 @@ $(document).ready(function() {
       $("#autoHumidity").append(data[0].RelativeHumidity);
     });
   }
+
+  $(document).on("click", ".single-card", editCard);
+function editCard() {
+  var currentCard = $(this).data("medsightdata");
+  $(this).children().hide();
+  $(this).children("input.edit").val(currentCard.text);
+  $(this).children("input.edit").show();
+  $(this).children("input.edit").focus();
+}
 });
 // ========== END ACCUWEATHER/GEOLOCATION CALL ========= //
 // ---------- Beginning of New, Edit, and Delete submissions ------------- //
@@ -115,36 +124,6 @@ var API = {
   }
 };
 
-
-// refreshCards gets new cards from the db and repopulates the list
-// var refreshCards = function() {
-//   API.getCards().then(function(data) {
-//     var cards = data.map(function(medsightdata) {
-//       var $a = $("<a>")
-//         .text(example.text)
-//         .attr("href", "/example/" + example.id);
-
-//       var $li = $("<li>")
-//         .attr({
-//           class: "list-group-item",
-//           "data-id": example.id
-//         })
-//         .append($a);
-
-//       var $button = $("<button>")
-//         .addClass("btn btn-danger float-right delete")
-//         .text("ｘ");
-
-//       $li.append($button);
-
-//       return $li;
-//     });
-
-//     $exampleList.empty();
-//     $exampleList.append(cards);
-//   });
-// };
-
 // handleFormSubmit is called whenever we submit a new example
 // Save the new card to the db and refresh the list
 var handleFormSubmit = function(event) {
@@ -169,25 +148,13 @@ var handleFormSubmit = function(event) {
     Pollution: autoPollution.text(),
     Notes: notesInput.val().trim(),
     TimeStamp: autoTime.text(),
-
-    // ===============================
   };
 
   // Add our new card
   API.saveCard(medsightdata).then(function() {
-    // refreshCards();
-  });
-};
-
-// handleDeleteBtnClick is called when an example's delete button is clicked
-// Remove the example from the db and refresh the list
-var handleDeleteBtnClick = function() {
-  var idToDelete = $(this)
-    .parent()
-    .attr("data-id");
-
-  API.deleteExample(idToDelete).then(function() {
-    refreshCards();
+    // Goes to cards page after submission 
+    window.location.replace("/cards/");
+    return false;
   });
 };
 
@@ -208,3 +175,17 @@ $(".quiz-answer").click(function() {
 });
 
 // ---------------- Event Listener Section for Clickable Images End -------------------------
+// ------------------------------- Edit a Card Start -----------------------------------//
+$(document).ready(function() {
+var singleContainer = $(".single-container");
+
+$(document).on("click", "#cardBlocks", editCard);
+function editCard() {
+  var currentCard = $(this).data("medsightdata");
+  $(this).children().hide();
+  $(this).children("input.edit").val(currentCard.Notes);
+  $(this).children("input.edit").show();
+  $(this).children("input.edit").focus();
+}
+});
+// ------------------------------- Edit a Card End -------------------------------------//
