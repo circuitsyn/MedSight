@@ -24,14 +24,12 @@ module.exports = function(app) {
 
   // PUT route for updating cards
   app.put("/api/cards/", function(req, res) {
-    db.MedSightData.update(req.body,
-      {
-        where: {
-          id: req.body.id
-        }
-      })
-      .then(function(dbExample) {
-        res.json(dbExample);
-      });
+    db.MedSightData.update(req.body, {
+      where: {
+        id: req.body.id
+      }
+    }).then(function(dbExample) {
+      res.json(dbExample);
+    });
   });
 };

@@ -68,13 +68,13 @@ $(document).ready(function() {
   }
 
   $(document).on("click", ".single-card", editCard);
-function editCard() {
-  var currentCard = $(this).data("medsightdata");
-  $(this).children().hide();
-  $(this).children("input.edit").val(currentCard.text);
-  $(this).children("input.edit").show();
-  $(this).children("input.edit").focus();
-}
+  function editCard() {
+    var currentCard = $(this).data("medsightdata");
+    $(this).children().hide();
+    $(this).children("input.edit").val(currentCard.text);
+    $(this).children("input.edit").show();
+    $(this).children("input.edit").focus();
+  }
 });
 // ========== END ACCUWEATHER/GEOLOCATION CALL ========= //
 // ---------- Beginning of New, Edit, and Delete submissions ------------- //
@@ -148,12 +148,12 @@ var handleFormSubmit = function(event) {
     Pollen: autoPollen.text(),
     Pollution: autoPollution.text(),
     Notes: notesInput.val().trim(),
-    TimeStamp: autoTime.text(),
+    TimeStamp: autoTime.text()
   };
 
   // Add our new card
   API.saveCard(medsightdata).then(function() {
-    // Goes to cards page after submission 
+    // Goes to cards page after submission
     window.location.replace("/cards/");
     return false;
   });
@@ -162,7 +162,8 @@ var handleFormSubmit = function(event) {
 // Add event listeners to the submit
 submitBtn.on("click", handleFormSubmit);
 // ---------- End of New, Edit, and Delete submissions ------------- //
-// ------------------- Event Listener Section for Clickable Images -------------------------
+
+// ------------------- Event Listener Section for Clickable Images ------------------------- //
 
 $(".quiz-answer").click(function() {
   event.preventDefault();
@@ -175,18 +176,19 @@ $(".quiz-answer").click(function() {
   }
 });
 
-// ---------------- Event Listener Section for Clickable Images End -------------------------
+// ---------------- Event Listener Section for Clickable Images End ------------------------- //
+
 // ------------------------------- Edit a Card Start -----------------------------------//
 $(document).ready(function() {
-var singleContainer = $(".single-container");
+  var singleContainer = $(".single-container");
 
-$(document).on("click", "#cardBlocks", editCard);
-function editCard() {
-  var currentCard = $(this).data("medsightdata");
-  $(this).parent().hide();
-  $(this).parent("input.edit").val(currentCard.Notes);
-  $(this).parent("input.edit").show();
-  $(this).parent("input.edit").focus();
+  $(document).on("click", "#cardBlocks", editCard);
+  function editCard() {
+    var currentCard = $(this).data("medsightdata");
+    $(this).children().hide();
+    $(this).children("input.edit").val(currentCard.Notes);
+    $(this).children("input.edit").show();
+    $(this).children("input.edit").focus();
 }
 });
 // ------------------------------- Edit a Card End -------------------------------------//

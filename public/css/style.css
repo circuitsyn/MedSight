@@ -1,3 +1,8 @@
+@font-face {
+    font-family: "MedSight Font";
+    src: url("../assets/fonts/CoreSansA45Regular.woff2") format("woff2");
+}
+
 body, html {
     height: 100%;
     background-image: url("../assets/images/waterfallBG.jpg");
