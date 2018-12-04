@@ -36,6 +36,15 @@ module.exports = function(app) {
       });
     });
   });
+  // Load Our Story page
+  app.get("/ourstory/", function(req, res) {
+    db.MedSightData.findAll({}).then(function(dbExamples) {
+      res.render("partials/story", {
+        msg: "Welcome!",
+        medsightdata: dbExamples
+      });
+    });
+  });
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
     res.render("partials/404");

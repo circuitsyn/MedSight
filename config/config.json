@@ -1,7 +1,7 @@
 {
     "development": {
       "username": "root",
-      "password": null,
+      "password": "F!nn0430",
       "database": "CardData",
       "host": "localhost",
       "dialect": "mysql"
