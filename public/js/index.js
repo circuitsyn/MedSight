@@ -37,6 +37,7 @@ $(document).ready(function() {
         "?apikey=7a4dhv24Cy3KXKLaJ7jh5g0EAPhGjmit&details=true&metric=true",
       method: "GET"
     }).done(function(data) {
+      console.log(data);
       console.log(data.DailyForecasts[0].AirAndPollen[0].Category);
       //add pollen and air quality to html
       $("#autoPollution").append(
