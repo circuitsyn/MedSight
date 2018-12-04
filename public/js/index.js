@@ -182,10 +182,10 @@ var singleContainer = $(".single-container");
 $(document).on("click", "#cardBlocks", editCard);
 function editCard() {
   var currentCard = $(this).data("medsightdata");
-  $(this).children().hide();
-  $(this).children("input.edit").val(currentCard.Notes);
-  $(this).children("input.edit").show();
-  $(this).children("input.edit").focus();
+  $(this).parent().hide();
+  $(this).parent("input.edit").val(currentCard.Notes);
+  $(this).parent("input.edit").show();
+  $(this).parent("input.edit").focus();
 }
 });
 // ------------------------------- Edit a Card End -------------------------------------//
