@@ -1,3 +1,5 @@
+
+//----------------- Pain vs Stress Line Graph -------------------//
 trace1 = {
     type: 'scatter',
     x: [1, 2, 3, 4],
@@ -23,5 +25,24 @@ trace1 = {
   };
   
   var data = [trace1, trace2];
+
+  var layout = {
+      title: 'Pain vs Stress Over Time',
+      titlefont: {
+          family: 'MedSight Font, monospace',
+          size: 18,
+          color: '#420b56'
+      }
+  }
   
-  Plotly.newPlot('lineGraphPainStress', data);
+  Plotly.newPlot('lineGraphPainStress', data, layout);
+
+//----------- Allergy Pie Chart Based on Pain Threshold--------------//
+
+var data = [{
+    values: [19, 26, 55],
+    labels: ['Residential', 'Non-Residential', 'Utility'],
+    type: 'pie'
+  }];
+  
+  Plotly.newPlot('pieChartAllergy', data);
