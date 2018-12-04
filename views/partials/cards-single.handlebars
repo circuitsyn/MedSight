@@ -1,51 +1,48 @@
+{{!-- Pull single card start --}}
+<span class="single-container">
 <div class="container">
   <div class="row">
-    <div class="col-8 offset-2">
-      <div class="card mt-4">
-        <div class="card-body">
-          <h5 class="card-title">Example</h5>
+<div class="col-sm-8" id="cardBlocks">
+<div class="card single-card" style="width: 60 rem;">
+  <div class="card-body">
+    <h5 class="card-title"><strong>ID: </strong>{{medsightdata.id}}</h5>
+    <p class="card-text">
           <p>
-            <strong>ID:</strong>: {{medsightdata.id}}</p>
+            <strong>Dairy:</strong> {{medsightdata.AllergyTriggerDairy}}
+            <strong>Egg:</strong> {{medsightdata.AllergyTriggerEggs}}
+            <strong>Fish:</strong> {{medsightdata.AllergyTriggerFish}}
+            <strong>Soy:</strong> {{medsightdata.AllergyTriggerSoy}}
+            <strong>Sweets:</strong> {{medsightdata.AllergyTriggerSweets}}
+            <strong>Nuts:</strong> {{medsightdata.AllergyTriggerNuts}}
+            <strong>Wheat:</strong> {{medsightdata.AllergyTriggerWheat}}
+          </p>
           <p>
+            <strong>Muscular:</strong> {{medsightdata.PainLocationMuscular}}
+            <strong>Skeletal:</strong> {{medsightdata.PainLocationSkeletal}}
+            <strong>Skin:</strong> {{medsightdata.PainLocationEpidermis}}
+          </p>
           <p>
-            <strong>Dairy:</strong>: {{medsightdata.AllergyTriggerDairy}}</p>
+            <strong>Stress Level:</strong> {{medsightdata.SliderStressSlider}}
+            <strong>Symtom Level:</strong> {{medsightdata.SymptomIntensitySlider}}
+          </p>
           <p>
+            <strong>Location:</strong> {{medsightdata.AutoLocation}}
+            <strong>TimeStamp:</strong> {{medsightdata.TimeStamp}}
+          </p>
           <p>
-            <strong>Egg:</strong>: {{medsightdata.AllergyTriggerEggs}}</p>
+            <strong>Humidity:</strong> {{medsightdata.Humidity}}
+            <strong>Pollen:</strong> {{medsightdata.Pollen}}
+            <strong>Pollution:</strong> {{medsightdata.Pollution}}
+          </p>
           <p>
-          <p>
-            <strong>Fish:</strong>: {{medsightdata.AllergyTriggerFish}}</p>
-          <p>
-          <p>
-            <strong>Soy:</strong>: {{medsightdata.AllergyTriggerSoy}}</p>
-          <p>
-          <p>
-            <strong>Sweets:</strong>: {{medsightdata.AllergyTriggerSweets}}</p>
-          <p>
-          <p>
-            <strong>Nuts:</strong>: {{medsightdata.AllergyTriggerNuts}}</p>
-          <p>
-          <p>
-            <strong>Wheat:</strong>: {{medsightdata.AllergyTriggerWheat}}</p>
-          <p>
-          <p>
-            <strong>Muscular:</strong>: {{medsightdata.PainLocationMuscular}}</p>
-          <p>
-          <p>
-            <strong>Skeletal:</strong>: {{medsightdata.PainLocationSkeletal}}</p>
-          <p>
-          <p>
-            <strong>Skin:</strong>: {{medsightdata.PainLocationEpidermis}}</p>
-          <p>
-          <p>
-            <strong>Stress Level:</strong>: {{medsightdata.SliderStressSlider}}</p>
-          <p>
-
-            <strong>Syptom Level:</strong> {{medsightdata.SymptomIntensitySlider}}</p>
-                      
-            <a href="/">← Back To Home</a>
-        </div>
-      </div>
-    </div>
+            <strong>Notes:</strong> {{medsightdata.Notes}}
+          </p>
+    </p>
   </div>
 </div>
+</div>
+  </div>
+  <a href="/cards/">← Back To Cards</a>
+</div>
+</span>
+{{!-- Pull single card end --}}
