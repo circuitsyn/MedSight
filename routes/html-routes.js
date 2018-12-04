@@ -40,7 +40,6 @@ module.exports = function(app) {
   app.get("/ourstory/", function(req, res) {
     db.MedSightData.findAll({}).then(function(dbExamples) {
       res.render("partials/story", {
-        msg: "Welcome!",
         medsightdata: dbExamples
       });
     });

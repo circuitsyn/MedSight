@@ -160,6 +160,32 @@ body, html {
     margin-bottom: 10px;
 }
 /* --------------------------- Card Block Styling Start ---------------------------- */
+.storyCard {
+    background: rgba(255,255,255,0.9);
+    border-radius: 45px;
+    padding: 2% 4% 2% 4%;
+    margin: 10px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #420b56;
+}
+
+.btn-primary {
+    color: #212529;
+    background: #ffc107;
+    border-color: #ffc107;
+}
+
+.btn-primary:hover {
+    color: #212529;
+    background: #a38523;
+    border-color: #a38523;
+}
+
+/* .btn-primary:hover {
+    color: white;
+    opacity: 0.6;
+} */
 
 /* --------------------- Our Story Page styling start  -------------------- */
 
