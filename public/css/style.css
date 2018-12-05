@@ -45,6 +45,9 @@ body, html {
     width: 20%;
     
 }
+button:focus {
+    outline: 5px auto #FFC107;
+}
 
 .fa-bars {
     color: white;
