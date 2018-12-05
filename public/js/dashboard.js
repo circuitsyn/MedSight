@@ -2,9 +2,45 @@ $(document).ready(function() {
     var stressArr = [];
     var sympArr = [];
     var timeArr = [];
+    var allergyArr = [];
+    var dairy = 0;
+    var eggs = 0;
+    var fish = 0;
+    var nuts = 0;
+    var soy = 0;
+    var sweets = 0;
+    var wheat = 0;
 
     // This function grabs posts from the database and updates the view
-    function getPainData() {
+    function launchAllergyPie(){
+        $.get("/api/cards", function(data) {
+            buildAllergyArr(data);
+            }).then(function() {
+                allergyPie(allergyArr);
+                });
+        };
+
+    //
+    function buildAllergyArr(data){
+        
+        for(i=0; i < data.length; i++){
+
+            dairy += +data[i].AllergyTriggerDairy
+            eggs += +data[i].AllergyTriggerEggs
+            fish += +data[i].AllergyTriggerFish
+            nuts += +data[i].AllergyTriggerNuts
+            soy += +data[i].AllergyTriggerSoy
+            sweets += +data[i].AllergyTriggerSweets
+            wheat += +data[i].AllergyTriggerWheat
+        }
+        allergyArr.push(dairy, eggs, fish, nuts, soy, sweets, wheat);
+        console.log("Allergy Sum Array: ", allergyArr);
+        return allergyArr;
+    }
+    
+    
+    //function call to launch graph and kick off with an API call
+    function launchSympStressGraph() {
         $.get("/api/cards", function(data) {
         console.log("Pain Data Request", data);
         buildStressSympArr(data);
@@ -12,10 +48,9 @@ $(document).ready(function() {
         }).then(function() {
             sympStressGraph(stressArr, sympArr, timeArr);
           });
-      
     };
 
-    //function to build an array for time
+    //Function to build an array for time
     function timeArrBuild(data) {
         for(i=0; i < data.length; i++){
             cutTime = data[i].TimeStamp.slice(0, 23);
@@ -102,20 +137,68 @@ $(document).ready(function() {
     }
     
     //----------- Allergy Pie Chart Based on Pain Threshold Function --------------//
-    function allergyPie(){
+    function allergyPie(allergyArr){
         
     var data = [{
-        values: [19, 26, 55],
-        labels: ['Residential', 'Non-Residential', 'Utility'],
+        values: allergyArr,
+        labels: ['Dairy', 'Eggs', 'Seafood','Nuts','Soy','Sweets','Wheat'],
         type: 'pie'
     }];
     
-    Plotly.newPlot('pieChartAllergy', data);
+    var layout = {
+        title: 'Total Allergy Triggers Over Time',
+        titlefont: {
+            family: 'MedSight Font, monospace',
+            size: 25,
+            color: '#420b56'
+        },
+        
+    }
+
+    Plotly.newPlot('pieChartAllergy', data, layout);
 
     };
  
+    // --------------- Humidity Scatter Plot -------------------------- //
+    function humidScatter() {
+        var trace1 = {
+            x: [1, 2, 3, 4, 5],
+            y: [1, 6, 3, 6, 1],
+            mode: 'markers',
+            type: 'scatter',
+            name: 'Team A',
+            text: ['A-1', 'A-2', 'A-3', 'A-4', 'A-5'],
+            marker: { size: 12 }
+        };
+        
+        var trace2 = {
+            x: [1.5, 2.5, 3.5, 4.5, 5.5],
+            y: [4, 1, 7, 1, 4],
+            mode: 'markers',
+            type: 'scatter',
+            name: 'Team B',
+            text: ['B-a', 'B-b', 'B-c', 'B-d', 'B-e'],
+            marker: { size: 12 }
+        };
+        
+        var data = [ trace1, trace2 ];
+        
+        var layout = {
+            xaxis: {
+            range: [ 0.75, 5.25 ]
+            },
+            yaxis: {
+            range: [0, 8]
+            },
+            title:'Data Labels Hover'
+        };
+        
+        Plotly.newPlot('scatterPlotHumid', data, layout);
+    };
     
 //Start Drawing Graphs
-getPainData();
+launchSympStressGraph();
+launchAllergyPie();
+humidScatter();
 
 });
