@@ -5,10 +5,10 @@ $(document).ready(function() {
         $.get("/api/cards", function(data) {
         console.log("Pain Data Request", data);
         
-        }).then(function() {
-            sympStressGraph(data);
-          });
-      }
+        // }).then(function() {
+        //     sympStressGraph(data);
+        //   });
+      });
     
 
     //----------------- Symp vs Stress Line Graph -------------------//
