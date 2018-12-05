@@ -7,14 +7,25 @@ $(document).ready(function() {
     function getPainData() {
         $.get("/api/cards", function(data) {
         console.log("Pain Data Request", data);
-        buildStressPainArr(data);
-        // }).then(function() {
-        //     sympStressGraph(data);
-        //   });
-      });
+        buildStressSympArr(data);
+        timeArrBuild(data);
+        }).then(function() {
+            sympStressGraph(stressArr, sympArr, timeArr);
+          });
+      
+    };
+
+    //function to build an array for time
+    function timeArrBuild(data) {
+        for(i=0; i < data.length; i++){
+            timeArr.push(data[i].TimeStamp);
+        }
+        console.log('Time Array: ', timeArr);
+        return timeArr;
     };
     
-    function buildStressPainArr(data){
+    //function to build symptom and stress arrays
+    function buildStressSympArr(data){
         for(i=0; i < data.length; i++){
             stressArr.push(data[i].SliderStressSlider);
         }
@@ -31,15 +42,15 @@ $(document).ready(function() {
     
 
     //----------------- Symp vs Stress Line Graph -------------------//
-    function sympStressGraph(data){
+    function sympStressGraph(stressArr, sympArr, timeArr){
         //build 3 functions here to get the data for stress, time, and sympt intensity to provide to the chart
 
         trace1 = {
             type: 'scatter',
-            x: time,
-            y: stressData,
+            x: timeArr,
+            y: stressArr,
             mode: 'lines',
-            name: 'Red',
+            name: 'Stress',
             line: {
             color: 'rgb(219, 64, 82)',
             width: 3
@@ -48,10 +59,10 @@ $(document).ready(function() {
         
         trace2 = {
             type: 'scatter',
-            x: time,
-            y: symptData,
+            x: timeArr,
+            y: sympArr,
             mode: 'lines',
-            name: 'Blue',
+            name: 'Symptom',
             line: {
             color: 'rgb(55, 128, 191)',
             width: 1
@@ -66,7 +77,23 @@ $(document).ready(function() {
                 family: 'MedSight Font, monospace',
                 size: 25,
                 color: '#420b56'
-            }
+            },
+            xaxis: {
+                title: 'Time',
+                titlefont: {
+                  family: 'MedSight Font, monospace',
+                  size: 18,
+                  color: '#420b56'
+                }
+              },
+              yaxis: {
+                title: 'Stress and Symptom Intensity',
+                titlefont: {
+                  family: 'MedSight Font, monospace',
+                  size: 18,
+                  color: '#420b56'
+                }
+              }
         }
         
         Plotly.newPlot('lineGraphPainStress', data, layout);
