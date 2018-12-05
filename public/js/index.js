@@ -139,12 +139,12 @@ var handleFormSubmit = function(event) {
     Pollen: autoPollen.text(),
     Pollution: autoPollution.text(),
     Notes: notesInput.val().trim(),
-    TimeStamp: autoTime.text(),
+    TimeStamp: autoTime.text()
   };
 
   // Add our new card
   API.saveCard(medsightdata).then(function() {
-    // Goes to cards page after submission 
+    // Goes to cards page after submission
     window.location.replace("/cards/");
     return false;
   });
@@ -153,7 +153,8 @@ var handleFormSubmit = function(event) {
 // Add event listeners to the submit
 submitBtn.on("click", handleFormSubmit);
 // ---------- End of New, Edit, and Delete submissions ------------- //
-// ------------------- Event Listener Section for Clickable Images -------------------------
+
+// ------------------- Event Listener Section for Clickable Images ------------------------- //
 
 $(".quiz-answer").click(function() {
   event.preventDefault();
