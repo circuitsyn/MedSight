@@ -18,7 +18,8 @@ $(document).ready(function() {
     //function to build an array for time
     function timeArrBuild(data) {
         for(i=0; i < data.length; i++){
-            timeArr.push(data[i].TimeStamp);
+            cutTime = data[i].TimeStamp.slice(0, 23);
+            timeArr.push(cutTime);
         }
         console.log('Time Array: ', timeArr);
         return timeArr;
@@ -84,7 +85,8 @@ $(document).ready(function() {
                   family: 'MedSight Font, monospace',
                   size: 18,
                   color: '#420b56'
-                }
+                },
+                showticklabels: false
               },
               yaxis: {
                 title: 'Stress and Symptom Intensity',
