@@ -155,6 +155,8 @@ body, html {
   } */
   
 /* --------------------------- clickable image styling end ---------------------------- */
-
-
-
+/* --------------------------- Card Block Styling Start ---------------------------- */
+#cardBlocks{
+    margin-bottom: 10px;
+}
+/* --------------------------- Card Block Styling Start ---------------------------- */

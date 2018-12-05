@@ -1,61 +1,40 @@
-  {{!-- Populate card blocks start --}}
+<div class="col-sm-4" id="cardBlocks">
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title"><strong>ID:</strong>{{id}}</h5>
+    <p class="card-text">
           <p>
-            <strong>ID:</strong>: {{id}}
+            <strong>Dairy:</strong> {{AllergyTriggerDairy}}
+            <strong>Egg:</strong> {{AllergyTriggerEggs}}
+            <strong>Fish:</strong> {{AllergyTriggerFish}}
+            <strong>Soy:</strong> {{AllergyTriggerSoy}}
+            <strong>Sweets:</strong> {{AllergyTriggerSweets}}
+            <strong>Nuts:</strong> {{AllergyTriggerNuts}}
+            <strong>Wheat:</strong> {{AllergyTriggerWheat}}
           </p>
           <p>
+            <strong>Muscular:</strong> {{PainLocationMuscular}}
+            <strong>Skeletal:</strong> {{PainLocationSkeletal}}
+            <strong>Skin:</strong> {{PainLocationEpidermis}}
+          </p>
           <p>
-            <strong>Dairy:</strong>: {{AllergyTriggerDairy}}</p>
+            <strong>Stress Level:</strong> {{SliderStressSlider}}
+            <strong>Symtom Level:</strong> {{SymptomIntensitySlider}}
+          </p>
           <p>
+            <strong>Location:</strong> {{AutoLocation}}
+            <strong>TimeStamp:</strong> {{TimeStamp}}
+          </p>
           <p>
-            <strong>Egg:</strong>: {{AllergyTriggerEggs}}</p>
+            <strong>Humidity:</strong> {{Humidity}}
+            <strong>Pollen:</strong> {{Pollen}}
+            <strong>Pollution:</strong> {{Pollution}}
+          </p>
           <p>
-          <p>
-            <strong>Fish:</strong>: {{AllergyTriggerFish}}</p>
-          <p>
-          <p>
-            <strong>Soy:</strong>: {{AllergyTriggerSoy}}</p>
-          <p>
-          <p>
-            <strong>Sweets:</strong>: {{AllergyTriggerSweets}}</p>
-          <p>
-          <p>
-            <strong>Nuts:</strong>: {{AllergyTriggerNuts}}</p>
-          <p>
-          <p>
-            <strong>Wheat:</strong>: {{AllergyTriggerWheat}}</p>
-          <p>
-          <p>
-            <strong>Muscular:</strong>: {{PainLocationMuscular}}</p>
-          <p>
-          <p>
-            <strong>Skeletal:</strong>: {{PainLocationSkeletal}}</p>
-          <p>
-          <p>
-            <strong>Skin:</strong>: {{PainLocationEpidermis}}</p>
-          <p>
-          <p>
-            <strong>Stress Level:</strong>: {{SliderStressSlider}}</p>
-          <p>
-          <p>
-            <strong>Symtom Level:</strong> {{SymptomIntensitySlider}}</p>
-          <p>
-          <p>
-            <strong>Location:</strong> {{AutoLocation}}</p>
-          <p>
-          <p>
-            <strong>Humidity:</strong> {{Humidity}}</p>
-          <p>
-          <p>
-            <strong>Pollen:</strong> {{Pollen}}</p>
-          <p>
-          <p>
-            <strong>Pollution:</strong> {{Pollution}}</p>
-          <p>
-          <p>
-            <strong>Notes:</strong> {{Notes}}</p>
-          <p>
-          <p>
-            <strong>TimeStamp:</strong> {{TimeStamp}}</p>   
-          <hr>
-  {{!-- Populate card blocks start --}}
-          
+            <strong>Notes:</strong> {{Notes}}
+          </p>
+    </p>
+    <a href="/cards/{{id}}" class="btn btn-primary">Edit</a>
+  </div>
+</div>
+</div>

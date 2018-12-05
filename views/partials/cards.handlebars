@@ -1,32 +1,11 @@
 {{!-- Populate cards page start --}}
 <div class="container">
   <div class="row">
-    <div class="col-8 offset-2">
-      <div class="card mt-4">
-        <div class="card-body">
-          <h5 class="card-title">Cards</h5>
           {{!-- Injecting card blocks --}}
-          <ul>
             {{#each medsightdata}}
-              {{#unless 2}}
                 {{> cards/card-block }}
-              {{/unless}}
-            {{/each}}
-          </ul>
-          <hr>
-          {{!-- Trying to split items, might delete this --}}
-          <ul>
-          {{#each medsightdata}}
-            {{#if 2}}
-              {{> cards/card-block }}
-            {{/if}}
-          {{/each}}
-        </ul>   
-          {{!-- Trying to split items, might delete this --}}      
-            <a href="/">← Back To Home</a>
-        </div>
-      </div>
-    </div>
+            {{/each}}  
   </div>
+  <a href="/">← Back To Home</a>
 </div>
 {{!-- Populate cards page end --}}
