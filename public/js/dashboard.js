@@ -1,15 +1,33 @@
 $(document).ready(function() {
+    var stressArr = [];
+    var sympArr = [];
+    var timeArr = [];
 
     // This function grabs posts from the database and updates the view
     function getPainData() {
         $.get("/api/cards", function(data) {
         console.log("Pain Data Request", data);
-        
+        buildStressPainArr(data);
         // }).then(function() {
         //     sympStressGraph(data);
         //   });
       });
     };
+    
+    function buildStressPainArr(data){
+        for(i=0; i < data.length; i++){
+            stressArr.push(data[i].SliderStressSlider);
+        }
+
+        for(i=0; i < data.length; i++){
+            sympArr.push(data[i].SymptomIntensitySlider);
+        }
+        console.log('Stress Array: ', stressArr);
+        console.log('Symp Array: ', sympArr);
+
+        return sympArr, stressArr;
+    };
+
     
 
     //----------------- Symp vs Stress Line Graph -------------------//
