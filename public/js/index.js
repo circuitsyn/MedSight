@@ -1,5 +1,4 @@
-// // ========= BEGIN ACCUWEATHER/GEOLOCATION CALL ========== //
-
+// ========= BEGIN GEOLOCATION ========== //
 $(document).ready(function() {
   var x = document.getElementById("autoLocation");
   //function to get location key from accuweather api
@@ -25,17 +24,9 @@ $(document).ready(function() {
     }
   }
   getLocation();
+});
+// ========== END GEOLOCATION ========= //
 
-  $(document).on("click", ".single-card", editCard);
-  function editCard() {
-    var currentCard = $(this).data("medsightdata");
-    $(this).children().hide();
-    $(this).children("input.edit").val(currentCard.text);
-    $(this).children("input.edit").show();
-    $(this).children("input.edit").focus();
-  }
-// });
-// ========== END ACCUWEATHER/GEOLOCATION CALL ========= //
 // ---------- Beginning of New, Edit, and Delete submissions ------------- //
 // Get references to page elements
 var muscularQ = $("#muscularQ");
@@ -135,19 +126,4 @@ $(".quiz-answer").click(function() {
   }
 });
 
-// ---------------- Event Listener Section for Clickable Images End ------------------------- //
-
-// ------------------------------- Edit a Card Start -----------------------------------//
-// $(document).ready(function() {
-//   var singleContainer = $(".single-container");
-
-//   $(document).on("click", "#cardBlocks", editCard);
-//   function editCard() {
-//     var currentCard = $(this).data("medsightdata");
-//     $(this).children().hide();
-//     $(this).children("input.edit").val(currentCard.Notes);
-//     $(this).children("input.edit").show();
-//     $(this).children("input.edit").focus();
-// }
-});
-// ------------------------------- Edit a Card End -------------------------------------//
+// ---------------- Event Listener Section for Clickable Images End -------------------------
