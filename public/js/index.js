@@ -1,4 +1,4 @@
-// ========= BEGIN ACCUWEATHER/GEOLOCATION CALL ========== //
+// // ========= BEGIN ACCUWEATHER/GEOLOCATION CALL ========== //
 
 $(document).ready(function() {
   var x = document.getElementById("autoLocation");
@@ -6,21 +6,31 @@ $(document).ready(function() {
   function getLocation() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function(data) {
+        console.log(data);
+        //ajax request -- hit /weather route
         $.ajax({
-          url:
-            "http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=7a4dhv24Cy3KXKLaJ7jh5g0EAPhGjmit&q=" +
-            data.coords.latitude +
-            "%2C" +
-            data.coords.longitude +
-            "&details=true&toplevel=true",
-          method: "GET"
-        }).done(function(data) {
-          console.log(data.LocalizedName);
-          getCurrentConditions(data.Key);
-          getAirAndPollen(data.Key);
-          //append LocalizedName to page
-          $("#autoLocation").append(data.LocalizedName + ", " + data.AdministrativeArea.ID);
+          url: "/api/weather/",
+          method: "POST",
+          data: data.coords
+        }).then(function(data) {
+          console.log(data);
         });
+        //send lat/lon data
+//         $.ajax({
+//           url:
+//             "http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=7a4dhv24Cy3KXKLaJ7jh5g0EAPhGjmit&q=" +
+//             data.coords.latitude +
+//             "%2C" +
+//             data.coords.longitude +
+//             "&details=true&toplevel=true",
+//           method: "GET"
+//         }).done(function(data) {
+//           console.log(data.LocalizedName);
+//           getCurrentConditions(data.Key);
+//           getAirAndPollen(data.Key);
+//           //append LocalizedName to page
+//           $("#autoLocation").append(data.LocalizedName + ", " + data.AdministrativeArea.ID);
+//         });
       });
     } else {
       x.innerHTML = "Geolocation is not supported by this browser.";
@@ -28,44 +38,44 @@ $(document).ready(function() {
   }
   getLocation();
 
-  //function to get daily air and pollen conditions
-  function getAirAndPollen(key) {
-    return $.ajax({
-      url:
-        "http://dataservice.accuweather.com/forecasts/v1/daily/1day/" +
-        key +
-        "?apikey=7a4dhv24Cy3KXKLaJ7jh5g0EAPhGjmit&details=true&metric=true",
-      method: "GET"
-    }).done(function(data) {
-      console.log(data);
-      console.log(data.DailyForecasts[0].AirAndPollen[0].Category);
-      //add pollen and air quality to html
-      $("#autoPollution").append(
-        data.DailyForecasts[0].AirAndPollen[0].Category
-      );
-      $("#autoPollen").append(data.DailyForecasts[0].AirAndPollen[1].Category);
-    });
-  }
+//   //function to get daily air and pollen conditions
+//   function getAirAndPollen(key) {
+//     return $.ajax({
+//       url:
+//         "http://dataservice.accuweather.com/forecasts/v1/daily/1day/" +
+//         key +
+//         "?apikey=7a4dhv24Cy3KXKLaJ7jh5g0EAPhGjmit&details=true&metric=true",
+//       method: "GET"
+//     }).done(function(data) {
+//       console.log(data);
+//       console.log(data.DailyForecasts[0].AirAndPollen[0].Category);
+//       //add pollen and air quality to html
+//       $("#autoPollution").append(
+//         data.DailyForecasts[0].AirAndPollen[0].Category
+//       );
+//       $("#autoPollen").append(data.DailyForecasts[0].AirAndPollen[1].Category);
+//     });
+//   }
 
-  //function to get humidity and time info
-  function getCurrentConditions(key) {
-    $.ajax({
-      url:
-        "http://dataservice.accuweather.com/currentconditions/v1/" +
-        key +
-        "?apikey=7a4dhv24Cy3KXKLaJ7jh5g0EAPhGjmit&details=true",
-      method: "GET"
-    }).done(function(data) {
-      var date = moment
-        .unix(data[0].EpochTime)
-        .format("dddd, MMMM Do, YYYY h:mm A");
-      console.log(date);
-      console.log(data[0].RelativeHumidity);
-      //add time and humidity to page
-      $("#autoTime").append(date);
-      $("#autoHumidity").append(data[0].RelativeHumidity);
-    });
-  }
+//   //function to get humidity and time info
+//   function getCurrentConditions(key) {
+//     $.ajax({
+//       url:
+//         "http://dataservice.accuweather.com/currentconditions/v1/" +
+//         key +
+//         "?apikey=7a4dhv24Cy3KXKLaJ7jh5g0EAPhGjmit&details=true",
+//       method: "GET"
+//     }).done(function(data) {
+//       var date = moment
+//         .unix(data[0].EpochTime)
+//         .format("dddd, MMMM Do, YYYY h:mm A");
+//       console.log(date);
+//       console.log(data[0].RelativeHumidity);
+//       //add time and humidity to page
+//       $("#autoTime").append(date);
+//       $("#autoHumidity").append(data[0].RelativeHumidity);
+//     });
+//   }
 
   $(document).on("click", ".single-card", editCard);
   function editCard() {
@@ -75,7 +85,7 @@ $(document).ready(function() {
     $(this).children("input.edit").show();
     $(this).children("input.edit").focus();
   }
-});
+// });
 // ========== END ACCUWEATHER/GEOLOCATION CALL ========= //
 // ---------- Beginning of New, Edit, and Delete submissions ------------- //
 // Get references to page elements
@@ -179,16 +189,16 @@ $(".quiz-answer").click(function() {
 // ---------------- Event Listener Section for Clickable Images End ------------------------- //
 
 // ------------------------------- Edit a Card Start -----------------------------------//
-$(document).ready(function() {
-  var singleContainer = $(".single-container");
+// $(document).ready(function() {
+//   var singleContainer = $(".single-container");
 
-  $(document).on("click", "#cardBlocks", editCard);
-  function editCard() {
-    var currentCard = $(this).data("medsightdata");
-    $(this).children().hide();
-    $(this).children("input.edit").val(currentCard.Notes);
-    $(this).children("input.edit").show();
-    $(this).children("input.edit").focus();
-}
+//   $(document).on("click", "#cardBlocks", editCard);
+//   function editCard() {
+//     var currentCard = $(this).data("medsightdata");
+//     $(this).children().hide();
+//     $(this).children("input.edit").val(currentCard.Notes);
+//     $(this).children("input.edit").show();
+//     $(this).children("input.edit").focus();
+// }
 });
 // ------------------------------- Edit a Card End -------------------------------------//
