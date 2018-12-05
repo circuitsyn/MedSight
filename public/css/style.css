@@ -34,9 +34,17 @@ body, html {
 }
 
 .nav-link {
-    color: white !important;
+    color:white !important;
+    font-weight:bold;
     opacity: 1;
     font-family: "MedSight Font";
+}
+
+.navbar-nav {
+    border-radius:20px;
+    background-color:rgba(83,16,126,.7);
+    width:10%;
+    padding-left: 1%;
 }
 
 #navbarNav {
