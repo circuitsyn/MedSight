@@ -192,3 +192,8 @@ $(document).ready(function() {
 }
 });
 // ------------------------------- Edit a Card End -------------------------------------//
+// Function to get the modal to show on landing page load ============================//
+
+$(window).on("load", function() {
+  $("#welcomeModal").modal("show");
+});
