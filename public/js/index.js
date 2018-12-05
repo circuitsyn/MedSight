@@ -14,68 +14,17 @@ $(document).ready(function() {
           data: data.coords
         }).then(function(data) {
           console.log(data);
+          $("#autoLocation").append(data.cityState);
+          $("#autoHumidity").append(data.humidity);
+          $("#autoPollution").append(data.airQuality);
+          $("#autoPollen").append(data.pollenLevel);
         });
-        //send lat/lon data
-//         $.ajax({
-//           url:
-//             "http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=7a4dhv24Cy3KXKLaJ7jh5g0EAPhGjmit&q=" +
-//             data.coords.latitude +
-//             "%2C" +
-//             data.coords.longitude +
-//             "&details=true&toplevel=true",
-//           method: "GET"
-//         }).done(function(data) {
-//           console.log(data.LocalizedName);
-//           getCurrentConditions(data.Key);
-//           getAirAndPollen(data.Key);
-//           //append LocalizedName to page
-//           $("#autoLocation").append(data.LocalizedName + ", " + data.AdministrativeArea.ID);
-//         });
       });
     } else {
       x.innerHTML = "Geolocation is not supported by this browser.";
     }
   }
   getLocation();
-
-//   //function to get daily air and pollen conditions
-//   function getAirAndPollen(key) {
-//     return $.ajax({
-//       url:
-//         "http://dataservice.accuweather.com/forecasts/v1/daily/1day/" +
-//         key +
-//         "?apikey=7a4dhv24Cy3KXKLaJ7jh5g0EAPhGjmit&details=true&metric=true",
-//       method: "GET"
-//     }).done(function(data) {
-//       console.log(data);
-//       console.log(data.DailyForecasts[0].AirAndPollen[0].Category);
-//       //add pollen and air quality to html
-//       $("#autoPollution").append(
-//         data.DailyForecasts[0].AirAndPollen[0].Category
-//       );
-//       $("#autoPollen").append(data.DailyForecasts[0].AirAndPollen[1].Category);
-//     });
-//   }
-
-//   //function to get humidity and time info
-//   function getCurrentConditions(key) {
-//     $.ajax({
-//       url:
-//         "http://dataservice.accuweather.com/currentconditions/v1/" +
-//         key +
-//         "?apikey=7a4dhv24Cy3KXKLaJ7jh5g0EAPhGjmit&details=true",
-//       method: "GET"
-//     }).done(function(data) {
-//       var date = moment
-//         .unix(data[0].EpochTime)
-//         .format("dddd, MMMM Do, YYYY h:mm A");
-//       console.log(date);
-//       console.log(data[0].RelativeHumidity);
-//       //add time and humidity to page
-//       $("#autoTime").append(date);
-//       $("#autoHumidity").append(data[0].RelativeHumidity);
-//     });
-//   }
 
   $(document).on("click", ".single-card", editCard);
   function editCard() {
