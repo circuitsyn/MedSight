@@ -9,6 +9,7 @@ $(document).ready(function() {
         //     sympStressGraph(data);
         //   });
       });
+    };
     
 
     //----------------- Symp vs Stress Line Graph -------------------//
