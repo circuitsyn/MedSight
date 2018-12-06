@@ -1,22 +1,28 @@
 // ========= BEGIN GEOLOCATION ========== //
+var pollenValue = "";
+var airQualVal = "";
 $(document).ready(function() {
   var x = document.getElementById("autoLocation");
+
   //function to get location key from accuweather api
   function getLocation() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function(data) {
-        console.log(data);
+        
         //ajax request -- hit /weather route
         $.ajax({
           url: "/api/weather/",
           method: "POST",
           data: data.coords
         }).then(function(data) {
-          console.log(data);
-          $("#autoLocation").append(data.cityState);
+          console.log("weatherData object:", data);
+          $("#autoLocation").append(data.location);
           $("#autoHumidity").append(data.humidity);
           $("#autoPollution").append(data.airQuality);
           $("#autoPollen").append(data.pollenLevel);
+          $("#autoTime").append(data.sampledDataTime);
+          pollenValue = data.pollenLevelValue;
+          airQualVal = data.airQualityValue;
         });
       });
     } else {
@@ -98,7 +104,9 @@ var handleFormSubmit = function(event) {
     Pollen: autoPollen.text(),
     Pollution: autoPollution.text(),
     Notes: notesInput.val().trim(),
-    TimeStamp: autoTime.text()
+    TimeStamp: autoTime.text(),
+    AirQualityIndex: airQualVal,
+    PollenIndex: pollenValue,
   };
   if ((medsightdata.PainLocationMuscular == medsightdata.PainLocationSkeletal) && (medsightdata.PainLocationSkeletal == medsightdata.PainLocationEpidermis)) {
     $('#validator').modal('toggle');

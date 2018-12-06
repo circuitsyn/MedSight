@@ -4,6 +4,8 @@ $(document).ready(function() {
     var timeArr = [];
     var allergyArr = [];
     var humidArr = [];
+    var pollArr = [];
+    var airArr = [];
     var dairy = 0;
     var eggs = 0;
     var fish = 0;
@@ -11,6 +13,37 @@ $(document).ready(function() {
     var soy = 0;
     var sweets = 0;
     var wheat = 0;
+
+    //function to get data and launch air quality and pollen bar graph
+    function launchAirPollenGraph(){
+        $.get("/api/cards", function(data) {
+            buildStressSympArr(data);
+            buildPollAirArr(data);
+            }).then(function() {
+                pollAirBarGraph(sympArr, pollArr, airArr);
+                });
+    };
+
+    //function to build pollen and air quality value arrays
+    function buildPollAirArr(data){
+        //reset if called again
+        pollArr = [];
+        airArr = [];
+
+        //for loop to build stress data array
+        for(i=0; i < data.length; i++){
+            pollArr.push(data[i].PollenIndex);
+        }
+
+        //loop to build symptom intensity data array
+        for(i=0; i < data.length; i++){
+            airArr.push(data[i].AirQualityIndex);
+        }
+        console.log('Pollen Array: ', pollArr);
+        console.log('AirQ Array: ', airArr);
+
+        return pollArr, airArr;
+    };
 
     //function to get data and launch humid scatter plot
     function launchHumidScatter() {
@@ -44,13 +77,13 @@ $(document).ready(function() {
         
         for(i=0; i < data.length; i++){
 
-            dairy += +data[i].AllergyTriggerDairy
-            eggs += +data[i].AllergyTriggerEggs
-            fish += +data[i].AllergyTriggerFish
-            nuts += +data[i].AllergyTriggerNuts
-            soy += +data[i].AllergyTriggerSoy
-            sweets += +data[i].AllergyTriggerSweets
-            wheat += +data[i].AllergyTriggerWheat
+            dairy += +data[i].AllergyTriggerDairy;
+            eggs += +data[i].AllergyTriggerEggs;
+            fish += +data[i].AllergyTriggerFish;
+            nuts += +data[i].AllergyTriggerNuts;
+            soy += +data[i].AllergyTriggerSoy;
+            sweets += +data[i].AllergyTriggerSweets;
+            wheat += +data[i].AllergyTriggerWheat;
         }
         allergyArr.push(dairy, eggs, fish, nuts, soy, sweets, wheat);
         console.log("Allergy Sum Array: ", allergyArr);
@@ -239,10 +272,73 @@ $(document).ready(function() {
         
         Plotly.newPlot('scatterPlotHumid', data, layout);
     };
-    
-//Start Drawing Graphs
-launchSympStressGraph();
-launchAllergyPie();
-launchHumidScatter();
+
+    // ----------------------- Pollen and Air Quality Dual Bar Graph ---------------- //
+
+    function pollAirBarGraph(sympArr, pollArr, airArr){
+        var trace1 = {
+            x: sympArr,
+            y: airArr,
+            name: 'Air Quality',
+            marker: {color: 'rgb(55, 83, 109)'},
+            type: 'bar'
+        };
+        
+        var trace2 = {
+            x: sympArr,
+            y: pollArr,
+            name: 'Pollen Count',
+            marker: {color: 'rgb(26, 118, 255)'},
+            type: 'bar'
+        };
+        
+        var data = [trace1, trace2];
+        
+        var layout = {
+            title: 'Air Quality and Pollen Count vs Symptom Intensity',
+            titlefont: {
+                family: 'MedSight Font, monospace',
+                size: 18,
+                color: '#420b56'
+                },
+            xaxis: {
+                title: 'Symptom Intensity',
+                titlefont: {
+                    family: 'MedSight Font, monospace',
+                    size: 18,
+                    color: '#420b56'
+                },
+            },
+            yaxis: {
+            title: 'Pollen & Air Quality',
+            titlefont: {
+                family: 'MedSight Font, monospace',
+                size: 18,
+                color: '#420b56'
+            },
+            tickfont: {
+                size: 14,
+                color: 'rgb(107, 107, 107)'
+            }
+            },
+            legend: {
+            // x: 0, legend positioning
+            // y: 1.0,
+            bgcolor: 'rgba(255, 255, 255, 0)',
+            bordercolor: 'rgba(255, 255, 255, 0)'
+            },
+            barmode: 'group',
+            bargap: 0.15,
+            bargroupgap: 0.1
+        };
+        
+        Plotly.newPlot('airQualVsSymp', data, layout);
+    };
+
+    //Start Drawing Graphs
+    launchSympStressGraph();
+    launchAllergyPie();
+    launchHumidScatter();
+    launchAirPollenGraph();
 
 });
