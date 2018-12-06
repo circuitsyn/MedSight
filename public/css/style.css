@@ -219,7 +219,7 @@ button:focus {
     stroke: white;
     -webkit-box-shadow: none;
     box-shadow: none;
-    padding: 10px 15px 10px 15px;
+    padding: 10px 12px 10px 12px;
 }
 .dropdown-toggle {
     background-color: #420b56;
@@ -254,6 +254,7 @@ button:focus {
     width: 800px;
 }
 /* --------------------------- Card Block Styling End ---------------------------- */
+/* --------------------- Our Story Page styling start  -------------------- */
 .storyCard {
     background: rgba(255,255,255,0.9);
     border-radius: 45px;
@@ -280,8 +281,4 @@ button:focus {
     color: white;
     opacity: 0.6;
 } */
-
-/* --------------------- Our Story Page styling start  -------------------- */
-
-
 /* --------------------- Our Story Page styling end  -------------------- */
