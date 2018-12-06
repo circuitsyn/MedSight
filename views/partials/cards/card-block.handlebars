@@ -1,40 +1,52 @@
-<div class="col-sm-4" id="cardBlocks">
-<div class="card" style="width: 18rem;">
+<div class="col-sm-4">
+<div class="card cardBlocks" style="width: 18rem;">
   <div class="card-body">
-    <h5 class="card-title"><strong>ID:</strong>{{id}}</h5>
+    <h5 class="card-title"><span class="cardHeader">Card:</span>{{id}}</h5>
     <p class="card-text">
           <p>
-            <strong>Dairy:</strong> {{AllergyTriggerDairy}}
-            <strong>Egg:</strong> {{AllergyTriggerEggs}}
-            <strong>Fish:</strong> {{AllergyTriggerFish}}
-            <strong>Soy:</strong> {{AllergyTriggerSoy}}
-            <strong>Sweets:</strong> {{AllergyTriggerSweets}}
-            <strong>Nuts:</strong> {{AllergyTriggerNuts}}
-            <strong>Wheat:</strong> {{AllergyTriggerWheat}}
+            <img class="allergyIconsCards" id="{{AllergyTriggerDairy}}" src="../assets/images/cowIcon.png" alt="dairy icon">
+            <img class="allergyIconsCards" id="{{AllergyTriggerEggs}}" src="../assets/images/eggs.png" alt="egg icon">  
+            <img class="allergyIconsCards" id="{{AllergyTriggerFish}}" src="../assets/images/fish.png" alt="seafood icon">
+            <img class="allergyIconsCards" id="{{AllergyTriggerSoy}}" src="../assets/images/soy.png" alt="soy icon">              
+            <img class="allergyIconsCards" id="{{AllergyTriggerSweets}}" src="../assets/images/nutsIcon.png" alt="nuts icon">
+            <img class="allergyIconsCards" id="{{AllergyTriggerNuts}}" src="../assets/images/wheatIcon.png" alt="wheat icon">
+            <img class="allergyIconsCards" id="{{AllergyTriggerWheat}}" src="../assets/images/sweets.png" alt="sweetsCheck">
           </p>
           <p>
-            <strong>Muscular:</strong> {{PainLocationMuscular}}
-            <strong>Skeletal:</strong> {{PainLocationSkeletal}}
-            <strong>Skin:</strong> {{PainLocationEpidermis}}
-          </p>
-          <p>
-            <strong>Stress Level:</strong> {{SliderStressSlider}}
-            <strong>Symptom Level:</strong> {{SymptomIntensitySlider}}
-          </p>
-          <p>
-            <strong>Location:</strong> {{AutoLocation}}
-            <strong>TimeStamp:</strong> {{TimeStamp}}
-          </p>
-          <p>
-            <strong>Humidity:</strong> {{Humidity}}
-            <strong>Pollen:</strong> {{Pollen}}
-            <strong>Pollution:</strong> {{Pollution}}
-          </p>
-          <p>
-            <strong>Notes:</strong> {{Notes}}
-          </p>
+          <div class="container">
+          <div class="row mb-4 mt-3">
+              <h5>Stress Level: {{SliderStressSlider}}</h5>
+              <div class="slidecontainer">
+                  <input type="range" min="0" max="10" value="{{SliderStressSlider}}" class="slider" id="stressRangeCard" data-slider-id="stressRangeId">
+              </div>
+          </div>
+          <!-- Intensity Level Slider -->
+          <div class="row mb-3 mt-2">
+              <h5>Symptom Intensity Level: {{SymptomIntensitySlider}}</h5>
+              <div class="slidecontainer">
+                  <input type="range" min="0" max="10" value="{{SymptomIntensitySlider}}" class="slider" id="symptomRangeCard" data-slider-id="intensityRangeId">
+              </div>
+          </div>
+          </div>
+          </p>    
+          <ul id="cardText" style="list-style-type:none"> 
+            <li id="{{PainLocationMuscular}}"><span class="cardHeader">Muscular:</span> {{PainLocationMuscular}}</li>
+            <li id="{{PainLocationSkeletal}}"><span class="cardHeader">Skeletal:</span> {{PainLocationSkeletal}}</li>
+            <li id="{{PainLocationEpidermis}}"><span class="cardHeader">Skin:</span> {{PainLocationEpidermis}}</li>
+          </ul>
+          <ul id="cardText" style="list-style-type:none">
+            <li><span class="cardHeader">Location:</span> {{AutoLocation}}</li>
+            <li><span class="cardHeader">TimeStamp:</span> {{TimeStamp}}</li>
+          </ul>
+          <ul id="cardText" style="list-style-type:none">
+            <li><span class="cardHeader">Humidity:</span> {{Humidity}}</li>
+            <li><span class="cardHeader">Pollen:</span> {{Pollen}}</li>
+            <li><span class="cardHeader">Pollution:</span> {{Pollution}}</li>
+          </ul>
+          <ul id="cardText" style="list-style-type:none">
+            <li><span class="cardHeader">Notes:</span> {{Notes}}</li>
+          </ul>
     </p>
-    <a href="/cards/{{id}}" class="btn btn-warning pt-3 pb-3 pl-5 pr-5 font-weight-bold">Review</a>
   </div>
 </div>
 </div>
