@@ -3,6 +3,7 @@ $(document).ready(function() {
     var sympArr = [];
     var timeArr = [];
     var allergyArr = [];
+    var humidArr = [];
     var dairy = 0;
     var eggs = 0;
     var fish = 0;
@@ -10,6 +11,24 @@ $(document).ready(function() {
     var soy = 0;
     var sweets = 0;
     var wheat = 0;
+
+    //function to get data and launch humid scatter plot
+    function launchHumidScatter() {
+        $.get("/api/cards", function(data) {
+            buildStressSympArr(data);
+            buildHumidArr(data);
+            }).then(function() {
+                humidScatter(sympArr, humidArr);
+                });
+    };
+
+    //function to build humidity array
+    function buildHumidArr(data){
+        for(i=0; i < data.length; i++){
+            humidArr.push(data[i].Humidity);
+        }
+        return humidArr;
+    };
 
     // This function grabs posts from the database and updates the view
     function launchAllergyPie(){
@@ -20,7 +39,7 @@ $(document).ready(function() {
                 });
         };
 
-    //
+    //function to build allergy trigger totals for pie chart
     function buildAllergyArr(data){
         
         for(i=0; i < data.length; i++){
@@ -160,37 +179,52 @@ $(document).ready(function() {
     };
  
     // --------------- Humidity Scatter Plot -------------------------- //
-    function humidScatter() {
+    function humidScatter(sympArr, humidArr) {
         var trace1 = {
-            x: [1, 2, 3, 4, 5],
-            y: [1, 6, 3, 6, 1],
+            x: sympArr,
+            y: humidArr,
             mode: 'markers',
             type: 'scatter',
-            name: 'Team A',
-            text: ['A-1', 'A-2', 'A-3', 'A-4', 'A-5'],
+            name: 'Humidity',
             marker: { size: 12 }
         };
         
-        var trace2 = {
-            x: [1.5, 2.5, 3.5, 4.5, 5.5],
-            y: [4, 1, 7, 1, 4],
-            mode: 'markers',
-            type: 'scatter',
-            name: 'Team B',
-            text: ['B-a', 'B-b', 'B-c', 'B-d', 'B-e'],
-            marker: { size: 12 }
-        };
+        // var trace2 = {
+        //     x: sympArr,
+        //     y: sympArr,
+        //     mode: 'markers',
+        //     type: 'scatter',
+        //     name: 'Team B',
+        //     marker: { size: 12 }
+        // };
         
-        var data = [ trace1, trace2 ];
+        var data = [ trace1 ];
         
         var layout = {
             xaxis: {
-            range: [ 0.75, 5.25 ]
+            range: [ 0, 10 ],
+            title: 'Symptom',
+                titlefont: {
+                  family: 'MedSight Font, monospace',
+                  size: 18,
+                  color: '#420b56'
+                },
             },
             yaxis: {
-            range: [0, 8]
+            range: [0, 100],
+            title: 'Humidity',
+                titlefont: {
+                  family: 'MedSight Font, monospace',
+                  size: 18,
+                  color: '#420b56'
+                },
             },
-            title:'Data Labels Hover'
+            title: 'Humidity vs. Symptom Intensity',
+            titlefont: {
+                family: 'MedSight Font, monospace',
+                size: 25,
+                color: '#420b56'
+            },
         };
         
         Plotly.newPlot('scatterPlotHumid', data, layout);
@@ -199,6 +233,6 @@ $(document).ready(function() {
 //Start Drawing Graphs
 launchSympStressGraph();
 launchAllergyPie();
-humidScatter();
+launchHumidScatter();
 
 });
