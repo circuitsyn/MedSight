@@ -4,6 +4,8 @@ $(document).ready(function() {
     var timeArr = [];
     var allergyArr = [];
     var humidArr = [];
+    var pollArr = [];
+    var airArr = [];
     var dairy = 0;
     var eggs = 0;
     var fish = 0;
@@ -11,6 +13,37 @@ $(document).ready(function() {
     var soy = 0;
     var sweets = 0;
     var wheat = 0;
+
+    //function to get data and launch air quality and pollen bar graph
+    function launchAirPollenGraph(){
+        $.get("/api/cards", function(data) {
+            buildStressSympArr(data);
+            buildPollAirArr(data);
+            }).then(function() {
+                humidScatter(sympArr, pollArr, airArr);
+                });
+    };
+
+    //function to build pollen and air quality value arrays
+    function buildPollAirArr(data){
+        //reset if called again
+        pollArr = [];
+        airArr = [];
+
+        //for loop to build stress data array
+        for(i=0; i < data.length; i++){
+            pollArr.push(data[i].PollenIndex);
+        }
+
+        //loop to build symptom intensity data array
+        for(i=0; i < data.length; i++){
+            airArr.push(data[i].AirQualityIndex);
+        }
+        console.log('Pollen Array: ', pollArr);
+        console.log('AirQ Array: ', airArr);
+
+        return pollArr, airArr;
+    };
 
     //function to get data and launch humid scatter plot
     function launchHumidScatter() {
@@ -44,13 +77,13 @@ $(document).ready(function() {
         
         for(i=0; i < data.length; i++){
 
-            dairy += +data[i].AllergyTriggerDairy
-            eggs += +data[i].AllergyTriggerEggs
-            fish += +data[i].AllergyTriggerFish
-            nuts += +data[i].AllergyTriggerNuts
-            soy += +data[i].AllergyTriggerSoy
-            sweets += +data[i].AllergyTriggerSweets
-            wheat += +data[i].AllergyTriggerWheat
+            dairy += +data[i].AllergyTriggerDairy;
+            eggs += +data[i].AllergyTriggerEggs;
+            fish += +data[i].AllergyTriggerFish;
+            nuts += +data[i].AllergyTriggerNuts;
+            soy += +data[i].AllergyTriggerSoy;
+            sweets += +data[i].AllergyTriggerSweets;
+            wheat += +data[i].AllergyTriggerWheat;
         }
         allergyArr.push(dairy, eggs, fish, nuts, soy, sweets, wheat);
         console.log("Allergy Sum Array: ", allergyArr);
@@ -244,5 +277,6 @@ $(document).ready(function() {
 launchSympStressGraph();
 launchAllergyPie();
 launchHumidScatter();
+launchAirPollenGraph();
 
 });
