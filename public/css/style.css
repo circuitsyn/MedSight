@@ -199,3 +199,14 @@ body, html {
 
 
 /* --------------------- Our Story Page styling end  -------------------- */
+/* .modal-content {
+    opacity:1;
+} */
+.fade {
+    background-color:#420b56;
+    opacity: .9;
+}
+.modal-content{
+    background-color: #420b56;
+    border: 1px solid rgba(0,0,0,0);
+}
