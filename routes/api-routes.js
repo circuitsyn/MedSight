@@ -10,11 +10,12 @@ module.exports = function(app) {
 
   // ========= BEGIN WEATHER DATA CALL ==========
   app.post("/api/weather/", function(req, res) {
-    console.log(req.body);
     var request = require("request");
+    var moment = require("moment");
     var apiKey = process.env.ACCUWEATHER_KEY;
     var lat = req.body.latitude;
     var lon = req.body.longitude;
+    //First api call, feeds lat/lon data to retreieve location
     var queryUrl =
       "http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=" +
       apiKey +
@@ -23,14 +24,12 @@ module.exports = function(app) {
       "%2C" +
       lon +
       "&details=true&toplevel=true";
-    // get location key and city/state
     request(queryUrl, function(error, response, body1) {
       var body1 = JSON.parse(body1);
-      console.log(body1.Key);
       var key = body1.Key;
-      console.log(body1.LocalizedName);
-      console.log(body1.AdministrativeArea.ID);
       var cityState = body1.LocalizedName + ", " + body1.AdministrativeArea.ID;
+      console.log("Location:", cityState);
+      //Second api call, feeds location key to retrieve air quality and pollen data
       var queryUrl =
         "http://dataservice.accuweather.com/forecasts/v1/daily/1day/" +
         key +
@@ -40,12 +39,24 @@ module.exports = function(app) {
       request(queryUrl, function(error, response, body2) {
         var body2 = JSON.parse(body2);
         //Air Quality
-        console.log(body2.DailyForecasts[0].AirAndPollen[0].Category);
-        console.log(body2.DailyForecasts[0].AirAndPollen[0].CategoryValue);
+        console.log(
+          "Air Quality:",
+          body2.DailyForecasts[0].AirAndPollen[0].Category
+        );
+        console.log(
+          "Air Quality value:",
+          body2.DailyForecasts[0].AirAndPollen[0].CategoryValue
+        );
         //Pollen
-        console.log(body2.DailyForecasts[0].AirAndPollen[1].Category);
-        console.log(body2.DailyForecasts[0].AirAndPollen[1].CategoryValue);
-        //get humidity and time
+        console.log(
+          "Pollen level:",
+          body2.DailyForecasts[0].AirAndPollen[1].Category
+        );
+        console.log(
+          "Pollen level value:",
+          body2.DailyForecasts[0].AirAndPollen[1].CategoryValue
+        );
+        //Third api call, feeds location key to retrieve humidity and time
         var queryUrl =
           "http://dataservice.accuweather.com/currentconditions/v1/" +
           key +
@@ -54,21 +65,22 @@ module.exports = function(app) {
           "&details=true";
         request(queryUrl, function(error, response, body3) {
           var body3 = JSON.parse(body3);
-          console.log(body3[0].RelativeHumidity);
-          //var date = moment
-          //.unix(body3[0].EpochTime)
-          //.format("dddd, MMMM Do, YYYY h:mm A");
-          //console.log(date);
-          //push data in weather object
+          console.log("Humidity:", body3[0].RelativeHumidity);
+          var date = moment
+            .unix(body3[0].EpochTime)
+            .format("dddd, MMMM Do, YYYY h:mm A");
+          console.log("Sampled Data Time:", date);
+          //push data into weather object for posting to index page
           var weatherData = {
-            cityState: cityState,
+            location: cityState,
             airQuality: body2.DailyForecasts[0].AirAndPollen[0].Category,
             airQualityValue:
               body2.DailyForecasts[0].AirAndPollen[0].CategoryValue,
             pollenLevel: body2.DailyForecasts[0].AirAndPollen[1].Category,
             pollenLevelValue:
               body2.DailyForecasts[0].AirAndPollen[1].CategoryValue,
-            humidity: body3[0].RelativeHumidity
+            humidity: body3[0].RelativeHumidity,
+            sampledDataTime: date
           };
           res.json(weatherData);
         });
