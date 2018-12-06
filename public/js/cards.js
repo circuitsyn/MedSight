@@ -1,9 +1,12 @@
 /* ========================= Style Cards Page Start ============================= */
 $("img#false").hide();
 $("li#null").hide();
-function slideLock() {
-  document.getElementById("stressRangeCard").disabled = true;
-  document.getElementById("symptomRangeCard").disabled = true;
-};
-slideLock();
+
+$(document).ready(function(){
+  $('.dropdown-submenu a.test').on("click", function(e){
+    $(this).next('ul').toggle();
+    e.stopPropagation();
+    e.preventDefault();
+  });
+});
 /* ========================= Style Cards Page End =============================== */
