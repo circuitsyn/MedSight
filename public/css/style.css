@@ -196,7 +196,12 @@ button:focus {
     font-family: "MedSight Font";
     font-weight: bold;
 }
-/* --------------------------- Card Block Styling Start ---------------------------- */
+/* --------------------- Our Story Page styling start  -------------------- */
+#cardSection {
+    margin: auto;
+    padding: 30px 0 30px 0;
+}
+
 .storyCard {
     background: rgba(255,255,255,0.9);
     border-radius: 45px;
@@ -205,6 +210,11 @@ button:focus {
     border-width: 5px;
     border-style: solid;
     border-color: #420b56;
+}
+
+.card-img-top {
+    margin-top: 5px;
+    border-radius: 35px;
 }
 
 .btn-primary {
@@ -223,8 +233,5 @@ button:focus {
     color: white;
     opacity: 0.6;
 } */
-
-/* --------------------- Our Story Page styling start  -------------------- */
-
 
 /* --------------------- Our Story Page styling end  -------------------- */
