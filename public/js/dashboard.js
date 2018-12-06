@@ -71,6 +71,9 @@ $(document).ready(function() {
 
     //Function to build an array for time
     function timeArrBuild(data) {
+        //reset if called again
+        timeArr = [];
+    
         for(i=0; i < data.length; i++){
             cutTime = data[i].TimeStamp.slice(0, 23);
             timeArr.push(cutTime);
@@ -81,10 +84,17 @@ $(document).ready(function() {
     
     //function to build symptom and stress arrays
     function buildStressSympArr(data){
+
+        //reset if called again
+        stressArr = [];
+        sympArr = [];
+
+        //for loop to build stress data array
         for(i=0; i < data.length; i++){
             stressArr.push(data[i].SliderStressSlider);
         }
 
+        //loop to build symptom intensity data array
         for(i=0; i < data.length; i++){
             sympArr.push(data[i].SymptomIntensitySlider);
         }
