@@ -203,7 +203,7 @@ $(document).ready(function() {
         var layout = {
             xaxis: {
             range: [ 0, 10 ],
-            title: 'Symptom',
+            title: 'Symptom Intensity',
                 titlefont: {
                   family: 'MedSight Font, monospace',
                   size: 18,
