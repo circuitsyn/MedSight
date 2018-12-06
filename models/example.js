@@ -89,6 +89,16 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false,
       defaultValue: 'Sat Jan 1 1983 00:00:00 GMT-0000'
+    },
+    AirQualityIndex: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 0
+    },
+    PollenIndex: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 0
     }
   });
   return MedSightData;
