@@ -1,3 +1,8 @@
+@font-face {
+    font-family: "MedSight Font";
+    src: url("../assets/fonts/CoreSansA45Regular.woff2") format("woff2");
+}
+
 body, html {
     height: 100%;
     background-image: url("../assets/images/waterfallBG.jpg");
@@ -29,8 +34,17 @@ body, html {
 }
 
 .nav-link {
-    color: white !important;
+    color:white !important;
+    font-weight:bold;
     opacity: 1;
+    font-family: "MedSight Font";
+}
+
+.navbar-nav {
+    border-radius:20px;
+    background-color:rgba(83,16,126,.7);
+    width:10%;
+    padding-left: 1%;
 }
 
 #navbarNav {
@@ -39,6 +53,9 @@ body, html {
     border-radius: 15px;
     width: 20%;
     
+}
+button:focus {
+    outline: 5px auto #FFC107;
 }
 
 .fa-bars {
@@ -156,7 +173,58 @@ body, html {
   
 /* --------------------------- clickable image styling end ---------------------------- */
 /* --------------------------- Card Block Styling Start ---------------------------- */
-#cardBlocks{
+.cardBlocks{
     margin-bottom: 10px;
+    background: rgba(255,255,255,0.9);
+    border-radius: 45px;
+    padding: 2% 4% 2% 4%;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #420b56; 
+}
+#false {
+    visibility: hidden;
+}
+.allergyIconsCards {
+    height: 40px;
+    width: 40px;
+}
+#cardText{
+    margin-left: -15%;
+}
+.cardHeader {
+    font-family: "MedSight Font";
+    font-weight: bold;
 }
 /* --------------------------- Card Block Styling Start ---------------------------- */
+.storyCard {
+    background: rgba(255,255,255,0.9);
+    border-radius: 45px;
+    padding: 2% 4% 2% 4%;
+    margin: 10px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #420b56;
+}
+
+.btn-primary {
+    color: #212529;
+    background: #ffc107;
+    border-color: #ffc107;
+}
+
+.btn-primary:hover {
+    color: #212529;
+    background: #a38523;
+    border-color: #a38523;
+}
+
+/* .btn-primary:hover {
+    color: white;
+    opacity: 0.6;
+} */
+
+/* --------------------- Our Story Page styling start  -------------------- */
+
+
+/* --------------------- Our Story Page styling end  -------------------- */

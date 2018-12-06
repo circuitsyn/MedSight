@@ -1,25 +1,22 @@
-// ========= BEGIN ACCUWEATHER/GEOLOCATION CALL ========== //
-
+// ========= BEGIN GEOLOCATION ========== //
 $(document).ready(function() {
   var x = document.getElementById("autoLocation");
   //function to get location key from accuweather api
   function getLocation() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function(data) {
+        //ajax request -- hit /weather route
         $.ajax({
-          url:
-            "http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=7a4dhv24Cy3KXKLaJ7jh5g0EAPhGjmit&q=" +
-            data.coords.latitude +
-            "%2C" +
-            data.coords.longitude +
-            "&details=true&toplevel=true",
-          method: "GET"
-        }).done(function(data) {
-          console.log(data.LocalizedName);
-          getCurrentConditions(data.Key);
-          getAirAndPollen(data.Key);
-          //append LocalizedName to page
-          $("#autoLocation").append(data.LocalizedName + ", " + data.AdministrativeArea.ID);
+          url: "/api/weather/",
+          method: "POST",
+          data: data.coords
+        }).then(function(data) {
+          console.log("weatherData object:", data);
+          $("#autoLocation").append(data.location);
+          $("#autoHumidity").append(data.humidity);
+          $("#autoPollution").append(data.airQuality);
+          $("#autoPollen").append(data.pollenLevel);
+          $("#autoTime").append(data.sampledDataTime);
         });
       });
     } else {
@@ -27,55 +24,9 @@ $(document).ready(function() {
     }
   }
   getLocation();
-
-  //function to get daily air and pollen conditions
-  function getAirAndPollen(key) {
-    return $.ajax({
-      url:
-        "http://dataservice.accuweather.com/forecasts/v1/daily/1day/" +
-        key +
-        "?apikey=7a4dhv24Cy3KXKLaJ7jh5g0EAPhGjmit&details=true&metric=true",
-      method: "GET"
-    }).done(function(data) {
-      console.log(data.DailyForecasts[0].AirAndPollen[0].Category);
-      //add pollen and air quality to html
-      $("#autoPollution").append(
-        data.DailyForecasts[0].AirAndPollen[0].Category
-      );
-      $("#autoPollen").append(data.DailyForecasts[0].AirAndPollen[1].Category);
-    });
-  }
-
-  //function to get humidity and time info
-  function getCurrentConditions(key) {
-    $.ajax({
-      url:
-        "http://dataservice.accuweather.com/currentconditions/v1/" +
-        key +
-        "?apikey=7a4dhv24Cy3KXKLaJ7jh5g0EAPhGjmit&details=true",
-      method: "GET"
-    }).done(function(data) {
-      var date = moment
-        .unix(data[0].EpochTime)
-        .format("dddd, MMMM Do, YYYY h:mm A");
-      console.log(date);
-      console.log(data[0].RelativeHumidity);
-      //add time and humidity to page
-      $("#autoTime").append(date);
-      $("#autoHumidity").append(data[0].RelativeHumidity);
-    });
-  }
-
-  $(document).on("click", ".single-card", editCard);
-function editCard() {
-  var currentCard = $(this).data("medsightdata");
-  $(this).children().hide();
-  $(this).children("input.edit").val(currentCard.text);
-  $(this).children("input.edit").show();
-  $(this).children("input.edit").focus();
-}
 });
-// ========== END ACCUWEATHER/GEOLOCATION CALL ========= //
+// ========== END GEOLOCATION ========= //
+
 // ---------- Beginning of New, Edit, and Delete submissions ------------- //
 // Get references to page elements
 var muscularQ = $("#muscularQ");
@@ -147,12 +98,15 @@ var handleFormSubmit = function(event) {
     Pollen: autoPollen.text(),
     Pollution: autoPollution.text(),
     Notes: notesInput.val().trim(),
-    TimeStamp: autoTime.text(),
+    TimeStamp: autoTime.text()
   };
-
+  if ((medsightdata.PainLocationMuscular == medsightdata.PainLocationSkeletal) && (medsightdata.PainLocationSkeletal == medsightdata.PainLocationEpidermis)) {
+    $('#validator').modal('toggle');
+    return;
+  }
   // Add our new card
   API.saveCard(medsightdata).then(function() {
-    // Goes to cards page after submission 
+    // Goes to cards page after submission
     window.location.replace("/cards/");
     return false;
   });
@@ -161,7 +115,8 @@ var handleFormSubmit = function(event) {
 // Add event listeners to the submit
 submitBtn.on("click", handleFormSubmit);
 // ---------- End of New, Edit, and Delete submissions ------------- //
-// ------------------- Event Listener Section for Clickable Images -------------------------
+
+// ------------------- Event Listener Section for Clickable Images ------------------------- //
 
 $(".quiz-answer").click(function() {
   event.preventDefault();
@@ -175,17 +130,3 @@ $(".quiz-answer").click(function() {
 });
 
 // ---------------- Event Listener Section for Clickable Images End -------------------------
-// ------------------------------- Edit a Card Start -----------------------------------//
-$(document).ready(function() {
-var singleContainer = $(".single-container");
-
-$(document).on("click", "#cardBlocks", editCard);
-function editCard() {
-  var currentCard = $(this).data("medsightdata");
-  $(this).children().hide();
-  $(this).children("input.edit").val(currentCard.Notes);
-  $(this).children("input.edit").show();
-  $(this).children("input.edit").focus();
-}
-});
-// ------------------------------- Edit a Card End -------------------------------------//
