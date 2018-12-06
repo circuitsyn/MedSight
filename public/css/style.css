@@ -294,3 +294,14 @@ button:focus {
 } */
 
 /* --------------------- Our Story Page styling end  -------------------- */
+/* --------------------- Dashboard Styling Start ------------------------ */
+.svg-container { 
+	display: inline-block;
+	position: relative;
+	width: 100%;
+	/* padding-bottom: 100%;  */
+	vertical-align: middle; 
+	overflow: hidden; 
+}
+
+/* --------------------- Dashboard Styling Start ------------------------ */
