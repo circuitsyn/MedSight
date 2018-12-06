@@ -1,7 +1,7 @@
 USE carddata;
 SET SQL_MODE = '';
 
-INSERT INTO MedSightData (AllergyTriggerDairy, AllergyTriggerEggs, AllergyTriggerFish, AllergyTriggerSoy, AllergyTriggerSweets, AllergyTriggerNuts, AllergyTriggerWheat, PainLocationMuscular, PainLocationSkeletal, PainLocationEpidermis, SliderStressSlider, SymptomIntensitySlider, AutoLocation, Humidity, Pollen, Pollution, TimeStamp)
+INSERT INTO MedSightData (AllergyTriggerDairy, AllergyTriggerEggs, AllergyTriggerFish, AllergyTriggerSoy, AllergyTriggerSweets, AllergyTriggerNuts, AllergyTriggerWheat, PainLocationMuscular, PainLocationSkeletal, PainLocationEpidermis, SliderStressSlider, SymptomIntensitySlider, AutoLocation, Humidity, Pollen, Pollution, TimeStamp, AirQualityIndex, PollenIndex)
 VALUES 
 (TRUE, TRUE, FALSE, FALSE, FALSE, FALSE, TRUE, NULL , NULL, "Ankle", 7, 3, "Tacoma, WA", 24, 'HIGH', 'HIGH', 'Tue Nov 27 2018 12:13:26 GMT-0800'),
 (FALSE, FALSE, FALSE, FALSE, TRUE, FALSE, TRUE, "Calf", NULL, "Back", 3, 2, "Seattle, WA", 27, 'HIGH', 'LOW', 'Wed Nov 28 2018 11:17:26 GMT-0800'),
