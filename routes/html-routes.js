@@ -47,4 +47,14 @@ module.exports = function(app) {
   app.get("*", function(req, res) {
     res.render("partials/404");
   });
+
+  //------------------- Dashboard HTML Routes ------------------------//
+  //
+  app.get("/cards/:symp", function(req, res) {
+    db.MedSightData.findOne({ where: { SympIntensitySlider:{ [Op.gt]: req.params.symp,} } }).then(function(dbMedsightdata) {
+      res.render("partials/cards-single", {
+        medsightdata: dbMedsightdata
+      });
+    });
+  });
 };
