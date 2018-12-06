@@ -20,7 +20,7 @@ $(document).ready(function() {
             buildStressSympArr(data);
             buildPollAirArr(data);
             }).then(function() {
-                humidScatter(sympArr, pollArr, airArr);
+                pollAirBarGraph(sympArr, pollArr, airArr);
                 });
     };
 
@@ -272,11 +272,73 @@ $(document).ready(function() {
         
         Plotly.newPlot('scatterPlotHumid', data, layout);
     };
-    
-//Start Drawing Graphs
-launchSympStressGraph();
-launchAllergyPie();
-launchHumidScatter();
-launchAirPollenGraph();
+
+    // ----------------------- Pollen and Air Quality Dual Bar Graph ---------------- //
+
+    function pollAirBarGraph(sympArr, pollArr, airArr){
+        var trace1 = {
+            x: sympArr,
+            y: airArr,
+            name: 'Air Quality',
+            marker: {color: 'rgb(55, 83, 109)'},
+            type: 'bar'
+        };
+        
+        var trace2 = {
+            x: sympArr,
+            y: pollArr,
+            name: 'Pollen Count',
+            marker: {color: 'rgb(26, 118, 255)'},
+            type: 'bar'
+        };
+        
+        var data = [trace1, trace2];
+        
+        var layout = {
+            title: 'Air Quality and Pollen Count vs Symptom Intensity',
+            titlefont: {
+                family: 'MedSight Font, monospace',
+                size: 18,
+                color: '#420b56'
+                },
+            xaxis: {
+                title: 'Symptom Intensity',
+                titlefont: {
+                    family: 'MedSight Font, monospace',
+                    size: 18,
+                    color: '#420b56'
+                },
+            },
+            yaxis: {
+            title: 'Pollen & Air Quality',
+            titlefont: {
+                family: 'MedSight Font, monospace',
+                size: 18,
+                color: '#420b56'
+            },
+            tickfont: {
+                size: 14,
+                color: 'rgb(107, 107, 107)'
+            }
+            },
+            legend: {
+            // x: 0, legend positioning
+            // y: 1.0,
+            bgcolor: 'rgba(255, 255, 255, 0)',
+            bordercolor: 'rgba(255, 255, 255, 0)'
+            },
+            barmode: 'group',
+            bargap: 0.15,
+            bargroupgap: 0.1
+        };
+        
+        Plotly.newPlot('airQualVsSymp', data, layout);
+    };
+
+    //Start Drawing Graphs
+    launchSympStressGraph();
+    launchAllergyPie();
+    launchHumidScatter();
+    launchAirPollenGraph();
 
 });
