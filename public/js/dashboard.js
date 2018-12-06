@@ -195,7 +195,7 @@ $(document).ready(function() {
               }
         }
         
-        Plotly.newPlot('lineGraphPainStress', data, layout);
+        Plotly.newPlot('lineGraphPainStress', data, layout, {responsive: true});
     }
     
     //----------- Allergy Pie Chart Based on Pain Threshold Function --------------//
@@ -214,10 +214,11 @@ $(document).ready(function() {
             size: 25,
             color: '#420b56'
         },
-        
+        // width: 500,
+        // height: 500,  
     }
 
-    Plotly.newPlot('pieChartAllergy', data, layout);
+    Plotly.newPlot('pieChartAllergy', data, layout, {responsive: true});
 
     };
  
@@ -270,7 +271,7 @@ $(document).ready(function() {
             },
         };
         
-        Plotly.newPlot('scatterPlotHumid', data, layout);
+        Plotly.newPlot('scatterPlotHumid', data, layout, {responsive: true});
     };
 
     // ----------------------- Pollen and Air Quality Dual Bar Graph ---------------- //
@@ -332,7 +333,7 @@ $(document).ready(function() {
             bargroupgap: 0.1
         };
         
-        Plotly.newPlot('airQualVsSymp', data, layout);
+        Plotly.newPlot('airQualVsSymp', data, layout, {responsive: true});
     };
 
     //Start Drawing Graphs
@@ -341,4 +342,6 @@ $(document).ready(function() {
     launchHumidScatter();
     launchAirPollenGraph();
 
+    //--------------------- Button listeners ------------------------- //
+    //Allergy
 });
