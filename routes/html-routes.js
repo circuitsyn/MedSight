@@ -10,6 +10,7 @@ module.exports = function(app) {
       });
     });
   });
+
   // Load cards page
   app.get("/cards/", function(req, res) {
     db.MedSightData.findAll({}).then(function(dbMedsightdata) {
