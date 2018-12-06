@@ -27,6 +27,22 @@ module.exports = function(app) {
       });
     });
   });
+  // Load cards by stress selection
+  app.get("/stress/:id", function(req, res) {
+    db.MedSightData.findAll({ where: { SliderStressSlider: req.params.id } }).then(function(dbMedsightdata) {
+      res.render("partials/cards", {
+        medsightdata: dbMedsightdata
+      });
+    });
+  });
+  // Load cards by stress selection
+  app.get("/symptom/:id", function(req, res) {
+    db.MedSightData.findAll({ where: { SymptomIntensitySlider: req.params.id } }).then(function(dbMedsightdata) {
+      res.render("partials/cards", {
+        medsightdata: dbMedsightdata
+      });
+    });
+  });
   // Choose cards by ID
   app.get("/cards/:id", function(req, res) {
     db.MedSightData.findOne({ where: { id: req.params.id } }).then(function(dbMedsightdata) {
