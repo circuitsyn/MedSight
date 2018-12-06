@@ -304,4 +304,13 @@ button:focus {
 	overflow: hidden; 
 }
 
+.mainDashboardArea {
+    background: rgba(255,255,255,1);
+    border-radius: 45px;
+    padding: 2% 4% 2% 4%;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #420b56; 
+}
+
 /* --------------------- Dashboard Styling Start ------------------------ */
