@@ -141,7 +141,10 @@ var handleFormSubmit = function(event) {
     Notes: notesInput.val().trim(),
     TimeStamp: autoTime.text()
   };
-
+  if ((medsightdata.PainLocationMuscular == medsightdata.PainLocationSkeletal) && (medsightdata.PainLocationSkeletal == medsightdata.PainLocationEpidermis)) {
+    $('#validator').modal('toggle');
+    return;
+  }
   // Add our new card
   API.saveCard(medsightdata).then(function() {
     // Goes to cards page after submission

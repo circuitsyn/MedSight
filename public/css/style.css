@@ -161,8 +161,28 @@ body, html {
   
 /* --------------------------- clickable image styling end ---------------------------- */
 /* --------------------------- Card Block Styling Start ---------------------------- */
-#cardBlocks{
+.cardBlocks{
     margin-bottom: 10px;
+    background: rgba(255,255,255,0.9);
+    border-radius: 45px;
+    padding: 2% 4% 2% 4%;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #420b56; 
+}
+#false {
+    visibility: hidden;
+}
+.allergyIconsCards {
+    height: 40px;
+    width: 40px;
+}
+#cardText{
+    margin-left: -15%;
+}
+.cardHeader {
+    font-family: "MedSight Font";
+    font-weight: bold;
 }
 /* --------------------------- Card Block Styling Start ---------------------------- */
 .storyCard {
