@@ -1,6 +1,6 @@
 /* ========================= Style Cards Page Start ============================= */
 $("img#false").hide();
-$("li#null").hide();
+$("li#none").hide();
 
 $(document).ready(function(){
   $('.dropdown-submenu a.test').on("click", function(e){
