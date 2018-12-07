@@ -17,7 +17,7 @@ $(document).ready(function() {
     //function to animate the change in data once update is clicked
     function pieChartShift() {
         getRefinedAllergyData(allergyArr);
-        console.log('refined pie data: ',allergyArr )
+        console.log('refined pie data: ',allergyArr)
         Plotly.animate('pieChartAllergy', {
           data: [{values: allergyArr}],
           traces: [0],
@@ -103,7 +103,8 @@ $(document).ready(function() {
     //function to build allergy trigger totals for pie chart
     function buildAllergyArr(data){
         //reset allergy array on each call
-        allergyArr.length = 0;
+        console.log('initial allergy arr value', allergyArr);
+        var allergyArr = [];
         console.log('check pie array data object: ', data)
         console.log('check reset array: ', allergyArr);
         for(i=0; i < data.length; i++){
@@ -117,6 +118,7 @@ $(document).ready(function() {
             wheat = wheat + +(data[i].AllergyTriggerWheat);
         }
         allergyArr.push(dairy, eggs, fish, nuts, soy, sweets, wheat);
+        console.log('pie array after built: ',allergyArr )
         return allergyArr;
     }
     
@@ -227,7 +229,7 @@ $(document).ready(function() {
         
     //-------- Allergy Pie Chart Based on Pain Threshold Function --------------//
     function allergyPie(allergyArr){
-        
+        console.log('data sent to pie: ', allergyArr);
     var data = [{
         values: allergyArr,
         labels: ['Dairy', 'Eggs', 'Seafood','Nuts','Soy','Sweets','Wheat'],
@@ -365,6 +367,11 @@ $(document).ready(function() {
     launchAllergyPie();
     launchHumidScatter();
     launchAirPollenGraph();
+    var someArr = [4,2,3];
+    console.log('someArr: ', someArr),
+    someArr = [];
+
+    console.log('someArr: ', someArr),
 
     //--------------------- Button listeners Start ------------------------- //
     //Pie Chart Update Button Listener
