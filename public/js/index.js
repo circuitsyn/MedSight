@@ -137,4 +137,10 @@ $(".quiz-answer").click(function() {
   }
 });
 
-// ---------------- Event Listener Section for Clickable Images End -------------------------
+// ---------------- Event Listener Section for Clickable Images End ------------------------- //
+// =========Modal Show on Page Load Start =====================//
+
+$(window).on("load", function() {
+  $("#welcomeModal").modal("show");
+});
+// =========Modal Show on Page Load End =====================//

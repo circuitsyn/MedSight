@@ -25,6 +25,9 @@ body, html {
 .titleFont {
     text-align: center;
 }
+/* .btn-secondary{
+    background-color: #420b56; 
+} */
 
 .navbar-toggler {
     background-color: #420b56;
@@ -293,4 +296,36 @@ button:focus {
     opacity: 0.6;
 } */
 
+/* --------------------- Our Story Page styling start  -------------------- */
+
+
 /* --------------------- Our Story Page styling end  -------------------- */
+/* ------------------Welcome Modal Styling Start---------------- */
+.modal{
+    color: white;
+    font-family: "MedSight Font";
+}
+.fade {
+    background-color:#420b56;
+    opacity: .9;
+}
+.modal-content{
+    background-color: #420b56;
+    border: 1px solid rgba(0,0,0,0);
+    font-size:25px;
+}
+#welcome-title{
+    font-size: 70px;
+}
+#logo{
+    border-radius: 20px;
+    margin-top:40px;
+}
+.modal-footer {
+    border-top: 1px solid rgba(0, 0, 0, 0);
+}
+.modal-body{
+    border-top: 3px solid rgba(255, 193, 7, 1);
+    opacity: 1;
+}
+/* ------------------Welcome Modal Styling End---------------- */
