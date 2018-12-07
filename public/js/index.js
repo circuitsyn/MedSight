@@ -1,11 +1,19 @@
+<<<<<<< HEAD
 // ========= BEGIN ACCUWEATHER/GEOLOCATION CALL ========== //
 
+=======
+// ========= BEGIN GEOLOCATION ========== //
+var pollenValue = "";
+var airQualVal = "";
+>>>>>>> b156c83d86e7d2406daffcc16d924ed8c451620d
 $(document).ready(function() {
   var x = document.getElementById("autoLocation");
+
   //function to get location key from accuweather api
   function getLocation() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function(data) {
+<<<<<<< HEAD
         $.ajax({
           url:
             "http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=7a4dhv24Cy3KXKLaJ7jh5g0EAPhGjmit&q=" +
@@ -20,6 +28,23 @@ $(document).ready(function() {
           getAirAndPollen(data.Key);
           //append LocalizedName to page
           $("#autoLocation").append(data.LocalizedName + ", " + data.AdministrativeArea.ID);
+=======
+        
+        //ajax request -- hit /weather route
+        $.ajax({
+          url: "/api/weather/",
+          method: "POST",
+          data: data.coords
+        }).then(function(data) {
+          console.log("weatherData object:", data);
+          $("#autoLocation").append(data.location);
+          $("#autoHumidity").append(data.humidity);
+          $("#autoPollution").append(data.airQuality);
+          $("#autoPollen").append(data.pollenLevel);
+          $("#autoTime").append(data.sampledDataTime);
+          pollenValue = data.pollenLevelValue;
+          airQualVal = data.airQualityValue;
+>>>>>>> b156c83d86e7d2406daffcc16d924ed8c451620d
         });
       });
     } else {
@@ -139,7 +164,9 @@ var handleFormSubmit = function(event) {
     Pollen: autoPollen.text(),
     Pollution: autoPollution.text(),
     Notes: notesInput.val().trim(),
-    TimeStamp: autoTime.text()
+    TimeStamp: autoTime.text(),
+    AirQualityIndex: airQualVal,
+    PollenIndex: pollenValue,
   };
   // validation if a pain section is selected
   if ((medsightdata.PainLocationMuscular == medsightdata.PainLocationSkeletal) && (medsightdata.PainLocationSkeletal == medsightdata.PainLocationEpidermis)) {
