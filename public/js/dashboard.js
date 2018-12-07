@@ -17,8 +17,9 @@ $(document).ready(function() {
     //function to animate the change in data once update is clicked
     function pieChartShift() {
         getRefinedAllergyData(allergyArr);
+        console.log('refined pie data: ',allergyArr )
         Plotly.animate('pieChartAllergy', {
-          data: {values: allergyArr},
+          data: [{values: allergyArr}],
           traces: [0],
           layout: {}
         }, {
@@ -33,7 +34,7 @@ $(document).ready(function() {
       };
 
     //function to get refined pie chart allergy data
-    function getRefinedAllergyData(){
+    function getRefinedAllergyData(allergyArr){
         
         var value = +$('#symptomRange').val().trim();
         
@@ -102,17 +103,18 @@ $(document).ready(function() {
     //function to build allergy trigger totals for pie chart
     function buildAllergyArr(data){
         //reset allergy array on each call
-        allergyArr=[];
-
+        allergyArr.length = 0;
+        console.log('check pie array data object: ', data)
+        console.log('check reset array: ', allergyArr);
         for(i=0; i < data.length; i++){
 
-            dairy += +data[i].AllergyTriggerDairy;
-            eggs += +data[i].AllergyTriggerEggs;
-            fish += +data[i].AllergyTriggerFish;
-            nuts += +data[i].AllergyTriggerNuts;
-            soy += +data[i].AllergyTriggerSoy;
-            sweets += +data[i].AllergyTriggerSweets;
-            wheat += +data[i].AllergyTriggerWheat;
+            dairy = dairy + +(data[i].AllergyTriggerDairy);
+            eggs = eggs + +(data[i].AllergyTriggerEggs);
+            fish = fish + +(data[i].AllergyTriggerFish);
+            nuts = nuts + +(data[i].AllergyTriggerNuts);
+            soy = soy + +(data[i].AllergyTriggerSoy);
+            sweets = sweets + +(data[i].AllergyTriggerSweets);
+            wheat = wheat + +(data[i].AllergyTriggerWheat);
         }
         allergyArr.push(dairy, eggs, fish, nuts, soy, sweets, wheat);
         return allergyArr;
