@@ -10,6 +10,7 @@ body, html {
     /* background-repeat: no-repeat; */
     background-size: cover;
     background-attachment: fixed;
+    padding-top: 30px;
 }
 
 .mainSurveyArea {
@@ -37,8 +38,17 @@ body, html {
 }
 
 .nav-link {
-    color: white !important;
+    color:white !important;
+    font-weight:bold;
     opacity: 1;
+    font-family: "MedSight Font";
+}
+
+.navbar-nav {
+    border-radius:20px;
+    background-color:rgba(83,16,126,.7);
+    width:10%;
+    padding-left: 1%;
 }
 
 #navbarNav {
@@ -47,6 +57,9 @@ body, html {
     border-radius: 15px;
     width: 20%;
     
+}
+button:focus {
+    outline: 5px auto #FFC107;
 }
 
 .fa-bars {
@@ -164,10 +177,93 @@ body, html {
   
 /* --------------------------- clickable image styling end ---------------------------- */
 /* --------------------------- Card Block Styling Start ---------------------------- */
-#cardBlocks{
+.cardBlocks{
     margin-bottom: 10px;
+    background: rgba(255,255,255,0.9);
+    border-radius: 45px;
+    padding: 2% 4% 2% 4%;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #420b56; 
 }
-/* --------------------------- Card Block Styling Start ---------------------------- */
+#false {
+    visibility: hidden;
+}
+.allergyIconsCards {
+    height: 40px;
+    width: 40px;
+}
+#cardText{
+    margin-left: -15%;
+}
+.cardHeader {
+    font-family: "MedSight Font";
+    font-weight: bold;
+}
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu .dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -1px;
+    color:white !important;
+    font-weight:bold;
+    opacity: 1;
+    font-family: "MedSight Font";
+}
+.dropdown-menu {
+    color:white !important;
+    font-weight:bold;
+    opacity: 1;
+    font-family: "MedSight Font";
+    background-color: #420b56;
+    stroke: white;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    padding: 10px 15px 10px 15px;
+}
+.dropdown-toggle {
+    background-color: #420b56;
+    stroke: white;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    padding: 10px 15px 10px 15px;
+    font-family: "MedSight Font";
+    color:white !important;
+}
+.level-link {
+    color:white !important;
+    font-weight:bold;
+    opacity: 1;
+    font-family: "MedSight Font";
+}
+.test {
+    color:white !important;
+    font-weight:bold;
+    opacity: 1;
+    font-family: "MedSight Font"
+}
+.level-section {
+    background: rgba(255,255,255,0.9);
+    border-radius: 45px;
+    padding: 2% 4% 2% 4%;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #420b56;
+    margin: auto;
+    height: auto;
+    width: 800px;
+}
+/* --------------------------- Card Block Styling End ---------------------------- */
+
+/* --------------------- Our Story Page styling start  -------------------- */
+#cardSection {
+    margin: auto;
+    padding: 30px 0 30px 0;
+}
+
 .storyCard {
     background: rgba(255,255,255,0.9);
     border-radius: 45px;
@@ -176,6 +272,11 @@ body, html {
     border-width: 5px;
     border-style: solid;
     border-color: #420b56;
+}
+
+.card-img-top {
+    margin-top: 5px;
+    border-radius: 35px;
 }
 
 .btn-primary {
@@ -228,4 +329,3 @@ body, html {
     opacity: 1;
 }
 /* ------------------Welcome Modal Styling End---------------- */
-
