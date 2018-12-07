@@ -104,7 +104,7 @@ $(document).ready(function() {
     function buildAllergyArr(data){
         //reset allergy array on each call
         console.log('initial allergy arr value', allergyArr);
-        // var allergyArr = [];
+        var allergyArr = [];
         console.log('check pie array data object: ', data)
         console.log('check reset array: ', allergyArr);
         for(i=0; i < data.length; i++){
