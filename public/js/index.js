@@ -1,11 +1,6 @@
-<<<<<<< HEAD
-// ========= BEGIN ACCUWEATHER/GEOLOCATION CALL ========== //
-
-=======
 // ========= BEGIN GEOLOCATION ========== //
 var pollenValue = "";
 var airQualVal = "";
->>>>>>> b156c83d86e7d2406daffcc16d924ed8c451620d
 $(document).ready(function() {
   var x = document.getElementById("autoLocation");
 
@@ -13,22 +8,6 @@ $(document).ready(function() {
   function getLocation() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function(data) {
-<<<<<<< HEAD
-        $.ajax({
-          url:
-            "http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=7a4dhv24Cy3KXKLaJ7jh5g0EAPhGjmit&q=" +
-            data.coords.latitude +
-            "%2C" +
-            data.coords.longitude +
-            "&details=true&toplevel=true",
-          method: "GET"
-        }).done(function(data) {
-          console.log(data.LocalizedName);
-          getCurrentConditions(data.Key);
-          getAirAndPollen(data.Key);
-          //append LocalizedName to page
-          $("#autoLocation").append(data.LocalizedName + ", " + data.AdministrativeArea.ID);
-=======
         
         //ajax request -- hit /weather route
         $.ajax({
@@ -44,7 +23,6 @@ $(document).ready(function() {
           $("#autoTime").append(data.sampledDataTime);
           pollenValue = data.pollenLevelValue;
           airQualVal = data.airQualityValue;
->>>>>>> b156c83d86e7d2406daffcc16d924ed8c451620d
         });
       });
     } else {

@@ -254,9 +254,6 @@ button:focus {
     width: 800px;
 }
 /* --------------------------- Card Block Styling End ---------------------------- */
-<<<<<<< HEAD
-/* --------------------- Our Story Page styling start  -------------------- */
-=======
 
 /* --------------------- Our Story Page styling start  -------------------- */
 #cardSection {
@@ -264,7 +261,6 @@ button:focus {
     padding: 30px 0 30px 0;
 }
 
->>>>>>> b156c83d86e7d2406daffcc16d924ed8c451620d
 .storyCard {
     background: rgba(255,255,255,0.9);
     border-radius: 45px;
@@ -296,8 +292,4 @@ button:focus {
     color: white;
     opacity: 0.6;
 } */
-<<<<<<< HEAD
-=======
-
->>>>>>> b156c83d86e7d2406daffcc16d924ed8c451620d
 /* --------------------- Our Story Page styling end  -------------------- */
