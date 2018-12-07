@@ -37,18 +37,18 @@ module.exports = function(sequelize, DataTypes) {
     },
     PainLocationMuscular: {
       type: DataTypes.STRING,
-      allowNull: true,
-      defaultValue: null
+      allowNull: false,
+      defaultValue: "none"
     },
     PainLocationSkeletal: {
       type: DataTypes.STRING,
-      allowNull: true,
-      defaultValue: null
+      allowNull: false,
+      defaultValue: "none"
     },
     PainLocationEpidermis: {
       type: DataTypes.STRING,
-      allowNull: true,
-      defaultValue: null
+      allowNull: false,
+      defaultValue: "none"
     },
     SliderStressSlider: {
       type: DataTypes.DECIMAL,
