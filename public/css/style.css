@@ -49,8 +49,8 @@ body, html {
 li.nav-item:hover {
     background-color: #420b56;
     border-radius: 20px;
-    border-color: #FFC107;
-    border-style: solid 1px;
+    border-color: #FFC107 !important;
+    border: solid 2px;
 }
 
 .navbar-nav {
