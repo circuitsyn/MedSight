@@ -14,6 +14,39 @@ $(document).ready(function() {
     var sweets = 0;
     var wheat = 0;
 
+    //function to animate the change in data once update is clicked
+    function pieChartShift() {
+        getRefinedAllergyData();
+        Plotly.animate('pieChartAllergy', {
+          data: [{values: allergyArr}],
+          traces: [0],
+          layout: {}
+        }, {
+          transition: {
+            duration: 500,
+            easing: 'cubic-in-out'
+          },
+          frame: {
+            duration: 500
+          }
+        })
+      }
+
+    //function to get refined pie chart allergy data
+    function getRefinedAllergyData(){
+        console.log("Symptom Range: ", $('#symptomRange').val().trim());
+        var value = +$('#symptomRange').val().trim();
+        // console.log("api/cards/"+value)
+    $.get("api/cards/" + value, function(data) {
+        // console.log('data from call: ', data);
+        buildAllergyArr(data);
+        // }).then(function() {
+        console.log("Limited Allergy Array: ", allergyArr);
+        // });
+        });
+        return allergyArr;
+    };
+
     //function to get data and launch air quality and pollen bar graph
     function launchAirPollenGraph(){
         $.get("/api/cards", function(data) {
@@ -74,7 +107,10 @@ $(document).ready(function() {
 
     //function to build allergy trigger totals for pie chart
     function buildAllergyArr(data){
-        
+        console.log('Data inside limited allergy', data,allergyArr);
+        //reset allergy array on each call
+        allergyArr=[];
+
         for(i=0; i < data.length; i++){
 
             dairy += +data[i].AllergyTriggerDairy;
@@ -342,6 +378,14 @@ $(document).ready(function() {
     launchHumidScatter();
     launchAirPollenGraph();
 
-    //--------------------- Button listeners ------------------------- //
-    //Allergy
+    //--------------------- Button listeners Start ------------------------- //
+    //Pie Chart Update Button Listener
+    $('#pieUpdate').on("click", function(e){
+        e.preventDefault();
+        pieChartShift();
+      });
+
+
+    //--------------------- Button listeners End ------------------------- //
+    
 });

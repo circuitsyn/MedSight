@@ -44,13 +44,13 @@ module.exports = function(app) {
     });
   });
   // Choose cards by ID
-  app.get("/cards/:id", function(req, res) {
-    db.MedSightData.findOne({ where: { id: req.params.id } }).then(function(dbMedsightdata) {
-      res.render("partials/cards-single", {
-        medsightdata: dbMedsightdata
-      });
-    });
-  });
+  // app.get("/cards/:id", function(req, res) {
+  //   db.MedSightData.findOne({ where: { id: req.params.id } }).then(function(dbMedsightdata) {
+  //     res.render("partials/cards-single", {
+  //       medsightdata: dbMedsightdata
+  //     });
+  //   });
+  // });
   // Load Our Story page
   app.get("/ourstory/", function(req, res) {
     db.MedSightData.findAll({}).then(function(dbMedsightdata) {
@@ -64,13 +64,4 @@ module.exports = function(app) {
     res.render("partials/404");
   });
 
-  //------------------- Dashboard HTML Routes ------------------------//
-  //
-  app.get("/cards/:symp", function(req, res) {
-    db.MedSightData.findOne({ where: { SympIntensitySlider:{ [Op.gt]: req.params.symp,} } }).then(function(dbMedsightdata) {
-      res.render("partials/cards-single", {
-        medsightdata: dbMedsightdata
-      });
-    });
-  });
 };
