@@ -1,4 +1,6 @@
 var db = require("../models");
+var Sequelize = require("sequelize");
+const Op = Sequelize.Op;
 
 module.exports = function(app) {
   // Get all cards
@@ -91,4 +93,14 @@ module.exports = function(app) {
       res.json(dbMedsightdata);
     });
   });
+
+  //------------------- Dashboard API Routes ------------------------//
+  app.get("/api/cards/:id", function(req, res) {
+    db.MedSightData.findAll({ where: { SymptomIntensitySlider: {[Op.gt]: req.params.id}} }).then(function(dbMedsightdata) {
+      res.json(dbMedsightdata);
+      });
+    
+  });
+
 };
+

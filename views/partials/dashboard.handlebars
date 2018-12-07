@@ -1,31 +1,33 @@
-<div class="container mainSurveyArea mt-2 mb-2">
+<div class="container mainDashboardArea mt-5 mb-2">
 
 {{!-- Pain vs Stress Line Graph --}}
     <div class="row">
-        <div id="lineGraphPainStress">
+        <div id="lineGraphPainStress" class="svg-container">
 
         </div>
     </div>
-
 
 {{!-- Allergy Pie Chart Based on Pain Threshold --}}
-    <div class="row">
-        <div id="pieChartAllergy">
+    <div class="row d-flex justify-content-center">
+        <div id="pieChartAllergy" class="svg-container"></div>
 
-        </div>
+        <!-- Intensity Level Slider -->
+        <input id="symptomRange" class="slider mt-2 mb-2 ml-5 mr-3 sliderDash" type="range" min="0" max="10" value="0" data-slider-id="intensityRangeId">
+
+        {{!-- Update Button --}}
+        <button id="pieUpdate" type="button" class="btn btn-warning">Update!</button>
     </div>
-
 
 {{!-- Scatter Plot of Pain Values Mapped Across Humidity --}}
     <div class="row">
-        <div id="scatterPlotHumid">
+        <div id="scatterPlotHumid" class="svg-container">
 
         </div>
     </div>
 
 {{!-- Air Quality Crossed With Pain --}}
     <div class="row">
-        <div id="airQualVsSymp">
+        <div id="airQualVsSymp" class="svg-container">
 
         </div>
     </div>
@@ -36,17 +38,6 @@
 
         </div>
     </div>
-
-
-
-
-
-
-
-
-
-
-
 
 </div>
 

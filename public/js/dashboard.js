@@ -14,6 +14,36 @@ $(document).ready(function() {
     var sweets = 0;
     var wheat = 0;
 
+    //function to animate the change in data once update is clicked
+    function pieChartShift() {
+        getRefinedAllergyData(allergyArr);
+        console.log('refined pie data: ',allergyArr )
+        Plotly.animate('pieChartAllergy', {
+          data: [{values: allergyArr}],
+          traces: [0],
+          layout: {}
+        }, {
+          transition: {
+            duration: 500,
+            easing: 'cubic-in-out'
+          },
+          frame: {
+            duration: 500
+          }
+        })
+      };
+
+    //function to get refined pie chart allergy data
+    function getRefinedAllergyData(allergyArr){
+        
+        var value = +$('#symptomRange').val().trim();
+        
+    $.get("/api/cards/" + value, function(data) {
+        buildAllergyArr(data);
+        });
+        return allergyArr;
+    };
+
     //function to get data and launch air quality and pollen bar graph
     function launchAirPollenGraph(){
         $.get("/api/cards", function(data) {
@@ -39,8 +69,6 @@ $(document).ready(function() {
         for(i=0; i < data.length; i++){
             airArr.push(data[i].AirQualityIndex);
         }
-        console.log('Pollen Array: ', pollArr);
-        console.log('AirQ Array: ', airArr);
 
         return pollArr, airArr;
     };
@@ -74,19 +102,21 @@ $(document).ready(function() {
 
     //function to build allergy trigger totals for pie chart
     function buildAllergyArr(data){
-        
+        //reset allergy array on each call
+        allergyArr.length = 0;
+        console.log('check pie array data object: ', data)
+        console.log('check reset array: ', allergyArr);
         for(i=0; i < data.length; i++){
 
-            dairy += +data[i].AllergyTriggerDairy;
-            eggs += +data[i].AllergyTriggerEggs;
-            fish += +data[i].AllergyTriggerFish;
-            nuts += +data[i].AllergyTriggerNuts;
-            soy += +data[i].AllergyTriggerSoy;
-            sweets += +data[i].AllergyTriggerSweets;
-            wheat += +data[i].AllergyTriggerWheat;
+            dairy = dairy + +(data[i].AllergyTriggerDairy);
+            eggs = eggs + +(data[i].AllergyTriggerEggs);
+            fish = fish + +(data[i].AllergyTriggerFish);
+            nuts = nuts + +(data[i].AllergyTriggerNuts);
+            soy = soy + +(data[i].AllergyTriggerSoy);
+            sweets = sweets + +(data[i].AllergyTriggerSweets);
+            wheat = wheat + +(data[i].AllergyTriggerWheat);
         }
         allergyArr.push(dairy, eggs, fish, nuts, soy, sweets, wheat);
-        console.log("Allergy Sum Array: ", allergyArr);
         return allergyArr;
     }
     
@@ -111,7 +141,6 @@ $(document).ready(function() {
             cutTime = data[i].TimeStamp.slice(0, 23);
             timeArr.push(cutTime);
         }
-        console.log('Time Array: ', timeArr);
         return timeArr;
     };
     
@@ -131,8 +160,6 @@ $(document).ready(function() {
         for(i=0; i < data.length; i++){
             sympArr.push(data[i].SymptomIntensitySlider);
         }
-        console.log('Stress Array: ', stressArr);
-        console.log('Symp Array: ', sympArr);
 
         return sympArr, stressArr;
     };
@@ -195,10 +222,10 @@ $(document).ready(function() {
               }
         }
         
-        Plotly.newPlot('lineGraphPainStress', data, layout);
-    }
-    
-    //----------- Allergy Pie Chart Based on Pain Threshold Function --------------//
+        Plotly.newPlot('lineGraphPainStress', data, layout, {responsive: true, displayModeBar: false});
+    };
+        
+    //-------- Allergy Pie Chart Based on Pain Threshold Function --------------//
     function allergyPie(allergyArr){
         
     var data = [{
@@ -213,15 +240,13 @@ $(document).ready(function() {
             family: 'MedSight Font, monospace',
             size: 25,
             color: '#420b56'
-        },
-        
+        },  
     }
 
-    Plotly.newPlot('pieChartAllergy', data, layout);
-
-    };
- 
-    // --------------- Humidity Scatter Plot -------------------------- //
+    Plotly.newPlot('pieChartAllergy', data, layout, {responsive: true, displayModeBar: false});
+};
+    
+    //------------ Humidity Scatter Plot -------------------------- //
     function humidScatter(sympArr, humidArr) {
         var trace1 = {
             x: sympArr,
@@ -268,12 +293,12 @@ $(document).ready(function() {
                 size: 25,
                 color: '#420b56'
             },
-        };
+            };
         
-        Plotly.newPlot('scatterPlotHumid', data, layout);
+        
+        Plotly.newPlot('scatterPlotHumid', data, layout, {responsive: true, displayModeBar: false});
     };
-
-    // ----------------------- Pollen and Air Quality Dual Bar Graph ---------------- //
+        //------------------ Pollen and Air Quality Dual Bar Graph ---------------- //
 
     function pollAirBarGraph(sympArr, pollArr, airArr){
         var trace1 = {
@@ -332,7 +357,7 @@ $(document).ready(function() {
             bargroupgap: 0.1
         };
         
-        Plotly.newPlot('airQualVsSymp', data, layout);
+        Plotly.newPlot('airQualVsSymp', data, layout, {responsive: true, displayModeBar: false});
     };
 
     //Start Drawing Graphs
@@ -341,4 +366,13 @@ $(document).ready(function() {
     launchHumidScatter();
     launchAirPollenGraph();
 
-});
+    //--------------------- Button listeners Start ------------------------- //
+    //Pie Chart Update Button Listener
+    $('#pieUpdate').on("click", function(e){
+        e.preventDefault();
+        pieChartShift();
+      });
+
+
+    //--------------------- Button listeners End ------------------------- //
+   });

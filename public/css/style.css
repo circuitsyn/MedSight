@@ -297,10 +297,33 @@ button:focus {
     opacity: 0.6;
 } */
 
-/* --------------------- Our Story Page styling start  -------------------- */
-
-
 /* --------------------- Our Story Page styling end  -------------------- */
+/* --------------------- Dashboard Styling Start ------------------------ */
+.svg-container { 
+	display: inline-block;
+	position: relative;
+	width: 100%;
+	/* padding-bottom: 100%;  */
+	vertical-align: middle; 
+	overflow: hidden; 
+}
+
+.mainDashboardArea {
+    background: rgba(255,255,255,1);
+    border-radius: 45px;
+    padding: 2% 4% 2% 4%;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #420b56; 
+}
+
+.sliderDash {
+    width: 75%;
+}
+
+
+/* --------------------- Dashboard Styling End ------------------------ */
+
 /* ------------------Welcome Modal Styling Start---------------- */
 .modal{
     color: white;
