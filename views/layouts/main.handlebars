@@ -20,6 +20,9 @@
 
     <!-- PlotlyJS -->
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+    {{!-- Animate On Scroll library --}}
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 
 <body>
@@ -75,6 +78,10 @@
       </div>
         
   {{{body}}}
+   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 </body>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

@@ -33,6 +33,23 @@ $(document).ready(function() {
 });
 // ========== END GEOLOCATION ========= //
 
+// ========== BEGIN QUOTE OF THE DAY ========== 
+   function getQuote() { 
+     var queryUrl = "http://quotes.rest/qod/"
+    $.ajax({
+      url: queryUrl,
+      method: "GET"
+    }).done(function(data) {
+      var quote = data.contents.quotes[0].quote;
+      var author = data.contents.quotes[0].author
+      console.log("quote:", data.contents.quotes[0].quote);
+      console.log("author:", data.contents.quotes[0].author);
+      $("#healthFact").append(quote);
+      $("#quoteAuthor").append(author);
+      });
+    }
+  getQuote();
+
 // ---------- Beginning of New, Edit, and Delete submissions ------------- //
 // Get references to page elements
 var muscularQ = $("#muscularQ");
