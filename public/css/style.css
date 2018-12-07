@@ -313,4 +313,9 @@ button:focus {
     border-color: #420b56; 
 }
 
-/* --------------------- Dashboard Styling Start ------------------------ */
+.sliderDash {
+    width: 75%;
+}
+
+
+/* --------------------- Dashboard Styling End ------------------------ */

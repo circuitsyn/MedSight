@@ -7,22 +7,16 @@
         </div>
     </div>
 
-
 {{!-- Allergy Pie Chart Based on Pain Threshold --}}
-    <div class="row">
-        <div id="pieChartAllergy" class="svg-container">
+    <div class="row d-flex justify-content-center">
+        <div id="pieChartAllergy" class="svg-container"></div>
 
-            <!-- Intensity Level Slider -->
-            <div class="row mb-3 mt-2">
-                <div class="slidecontainer">
-                    <input id="symptomRange" class="slider" type="range" min="0" max="10" value="0" data-slider-id="intensityRangeId">
-                </div>
-            </div>
-            {{!-- Update button for symptom intensity --}}
-            <button id="pieUpdate" type="button" class="btn btn-warning">Update!</button>
-        </div>
+        <!-- Intensity Level Slider -->
+        <input id="symptomRange" class="slider mt-2 mb-2 ml-5 mr-3 sliderDash" type="range" min="0" max="10" value="0" data-slider-id="intensityRangeId">
+
+        {{!-- Update Button --}}
+        <button id="pieUpdate" type="button" class="btn btn-warning">Update!</button>
     </div>
-
 
 {{!-- Scatter Plot of Pain Values Mapped Across Humidity --}}
     <div class="row">
