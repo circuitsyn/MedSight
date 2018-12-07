@@ -276,17 +276,18 @@ button:focus {
     border-radius: 35px;
 }
 
-.btn-primary {
-    color: #212529;
+.btn-warning {
+    color: #420b56;
+    font-weight: bold;
     background: #ffc107;
     border-color: #ffc107;
 }
 
-.btn-primary:hover {
+/* .btn-primary:hover {
     color: #212529;
     background: #a38523;
     border-color: #a38523;
-}
+} */
 
 /* .btn-primary:hover {
     color: white;
