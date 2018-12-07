@@ -1,4 +1,6 @@
 var db = require("../models");
+var Sequelize = require("sequelize");
+const Op = Sequelize.Op;
 
 module.exports = function(app) {
   // Get all cards
@@ -72,10 +74,33 @@ module.exports = function(app) {
   });
   // ========== END WEATHER DATA CALL =========
 
+  // // ========== BEGIN QUOTE OF THE DAY API CALL ==========
+  // app.post("/api/quotes/", function(req, res) {
+  //   console.log(req.params);
+  //   var request = require("request");
+  //   var queryUrl = "http://quotes.rest/qod/categories";
+  //   request(queryUrl, function(error, response, body) {
+  //     var body = JSON.parse(body);
+  //     console.log(body);
+  //   });
+  // });
+
+  // // ========== END QUOTE OF THE DAY CALL ==========
+
   // Create a new card
   app.post("/api/cards", function(req, res) {
     db.MedSightData.create(req.body).then(function(dbMedsightdata) {
       res.json(dbMedsightdata);
     });
   });
+
+  //------------------- Dashboard API Routes ------------------------//
+  app.get("/api/cards/:id", function(req, res) {
+    db.MedSightData.findAll({ where: { SymptomIntensitySlider: {[Op.gt]: req.params.id}} }).then(function(dbMedsightdata) {
+      res.json(dbMedsightdata);
+      });
+    
+  });
+
 };
+

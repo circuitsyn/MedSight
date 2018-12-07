@@ -25,6 +25,9 @@ body, html {
 .titleFont {
     text-align: center;
 }
+/* .btn-secondary{
+    background-color: #420b56; 
+} */
 
 .navbar-toggler {
     background-color: #420b56;
@@ -276,17 +279,18 @@ button:focus {
     border-radius: 35px;
 }
 
-.btn-primary {
-    color: #212529;
+.btn-warning {
+    color: #420b56;
+    font-weight: bold;
     background: #ffc107;
     border-color: #ffc107;
 }
 
-.btn-primary:hover {
+/* .btn-primary:hover {
     color: #212529;
     background: #a38523;
     border-color: #a38523;
-}
+} */
 
 /* .btn-primary:hover {
     color: white;
@@ -294,3 +298,58 @@ button:focus {
 } */
 
 /* --------------------- Our Story Page styling end  -------------------- */
+/* --------------------- Dashboard Styling Start ------------------------ */
+.svg-container { 
+	display: inline-block;
+	position: relative;
+	width: 100%;
+	/* padding-bottom: 100%;  */
+	vertical-align: middle; 
+	overflow: hidden; 
+}
+
+.mainDashboardArea {
+    background: rgba(255,255,255,1);
+    border-radius: 45px;
+    padding: 2% 4% 2% 4%;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #420b56; 
+}
+
+.sliderDash {
+    width: 75%;
+}
+
+
+/* --------------------- Dashboard Styling End ------------------------ */
+
+/* ------------------Welcome Modal Styling Start---------------- */
+.modal{
+    color: white;
+    font-family: "MedSight Font";
+}
+.fade {
+    background-color:#420b56;
+    opacity: .9;
+}
+.modal-content{
+    background-color: #420b56;
+    border: 1px solid rgba(0,0,0,0);
+    font-size:25px;
+}
+#welcome-title{
+    font-size: 70px;
+}
+#logo{
+    border-radius: 20px;
+    margin-top:40px;
+}
+.modal-footer {
+    border-top: 1px solid rgba(0, 0, 0, 0);
+}
+.modal-body{
+    border-top: 3px solid rgba(255, 193, 7, 1);
+    opacity: 1;
+}
+/* ------------------Welcome Modal Styling End---------------- */
