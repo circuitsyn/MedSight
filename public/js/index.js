@@ -129,6 +129,7 @@ var handleFormSubmit = function(event) {
     $('#validator').modal('toggle');
     return;
   }
+
   // Add our new card
   API.saveCard(medsightdata).then(function() {
     // Goes to cards page after submission
