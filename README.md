@@ -1,13 +1,14 @@
-# MedSight 
 ![MedSight_Logo](public/assets/images/readMeLogo.PNG)
 
-Often the biggest problem with health is it is difficult to track and follow what is really going on. We can’t understand what is really happening in the 4th dimension. By 4th dimension, we mean time. Cannot recall what was eaten, where we were, and some of the more nuianced influencese, such as what the weather conditions were and a myriad of other items going on at the time. 
+## MedSight
+
+>Often the biggest problem with health is it is difficult to track and follow what is really going on. We can’t understand what is really happening in the 4th dimension. By 4th dimension, we mean time. Cannot recall what was eaten, where we were, and some of the more nuianced influencese, such as what the weather conditions were and a myriad of other items going on at the time. 
 __Welcome MedSight!__
 
-Since our health is a cumulative endeavor, we strive to make accessibility and ease the forefront of focus for our application.
+>Since our health is a cumulative endeavor, we strive to make accessibility and ease the forefront of focus for our application.
 
 ## Submit New Card
->On the landing page is a greeting Quote of the Day and a blank card to fillin with symptoms experiences, as well as the autofill information about outside information, specific to the user and their location ( such as pollution, pollen count, temperature, and humidity).
+>On the landing page is a greeting Quote of the Day and a blank card to fill in with symptoms experiences, as well as the automatically generated information about outside information, specific to the user and their location (such as pollution, pollen count, temperature, and humidity).
 
 ![Clear_Card](public/assets/images/clearcard.png)
 
