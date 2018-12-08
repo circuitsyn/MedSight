@@ -113,7 +113,7 @@ module.exports = function(app) {
           res.end("error");
         }else{
           console.log("Message sent: " + response.message);
-          res.end("sent");
+          res.render("partials/story");
         }
     });
   });

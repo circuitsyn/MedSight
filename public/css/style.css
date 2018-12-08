@@ -269,7 +269,6 @@ button:focus {
     border-color: #420b56;
     margin: auto;
     height: auto;
-    width: 800px;
 }
 /* --------------------------- Card Block Styling End ---------------------------- */
 
@@ -307,8 +306,9 @@ button:focus {
 
 .card-title-ourStory {
     font-family: "MedSight Font";
-    font-size: 95px;
-    font-weight: bolder
+    font-size: 75px;
+    font-weight: bolder;
+    margin: 10px;
 }
 
 .ourStoryBodyImages {
@@ -321,6 +321,7 @@ button:focus {
 
 .ourStoryText {
     font-size: 30px;
+    margin: 10px;
 }
 
 /* --------------------- Our Story Page styling end  -------------------- */
