@@ -72,6 +72,7 @@ module.exports = function(app) {
       });
     });
   });
+  // ========== END WEATHER DATA CALL =========
 
   // Create a new card
   app.post("/api/cards", function(req, res) {
