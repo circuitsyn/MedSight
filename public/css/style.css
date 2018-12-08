@@ -295,21 +295,24 @@ button:focus {
     border-color: #ffc107;
 }
 
+.card-title, .mainLine {
+    font-family: "MedSight Font";
+}
+
 .card-title-ourStory {
     font-family: "MedSight Font";
-    font-size: 40px;
-    font-weight: bold
+    font-size: 95px;
+    font-weight: bolder
 }
-/* .btn-primary:hover {
-    color: #212529;
-    background: #a38523;
-    border-color: #a38523;
-} */
 
-/* .btn-primary:hover {
-    color: white;
-    opacity: 0.6;
-} */
+.ourStoryBodyImages {
+    border-radius: 35px;
+    margin: auto;
+}
+
+.ourStoryText {
+    font-size: 30px;
+}
 
 /* --------------------- Our Story Page styling end  -------------------- */
 /* --------------------- Dashboard Styling Start ------------------------ */
