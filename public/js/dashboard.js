@@ -14,7 +14,7 @@ $(document).ready(function() {
     var sweets = 0;
     var wheat = 0;
 
-    //function to animate the change in data once update is clicked
+    //function to animate the change in pie chart data once update is clicked
     function pieChartShift() {
         getRefinedAllergyData(allergyArr);
         
@@ -254,8 +254,8 @@ $(document).ready(function() {
             color: '#420b56'
         },  
         showlegend: true,
-        legend: {x: 0,
-            y: 0,
+        legend: {x: 0.15,
+            y: -0.1,
             "orientation": "h",}
     }
 
@@ -369,7 +369,7 @@ $(document).ready(function() {
             },
             showlegend: true,
             legend: {x: 0.37,
-                y: -0.05,
+                y: -0.03,
             "orientation": "h",
             bgcolor: 'rgba(255, 255, 255, 0)',
             bordercolor: 'rgba(255, 255, 255, 0)'
@@ -394,7 +394,6 @@ $(document).ready(function() {
         e.preventDefault();
         pieChartShift();
       });
-
 
     //--------------------- Button listeners End ------------------------- //
    });
