@@ -157,8 +157,18 @@ $(".quiz-answer").click(function() {
 
 // ---------------- Event Listener Section for Clickable Images End ------------------------- //
 // =========Modal Show on Page Load Start =====================//
+//if statement to check if a locally stored value is true to see if someone visited
+if (window.localStorage.getItem('visited') === true){
+  console.log("Thanks for being a repeat visitor!")
+}
+else {
+  //set true in order prevent revisiting to pop up
+  window.localStorage.setItem('visited', true);
 
-$(window).on("load", function() {
-  $("#welcomeModal").modal("show");
-});
+  //trigger landing modal
+  $(window).on("load", function() {
+    $("#welcomeModal").modal("show");
+  });
+}
+
 // =========Modal Show on Page Load End =====================//

@@ -72,20 +72,6 @@ module.exports = function(app) {
       });
     });
   });
-  // ========== END WEATHER DATA CALL =========
-
-  // // ========== BEGIN QUOTE OF THE DAY API CALL ==========
-  // app.post("/api/quotes/", function(req, res) {
-  //   console.log(req.params);
-  //   var request = require("request");
-  //   var queryUrl = "http://quotes.rest/qod/categories";
-  //   request(queryUrl, function(error, response, body) {
-  //     var body = JSON.parse(body);
-  //     console.log(body);
-  //   });
-  // });
-
-  // // ========== END QUOTE OF THE DAY CALL ==========
 
   // Create a new card
   app.post("/api/cards", function(req, res) {
