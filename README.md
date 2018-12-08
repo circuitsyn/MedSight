@@ -7,6 +7,9 @@ __Welcome MedSight!__
 
 >Since our health is a cumulative endeavor, we strive to make accessibility and ease the forefront of focus for our application.
 
+### API's Used
+Weather-- https://www.accuweather.com/
+
 ## Submit New Card
 >On the landing page is a greeting Quote of the Day and a blank card to fill in with symptoms experiences, as well as the automatically generated information about outside information, specific to the user and their location (such as pollution, pollen count, temperature, and humidity).
 
