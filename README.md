@@ -28,3 +28,5 @@ We wanted to take the time and give a brief statement and photo of the creators 
 
 ![Creators_stories](public/assets/images/creators.png)
 
+### Project homepage: https://salty-basin-99417.herokuapp.com
+### Repository: https://github.com/circuitsyn/MedSight
