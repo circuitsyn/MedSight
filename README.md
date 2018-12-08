@@ -3,12 +3,20 @@
 ## MedSight
 
 >Often the biggest problem with health is it is difficult to track and follow what is really going on. We can’t understand what is really happening in the 4th dimension. By 4th dimension, we mean time. Cannot recall what was eaten, where we were, and some of the more nuianced influencese, such as what the weather conditions were and a myriad of other items going on at the time. 
-__Welcome MedSight!__
+__Welcome  to MedSight!__
 
 >Since our health is a cumulative endeavor, we strive to make accessibility and ease the forefront of focus for our application.
 
-### API's Used
-Weather-- https://www.accuweather.com/
+### Technology Used
+- Weather-- https://www.accuweather.com/
+- Daily Quotes -- https://quotes.rest/
+- Graphs --https://plot.ly/javascript/
+- Animations --https://michalsnik.github.io/aos/
+- Contact Us Email --https://nodemailer.com/about/
+- Travis --https://docs.travis-ci.com/user/apps/
+- Moment.js --https://momentjs.com/
+- NPM Packages: Dotenv, Express, Express-handlebars, Mysql, Mysql2, Request, Sequelize, ESLint
+
 
 ## Submit New Card
 >On the landing page is a greeting Quote of the Day and a blank card to fill in with symptoms experiences, as well as the automatically generated information about outside information, specific to the user and their location (such as pollution, pollen count, temperature, and humidity).
