@@ -35,7 +35,7 @@ $(document).ready(function() {
 
 // ========== BEGIN QUOTE OF THE DAY ========== 
    function getQuote() { 
-     var queryUrl = "http://quotes.rest/qod/"
+     var queryUrl = "https://quotes.rest/qod/"
     $.ajax({
       url: queryUrl,
       method: "GET"
@@ -49,6 +49,8 @@ $(document).ready(function() {
       });
     }
   getQuote();
+
+// ======================= END QUOTE OF THE DAY ========================= //  
 
 // ---------- Beginning of New, Edit, and Delete submissions ------------- //
 // Get references to page elements
