@@ -295,6 +295,11 @@ button:focus {
     border-color: #ffc107;
 }
 
+.card-title-ourStory {
+    font-family: "MedSight Font";
+    font-size: 40px;
+    font-weight: bold
+}
 /* .btn-primary:hover {
     color: #212529;
     background: #a38523;
