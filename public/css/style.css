@@ -340,6 +340,10 @@ button:focus {
 	overflow: hidden; 
 }
 
+.dashText {
+    text-align: center;
+}
+
 .mainDashboardArea {
     background: rgba(255,255,255,1);
     border-radius: 45px;
