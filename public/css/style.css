@@ -56,7 +56,7 @@ li.nav-item:hover {
 .navbar-nav {
     border-radius:20px;
     background-color:rgba(83,16,126,.7);
-    width:10%;
+    display: inline-block
     /* padding-left: 1%; */
 }
 
