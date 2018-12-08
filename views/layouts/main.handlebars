@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>MedSight - Landing Page</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="../assets/images/MedSight Logo.PNG" type="image/png" sizes="32x32">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+    <!-- Custom CSS-->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- PlotlyJS -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+    {{!-- Animate On Scroll library --}}
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+
+<body>
+  {{!-- Welcome Modal --}}
+  <div class="modal fade bd-example-modal-lg" id="welcomeModal" tabindex="-1" role="dialog" aria-labelledby="welcome-title" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="welcome-title">Welcome to MedSight</h5>
+      <img id="logo" src="assets/images/MedSight Logo.png">
+      </div>
+      <div class="modal-body">
+      <p>With this application, each user  can consistently track symptoms, severity, location and outside influences affecting day to day quality of life and well being, to take back ownership of their personal health.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-warning btn-lg" data-dismiss="modal">Lets Get Started!</button>
+      </div>
+    </div>
+  </div>
+</div>
+  <!-- NavBar -->
+  <br>
+  <div class="container">
+    <nav class="navbar fixed-top bg-opique navbar-dark navWrap navbar-fixed-bottom">      
+            <!-- Toggler/collapsibe Button -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+              <span><i class="fas fa-bars fa-2x"></i>
+                </span>
+            </button>
+    
+            <!-- Navbar links -->
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link" href="/cards/">Card Submissions</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/">Submit a New Card</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/dashboard/">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/ourstory/">Our Story</a>
+                </li>
+                <li class="nav-item">
+                        <a class="nav-link" href="#">Contact Us</a>
+                </li>
+                
+              </ul>
+            </div> 
+        </nav>
+      </div>
+        
+  {{{body}}}
+   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+</body>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+</html>

@@ -1,0 +1,311 @@
+    <!-- Main Logo Section -->
+    <div class="container mt-0 mb-5">
+        <div class="row">
+            <img class="mainImgArea mb-2" src="assets/images/MedSight Banner - Tighter Crop.png" alt="MedSight">
+        </div>    
+    </div>
+
+
+    <!-- Health Tip Section -->
+    <div class="container healthFactArea mt-2 mb-5">
+        <div class="row mt-2 mb-2 d-flex justify-content-center">
+            <h3><strong>Quote of the Day</strong></h3>
+        </div>
+            <div class="row mt-2 mb-2 d-flex justify-content-center">
+                <h4 id="healthFact"><strong></strong> </h4>
+            </div>
+                <div class="row mt-2 mb-2 d-flex justify-content-center">
+                    <h5 id="quoteAuthor"></h5>
+                </div>    
+            </div>
+
+    <!-- Main Survey Question Area -->
+    <div class="container mainSurveyArea mt-2 mb-2">
+        
+
+    <!-- Intro instructions -->
+    <div class="row">
+        <h2 class="d-flex align-items-center mt-4 titleFont">
+            Make sure to fill your card out to completion so we can get you the best results over time!
+        </h2>
+    </div>
+    <hr>
+
+    <!-- Questions -->
+    <!--Pain Location Section Start-->
+    <!-- Muscle Pain -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h4>Pain Selection Location:</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <p>Click to select type and pain location.</p>   
+            </div>
+        </div>        
+        
+        <div class="row mt-2 mb-2 d-flex justify-content-center">
+            
+            <div class="row mt-2 mb-4">
+                <div class="col-md-4">
+
+                    {{!-- <h6>Muscular Pain:</h6> --}}
+                    
+                    <select id="muscularQ" class="custom-select" style="width: 220px">
+                        <option value="none">Muscular Pain Locations</option>
+                        <option value="Ankle">Muscular Pain: Ankle</option>
+                        <option value="Back">Muscular Pain: Back</option>
+                        <option value="Bicep">Muscular Pain: Bicep</option>
+                        <option value="Calf">Muscular Pain: Calf</option>
+                        <option value="Chest">Muscular Pain: Chest</option>
+                        <option value="Elbow">Muscular Pain: Elbow </option>
+                        <option value="Face">Muscular Pain: Face</option>
+                        <option value="Feet">Muscular Pain: Feet</option>
+                        <option value="Fingers">Muscular Pain: Fingers</option>
+                        <option value="Hands">Muscular Pain: Hands</option>
+                        <option value="Head">Muscular Pain: Head</option>
+                        <option value="Knuckles">Muscular Pain: Knuckles</option>
+                        <option value="Neck">Muscular Pain: Neck</option>
+                        <option value="Nose">Muscular Pain: Nose</option>
+                        <option value="Shin">Muscular Pain: Shin</option>
+                        <option value="Thigh">Muscular Pain: Thigh</option>
+                        <option value="Tricep">Muscular Pain: Tricep</option>
+                    </select>
+                </div>
+
+                <!-- Skeletal Pain-->
+                <div class="col-md-4">
+
+                    {{!-- <h6>Skeletal Pain:</h6> --}}
+                    
+                    <select id="skeletalQ" class="custom-select" style="width: 220px">
+                        <option value="none">Skeletal Pain Locations</option>
+                        <option value="Ankle">Skeletal Pain: Ankle</option>
+                        <option value="Back">Skeletal Pain: Back</option>
+                        <option value="Bicep">Skeletal Pain: Bicep</option>
+                        <option value="Calf">Skeletal Pain: Calf</option>
+                        <option value="Chest">Skeletal Pain: Chest</option>
+                        <option value="Elbow">Skeletal Pain: Elbow </option>
+                        <option value="Face">Skeletal Pain: Face</option>
+                        <option value="Feet">Skeletal Pain: Feet</option>
+                        <option value="Fingers">Skeletal Pain: Fingers</option>
+                        <option value="Hands">Skeletal Pain: Hands</option>
+                        <option value="Head">Skeletal Pain: Head</option>
+                        <option value="Knuckles">Skeletal Pain: Knuckles</option>
+                        <option value="Neck">Skeletal Pain: Neck</option>
+                        <option value="Nose">Skeletal Pain: Nose</option>
+                        <option value="Shin">Skeletal Pain: Shin</option>
+                        <option value="Thigh">Skeletal Pain: Thigh</option>
+                        <option value="Tricep">Skeletal Pain: Tricep</option>
+                    </select>
+                </div>
+
+                <!-- Epidermis Pain-->
+                <div class="col-md-4">
+
+                    {{!-- <h6>Epidermis Pain:</h6> --}}
+                                
+                    <select id="epidermisQ" class="custom-select" style="width: 220px">
+                        <option value="none">Epidermis Pain Locations</option>
+                        <option value="Ankle">Epidermis Pain: Ankle</option>
+                        <option value="Back">Epidermis Pain: Back</option>
+                        <option value="Bicep">Epidermis Pain: Bicep</option>
+                        <option value="Calf">Epidermis Pain: Calf</option>
+                        <option value="Chest">Epidermis Pain: Chest</option>
+                        <option value="Elbow">Epidermis Pain: Elbow </option>
+                        <option value="Face">Epidermis Pain: Face</option>
+                        <option value="Feet">Epidermis Pain: Feet</option>
+                        <option value="Fingers">Epidermis Pain: Fingers</option>
+                        <option value="Hands">Epidermis Pain: Hands</option>
+                        <option value="Head">Epidermis Pain: Head</option>
+                        <option value="Knuckles">Epidermis Pain: Knuckles</option>
+                        <option value="Neck">Epidermis Pain: Neck</option>
+                        <option value="Nose">Epidermis Pain: Nose</option>
+                        <option value="Shin">Epidermis Pain: Shin</option>
+                        <option value="Thigh">Epidermis Pain: Thigh</option>
+                        <option value="Tricep">Epidermis Pain: Tricep</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <!-- Allergy Trigger Section -->
+        <div class="container">
+            <div class="row">         
+                <h4>Allergy Triggers:</h4>  
+            </div>
+            <div class="row">    
+                <p>Click to select any common allergy trigger foods you may have consumed.</p>   
+            </div>
+         
+        <section>	
+            <div class="quizimgblock">
+                <div class="container">
+                    <div class="row mt-2 mb-4 d-flex justify-content-center">
+
+                        {{!-- Dairy Question Checkbox --}}
+                        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                            <div id="dairyCheck" value="0" href="#" class="quiz-answer">
+                                <img class="check" src="assets/images/checkmark2trans.png" alt="check">
+                                <img class="allergyIcons" src="assets/images/cowIcon.png" alt="dairy icon">
+                            </div>
+                        </div>
+
+                        {{!-- Eggs Question Checkbox --}}
+                        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                            <div id="eggCheck" value="0" href="#" class="quiz-answer">
+                                <img class="check" src="assets/images/checkmark2trans.png" alt="check">
+                                <img class="allergyIcons" src="assets/images/eggs.png" alt="egg icon">
+                            </div>
+                        </div>
+
+                        {{!-- Seafood Question Checkbox --}}
+                        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                            <div id="seafoodCheck" value="0" href="#" class="quiz-answer">
+                                <img class="check" src="assets/images/checkmark2trans.png" alt="check">
+                                <img class="allergyIcons" src="assets/images/fish.png" alt="seafood icon">
+                            </div>
+                        </div>
+
+                        {{!-- Soy Question Checkbox --}}
+                        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                            <div id="soyCheck" value="0" href="#" class="quiz-answer">
+                                <img class="check" src="assets/images/checkmark2trans.png" alt="check">
+                                <img class="allergyIcons" src="assets/images/soy.png" alt="soy icon">
+                            </div>
+                        </div>
+
+                        {{!-- Nuts Question Checkbox --}}
+                        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                            <div id="nutsCheck" value="0" href="#" class="quiz-answer">
+                                <img class="check" src="assets/images/checkmark2trans.png" alt="check">
+                                <img class="allergyIcons" src="assets/images/nutsIcon.png" alt="nuts icon">
+                            </div>
+                        </div>
+
+                        {{!-- Wheat Question Checkbox --}}
+                        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                            <div id="wheatCheck" value="0" href="#" class="quiz-answer">
+                                <img class="check" src="assets/images/checkmark2trans.png" alt="check">
+                                <img class="allergyIcons" src="assets/images/wheatIcon.png" alt="wheat icon">
+                            </div>
+                        </div>
+
+                        {{!-- Sweets Question Checkbox --}}
+                        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                            <div id="sweetsCheck" value="0" href="#" class="quiz-answer">
+                                <img class="check" src="assets/images/checkmark2trans.png" alt="check">
+                                <img class="allergyIcons" src="assets/images/sweets.png" alt="sweetsCheck">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Discomfort Sliders -->
+        <!-- Stress Level Slider -->
+        <hr>
+        <div class="container">
+        <div class="row mb-4 mt-3">
+            <h4>Stress Level Slider</h4>
+            <p>Please touch or click and hold the heart on the scale and drag it toward green for less stress and right for more stress that you are experiencing below:</p>
+            <div class="slidecontainer">
+                <input type="range" min="0" max="10" value="0" class="slider" id="stressRange" data-slider-id="stressRangeId">
+            </div>
+        </div>
+        <!-- Intensity Level Slider -->
+        <div class="row mb-3 mt-2">
+            <h4>Symptom Intensity Level Slider</h4>
+            <p>Please touch or click and hold the heart on the scale and drag it toward green for less intensity and right for more intensity of the symptom that you are experiencing below:</p>
+            <div class="slidecontainer">
+                <input type="range" min="0" max="10" value="0" class="slider" id="symptomRange" data-slider-id="intensityRangeId">
+            </div>
+        </div>
+        </div>
+
+        <!-- Table for API and auto data -->
+        <hr>
+        <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th scope="col" class="bg-warning">Automatic Data</th>
+                    <td class="bg-warning"></td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Location</th>
+                    <td id="autoLocation"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Humidity</th>
+                    <td id="autoHumidity"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Pollen</th>
+                    <td id="autoPollen"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Air Quality</th>
+                    <td id="autoPollution"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Sampled Data Time</th>
+                    <td id="autoTime"></td>
+                  </tr>
+                </tbody>
+              </table>
+
+        <!-- Notes Input Area -->
+        <div class="container">
+        <div class="row mt-4 mb-4">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                <span class="input-group-text font-weight-bold">Notes Section:</span>
+                </div>
+                <textarea id="notesInput" class="form-control" aria-label="With textarea"></textarea>
+            </div>
+        </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="row container">
+            <input id="submit" class="btn btn-warning pt-3 pb-3 pl-5 pr-5 font-weight-bold " type="submit" value="Submit New Card">
+        </div>
+        
+        <hr>
+        
+    </div>
+    <!-- Form Validation Modal Start -->
+    <div class="modal fade" id="validator" tabindex="-1" role="dialog" >
+        <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title"><strong>Selection Error</strong></h2>
+                    </button>
+                    <h4 class="modal-title" id="validatorLabel"></h4>
+                </div>
+                <div class="modal-body modal-dialog-centered">
+                     <h4>Please select a pain area to submit.</h4>
+                    <button type="button" class="btn btn-outline-warning btn-lg" data-dismiss="modal">Dismiss</button>
+                </div>
+            </div>
+        </div>
+    </div>    
+    <!-- Form Validation Modal End -->
+
+        <!-- footer -->
+        <footer>
+            
+        
+        </footer>
+        
+<!-- Linked Script Files Specific to This HTML Page -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- moment.js link -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js" integrity="sha256-ABVkpwb9K9PxubvRrHMkk6wmWcIHUE9eBxNZLXYQ84k=" crossorigin="anonymous"></script> 
+<script src="/js/index.js"></script>

@@ -1,0 +1,46 @@
+<div class="container mainDashboardArea mt-5 mb-2">
+
+{{!-- Pain vs Stress Line Graph --}}
+    <div class="row">
+        <div id="lineGraphPainStress" class="svg-container">
+
+        </div>
+    </div>
+
+{{!-- Allergy Pie Chart Based on Pain Threshold --}}
+    <div class="row d-flex justify-content-center">
+        <div id="pieChartAllergy" class="svg-container"></div>
+
+        <!-- Intensity Level Slider -->
+        <input id="symptomRange" class="slider mt-2 mb-2 ml-5 mr-3 sliderDash" type="range" min="0" max="10" value="0" data-slider-id="intensityRangeId">
+
+        {{!-- Update Button --}}
+        <button id="pieUpdate" type="button" class="btn btn-warning">Update!</button>
+    </div>
+
+{{!-- Scatter Plot of Pain Values Mapped Across Humidity --}}
+    <div class="row">
+        <div id="scatterPlotHumid" class="svg-container">
+
+        </div>
+    </div>
+
+{{!-- Air Quality Crossed With Pain --}}
+    <div class="row">
+        <div id="airQualVsSymp" class="svg-container">
+
+        </div>
+    </div>
+
+{{!-- Pollen Crossed With Pain --}}
+    <div class="row">
+        <div id="pollenVsPain">
+
+        </div>
+    </div>
+
+</div>
+
+<!-- Linked Script Files Specific to This HTML Page -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/js/dashboard.js"></script>
