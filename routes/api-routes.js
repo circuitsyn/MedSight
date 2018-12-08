@@ -1,6 +1,7 @@
 var db = require("../models");
 var Sequelize = require("sequelize");
 const Op = Sequelize.Op;
+var nodemailer = require('nodemailer');
 
 module.exports = function(app) {
   // Get all cards
@@ -74,19 +75,6 @@ module.exports = function(app) {
   });
   // ========== END WEATHER DATA CALL =========
 
-  // // ========== BEGIN QUOTE OF THE DAY API CALL ==========
-  // app.post("/api/quotes/", function(req, res) {
-  //   console.log(req.params);
-  //   var request = require("request");
-  //   var queryUrl = "http://quotes.rest/qod/categories";
-  //   request(queryUrl, function(error, response, body) {
-  //     var body = JSON.parse(body);
-  //     console.log(body);
-  //   });
-  // });
-
-  // // ========== END QUOTE OF THE DAY CALL ==========
-
   // Create a new card
   app.post("/api/cards", function(req, res) {
     db.MedSightData.create(req.body).then(function(dbMedsightdata) {
@@ -101,6 +89,32 @@ module.exports = function(app) {
       });
     
   });
-
+  //------------------- Email Routes ------------------------//
+  app.post('/ourstory/', function (req, res) {
+    let mailOpts, smtpTrans;
+    smtpTrans = nodemailer.createTransport({
+      host: 'smtp.gmail.com',
+      port: 465,
+      secure: true,
+      auth: {
+        user: process.env.USER,
+        pass: process.env.PASS
+      }
+    });
+    mailOpts = {
+      from: req.body.name + ' &lt;' + req.body.email + '&gt;',
+      to: process.env.USER,
+      subject: 'New message from contact form at Medsight',
+      text: `${req.body.name} (${req.body.email}) says: ${req.body.message}`
+    };
+    smtpTrans.sendMail(mailOpts, function (error, response) {
+      if(error){
+          console.log(error);
+          res.end("error");
+        }else{
+          console.log("Message sent: " + response.message);
+          res.end("sent");
+        }
+    });
+  });
 };
-

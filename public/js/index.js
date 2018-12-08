@@ -1,6 +1,8 @@
 // ========= BEGIN GEOLOCATION ========== //
 var pollenValue = "";
 var airQualVal = "";
+var visitTest;
+
 $(document).ready(function() {
   var x = document.getElementById("autoLocation");
 
@@ -35,7 +37,7 @@ $(document).ready(function() {
 
 // ========== BEGIN QUOTE OF THE DAY ========== 
    function getQuote() { 
-     var queryUrl = "http://quotes.rest/qod/"
+     var queryUrl = "https://quotes.rest/qod/"
     $.ajax({
       url: queryUrl,
       method: "GET"
@@ -49,6 +51,8 @@ $(document).ready(function() {
       });
     }
   getQuote();
+
+// ======================= END QUOTE OF THE DAY ========================= //  
 
 // ---------- Beginning of New, Edit, and Delete submissions ------------- //
 // Get references to page elements
@@ -156,9 +160,24 @@ $(".quiz-answer").click(function() {
 });
 
 // ---------------- Event Listener Section for Clickable Images End ------------------------- //
+
 // =========Modal Show on Page Load Start =====================//
 
-$(window).on("load", function() {
-  $("#welcomeModal").modal("show");
-});
+//storing stored visit boolean check in visitTest
+visitTest = localStorage.getItem('visited');
+
+//if statement to check if a locally stored value is true to see if someone visited
+if (visitTest){
+  console.log("Thanks for being a repeat visitor!")
+}
+else {
+  //set true in order prevent revisiting to pop up
+  localStorage.setItem('visited', true);
+
+  //trigger landing modal
+  $(window).on("load", function() {
+    $("#welcomeModal").modal("show");
+  });
+}
+
 // =========Modal Show on Page Load End =====================//
