@@ -307,8 +307,9 @@ button:focus {
 
 .card-title-ourStory {
     font-family: "MedSight Font";
-    font-size: 95px;
-    font-weight: bolder
+    font-size: 75px;
+    font-weight: bolder;
+    margin: 10px;
 }
 
 .ourStoryBodyImages {
@@ -321,10 +322,17 @@ button:focus {
 
 .ourStoryText {
     font-size: 30px;
+    margin: 10px;
 }
 
 /* --------------------- Our Story Page styling end  -------------------- */
 /* --------------------- Dashboard Styling Start ------------------------ */
+#headerDash{
+    text-align: center;
+    font-family: "MedSight Font";
+    font-weight: bold;
+}
+
 .svg-container { 
 	display: inline-block;
 	position: relative;
@@ -332,6 +340,10 @@ button:focus {
 	/* padding-bottom: 100%;  */
 	vertical-align: middle; 
 	overflow: hidden; 
+}
+
+.dashText {
+    text-align: center;
 }
 
 .mainDashboardArea {
