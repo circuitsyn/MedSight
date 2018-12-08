@@ -1,6 +1,8 @@
 // ========= BEGIN GEOLOCATION ========== //
 var pollenValue = "";
 var airQualVal = "";
+var visitTest;
+
 $(document).ready(function() {
   var x = document.getElementById("autoLocation");
 
@@ -156,14 +158,20 @@ $(".quiz-answer").click(function() {
 });
 
 // ---------------- Event Listener Section for Clickable Images End ------------------------- //
+
 // =========Modal Show on Page Load Start =====================//
 //if statement to check if a locally stored value is true to see if someone visited
-if (window.localStorage.getItem('visited') === true){
+
+visitTest = localStorage.getItem('visited');
+console.log('visitTest: ', visitTest);
+
+if (visitTest){
   console.log("Thanks for being a repeat visitor!")
 }
 else {
   //set true in order prevent revisiting to pop up
-  window.localStorage.setItem('visited', true);
+  localStorage.setItem('visited', true);
+  console.log('visitTest: ', visitTest);
 
   //trigger landing modal
   $(window).on("load", function() {
