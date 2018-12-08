@@ -160,18 +160,17 @@ $(".quiz-answer").click(function() {
 // ---------------- Event Listener Section for Clickable Images End ------------------------- //
 
 // =========Modal Show on Page Load Start =====================//
-//if statement to check if a locally stored value is true to see if someone visited
 
+//storing stored visit boolean check in visitTest
 visitTest = localStorage.getItem('visited');
-console.log('visitTest: ', visitTest);
 
+//if statement to check if a locally stored value is true to see if someone visited
 if (visitTest){
   console.log("Thanks for being a repeat visitor!")
 }
 else {
   //set true in order prevent revisiting to pop up
   localStorage.setItem('visited', true);
-  console.log('visitTest: ', visitTest);
 
   //trigger landing modal
   $(window).on("load", function() {
