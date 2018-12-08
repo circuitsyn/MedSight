@@ -103,22 +103,29 @@ $(document).ready(function() {
     //function to build allergy trigger totals for pie chart
     function buildAllergyArr(data){
         //reset allergy array on each call
+        dairy = 0;
+        eggs = 0;
+        fish = 0;
+        nuts = 0;
+        soy = 0;
+        sweets = 0; 
+        wheat = 0;
         console.log('initial allergy arr value', allergyArr);
-        var allergyArr = [];
+        allergyArr = [];
         console.log('check pie array data object: ', data)
-        console.log('check reset array: ', allergyArr);
+        console.log('check reset array: ', allergyArr.length, allergyArr);
         for(i=0; i < data.length; i++){
 
-            dairy = dairy + +(data[i].AllergyTriggerDairy);
-            eggs = eggs + +(data[i].AllergyTriggerEggs);
-            fish = fish + +(data[i].AllergyTriggerFish);
-            nuts = nuts + +(data[i].AllergyTriggerNuts);
-            soy = soy + +(data[i].AllergyTriggerSoy);
-            sweets = sweets + +(data[i].AllergyTriggerSweets);
-            wheat = wheat + +(data[i].AllergyTriggerWheat);
+            dairy += +(data[i].AllergyTriggerDairy);
+            eggs += +(data[i].AllergyTriggerEggs);
+            fish += +(data[i].AllergyTriggerFish);
+            nuts += +(data[i].AllergyTriggerNuts);
+            soy += +(data[i].AllergyTriggerSoy);
+            sweets += +(data[i].AllergyTriggerSweets);
+            wheat += +(data[i].AllergyTriggerWheat);
         }
         allergyArr.push(dairy, eggs, fish, nuts, soy, sweets, wheat);
-        console.log('pie array after built: ',allergyArr )
+        console.log('pie array after built: ', allergyArr)
         return allergyArr;
     }
     

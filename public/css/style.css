@@ -51,6 +51,11 @@ li.nav-item:hover {
     border-radius: 20px;
     border-color: #FFC107 !important;
     border: solid 2px;
+    
+}
+
+li.nav-item {
+    transition-timing-function: ease-out;
 }
 
 .navbar-nav {
