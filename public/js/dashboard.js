@@ -311,7 +311,7 @@ $(document).ready(function() {
                 color: '#420b56'
             },
             showlegend: true,
-            legend: {x: 0.35,
+            legend: {x: 0.44,
                 y: -0.05,
             "orientation": "h",}
             };
@@ -368,14 +368,14 @@ $(document).ready(function() {
             }
             },
             showlegend: true,
-            legend: {x: 0.15,
+            legend: {x: 0.37,
                 y: -0.05,
             "orientation": "h",
             bgcolor: 'rgba(255, 255, 255, 0)',
             bordercolor: 'rgba(255, 255, 255, 0)'
             },
             barmode: 'group',
-            bargap: 0.15,
+            bargap: 0.5,
             bargroupgap: 0.1
         };
         
