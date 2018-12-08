@@ -38,10 +38,15 @@
     </div>
 
 {{!-- Air Quality Vs Symptom Intensity --}}
-    <div class="row mb-5">
-        <div id="airQualVsSymp" class="svg-container">
+    <div class="row mb-5 d-flex justify-content-center">
+        <div id="airQualVsSymp" class="svg-container"></div>
 
-        </div>
+            <!-- Intensity Level Slider -->
+            <input id="symptomRangeAP" class="slider mt-2 mb-2 ml-5 mr-3 sliderDash" type="range" min="0" max="10" value="0" data-slider-id="intensityRangeId">
+
+            {{!-- Update Button --}}
+            <button id="pieUpdate" type="button" class="btn btn-warning">Update!</button>
+        
     </div>
 
 <!-- Linked Script Files Specific to This HTML Page -->
