@@ -1,9 +1,21 @@
 <div class="container mainDashboardArea mt-5 mb-2">
 
+{{!-- Greeting/Header --}}
+<div class="row">
+    <div class="col-md-12">
+        <h1 id="headerDash" class="mt-2 mb-2">Welcome To Your Insights Dashboard!</h1>
+        <hr>
+        <p class="dashText">
+            On the insights dashboard you can quickly take a look at your overall data that you have contributed to Medsight. This helps you find correlations in your health that you may have not realized. Please have a look and check back often. The more data you add the closer you get to taking control of your health!
+            <hr>
+        </p>
+    </div>
+</div>
+
 {{!-- Pain vs Stress Line Graph --}}
     <div class="row">
         <div id="lineGraphPainStress" class="svg-container">
-
+            
         </div>
     </div>
 
@@ -25,21 +37,17 @@
         </div>
     </div>
 
-{{!-- Air Quality Crossed With Pain --}}
-    <div class="row">
-        <div id="airQualVsSymp" class="svg-container">
+{{!-- Air Quality Vs Symptom Intensity --}}
+    <div class="row mb-5 d-flex justify-content-center">
+        <div id="airQualVsSymp" class="svg-container"></div>
 
-        </div>
+            <!-- Intensity Level Slider -->
+            <input id="symptomRangeAP" class="slider mt-2 mb-2 ml-5 mr-3 sliderDash" type="range" min="0" max="10" value="0" data-slider-id="intensityRangeId">
+
+            {{!-- Update Button --}}
+            <button id="AirPollenUpdate" type="button" class="btn btn-warning">Update!</button>
+        
     </div>
-
-{{!-- Pollen Crossed With Pain --}}
-    <div class="row">
-        <div id="pollenVsPain">
-
-        </div>
-    </div>
-
-</div>
 
 <!-- Linked Script Files Specific to This HTML Page -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

@@ -327,6 +327,12 @@ button:focus {
 
 /* --------------------- Our Story Page styling end  -------------------- */
 /* --------------------- Dashboard Styling Start ------------------------ */
+#headerDash{
+    text-align: center;
+    font-family: "MedSight Font";
+    font-weight: bold;
+}
+
 .svg-container { 
 	display: inline-block;
 	position: relative;
@@ -334,6 +340,10 @@ button:focus {
 	/* padding-bottom: 100%;  */
 	vertical-align: middle; 
 	overflow: hidden; 
+}
+
+.dashText {
+    text-align: center;
 }
 
 .mainDashboardArea {
