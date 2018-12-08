@@ -51,10 +51,7 @@ module.exports = function(app) {
       request(queryUrl, function(error, response, body3) {
         var body3 = JSON.parse(body3);
         console.log("Humidity:", body3[0].RelativeHumidity);
-
-        var date = moment
-          .unix(body3[0].EpochTime)
-          .format("dddd, MMMM Do, YYYY h:mm A");
+        var date = moment(body3[0].LocalObservationDateTime).format("dddd, MMMM Do, YYYY h:mm A");
 
         console.log("Sampled Data Time:", date);
 
