@@ -36,7 +36,7 @@ $(document).ready(function() {
     //function to get refined pie chart allergy data
     function getRefinedAllergyData(allergyArr){
         
-        var value = +$('#symptomRange').val().trim();
+        var value = $('#symptomRange').val().trim();
         
     $.get("/api/cards/" + value, function(data) {
         buildAllergyArr(data);

@@ -1,8 +1,15 @@
-USE `vtgj5e68rsi124w1`;
+/* DROP DATABASE IF EXISTS CardData;
+CREATE DATABASE CardData;
+
+DROP DATABASE IF EXISTS testdb;
+CREATE DATABASE testdb;
+
+USE `CardData`;
 SET SQL_MODE = '';
 
 DROP TABLE IF EXISTS MedSightData;
 CREATE TABLE MedSightData(
+	id INT NOT NULL AUTO_INCREMENT,
 	AllergyTriggerDairy BOOLEAN, 
 	AllergyTriggerEggs BOOLEAN, 
     AllergyTriggerFish BOOLEAN, 
@@ -21,9 +28,10 @@ CREATE TABLE MedSightData(
     Pollution VARCHAR(255), 
     TimeStamp VARCHAR(255), 
     AirQualityIndex INTEGER, 
-    PollenIndex INTEGER
+    PollenIndex INTEGER,
+    PRIMARY KEY (id)
     );
-
+*/
 
 INSERT INTO MedSightData (AllergyTriggerDairy, AllergyTriggerEggs, AllergyTriggerFish, AllergyTriggerSoy, AllergyTriggerSweets, AllergyTriggerNuts, AllergyTriggerWheat, PainLocationMuscular, PainLocationSkeletal, PainLocationEpidermis, SliderStressSlider, SymptomIntensitySlider, AutoLocation, Humidity, Pollen, Pollution, TimeStamp, AirQualityIndex, PollenIndex)
 VALUES 

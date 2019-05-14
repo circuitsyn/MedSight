@@ -15,7 +15,7 @@ module.exports = function(app) {
   app.post("/api/weather/", function(req, res) {
     var request = require("request");
     var moment = require("moment");
-    var apiKey = process.env.ACCUWEATHER_KEY;
+    var apiKey = process.env.ACCUWEATHER_KEY || "xUVhRAomg1bPU3PFjp6QXcMGAVhmCSGP";
     var lat = req.body.latitude;
     var lon = req.body.longitude;
 
@@ -25,6 +25,7 @@ module.exports = function(app) {
 
     request(queryUrl, function(error, response, body1) {
       var body1 = JSON.parse(body1);
+      console.log("body1:", body1);
       var key = body1.Key;
       var cityState = body1.LocalizedName + ", " + body1.AdministrativeArea.ID;
       console.log("Location:", cityState);
