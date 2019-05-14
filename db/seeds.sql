@@ -1,5 +1,29 @@
-USE carddata;
+USE `vtgj5e68rsi124w1`;
 SET SQL_MODE = '';
+
+DROP TABLE IF EXISTS MedSightData;
+CREATE TABLE MedSightData(
+	AllergyTriggerDairy BOOLEAN, 
+	AllergyTriggerEggs BOOLEAN, 
+    AllergyTriggerFish BOOLEAN, 
+    AllergyTriggerSoy BOOLEAN, 
+    AllergyTriggerSweets BOOLEAN, 
+    AllergyTriggerNuts BOOLEAN, 
+    AllergyTriggerWheat BOOLEAN, 
+    PainLocationMuscular VARCHAR(255), 
+    PainLocationSkeletal VARCHAR(255), 
+    PainLocationEpidermis VARCHAR(255), 
+    SliderStressSlider INTEGER, 
+    SymptomIntensitySlider INTEGER, 
+    AutoLocation VARCHAR(255), 
+    Humidity INTEGER, 
+    Pollen VARCHAR(255), 
+    Pollution VARCHAR(255), 
+    TimeStamp VARCHAR(255), 
+    AirQualityIndex INTEGER, 
+    PollenIndex INTEGER
+    );
+
 
 INSERT INTO MedSightData (AllergyTriggerDairy, AllergyTriggerEggs, AllergyTriggerFish, AllergyTriggerSoy, AllergyTriggerSweets, AllergyTriggerNuts, AllergyTriggerWheat, PainLocationMuscular, PainLocationSkeletal, PainLocationEpidermis, SliderStressSlider, SymptomIntensitySlider, AutoLocation, Humidity, Pollen, Pollution, TimeStamp, AirQualityIndex, PollenIndex)
 VALUES 
