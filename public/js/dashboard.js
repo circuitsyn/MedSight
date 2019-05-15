@@ -14,6 +14,7 @@ $(document).ready(function() {
     var sweets = 0;
     var wheat = 0;
 
+    // -- piechart update group start --
     //function to animate the change in pie chart data once update is clicked
     function pieChartShift() {
         getRefinedAllergyData(allergyArr);
@@ -43,6 +44,39 @@ $(document).ready(function() {
         });
         return allergyArr;
     };
+    // -- piechart update group end --
+
+    // -- bar chart update group start --
+    //function to animate the change in pie chart data once update is clicked
+    function barChartShift() {
+        getRefinedBarChartData(allergyArr);
+        
+        Plotly.animate('pieChartAllergy', {
+          data: [{values: allergyArr}],
+          traces: [0],
+          layout: {}
+        }, {
+          transition: {
+            duration: 500,
+            easing: 'cubic-in-out'
+          },
+          frame: {
+            duration: 500
+          }
+        })
+      };
+
+    //function to get refined pie chart allergy data
+    function getRefinedBarChartData(allergyArr){
+        
+        var value = $('#symptomRange').val().trim();
+        
+    $.get("/api/cards/" + value, function(data) {
+        buildAllergyArr(data);
+        });
+        return allergyArr;
+    };
+    // -- bar chart update group end --
 
     //function to get data and launch air quality and pollen bar graph
     function launchAirPollenGraph(){
@@ -394,6 +428,13 @@ $(document).ready(function() {
         e.preventDefault();
         pieChartShift();
       });
+
+    //Humidity vs Symp Update Button Listener
+    $('#AirPollenUpdate').on("click", function(e){
+        e.preventDefault();
+        barChartShift();
+      });
+
 
     //--------------------- Button listeners End ------------------------- //
    });

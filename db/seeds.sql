@@ -1,37 +1,7 @@
-/* DROP DATABASE IF EXISTS CardData;
-CREATE DATABASE CardData;
-
-DROP DATABASE IF EXISTS testdb;
-CREATE DATABASE testdb;
-
 USE `CardData`;
 SET SQL_MODE = '';
 
 DROP TABLE IF EXISTS MedSightData;
-CREATE TABLE MedSightData(
-	id INT NOT NULL AUTO_INCREMENT,
-	AllergyTriggerDairy BOOLEAN, 
-	AllergyTriggerEggs BOOLEAN, 
-    AllergyTriggerFish BOOLEAN, 
-    AllergyTriggerSoy BOOLEAN, 
-    AllergyTriggerSweets BOOLEAN, 
-    AllergyTriggerNuts BOOLEAN, 
-    AllergyTriggerWheat BOOLEAN, 
-    PainLocationMuscular VARCHAR(255), 
-    PainLocationSkeletal VARCHAR(255), 
-    PainLocationEpidermis VARCHAR(255), 
-    SliderStressSlider INTEGER, 
-    SymptomIntensitySlider INTEGER, 
-    AutoLocation VARCHAR(255), 
-    Humidity INTEGER, 
-    Pollen VARCHAR(255), 
-    Pollution VARCHAR(255), 
-    TimeStamp VARCHAR(255), 
-    AirQualityIndex INTEGER, 
-    PollenIndex INTEGER,
-    PRIMARY KEY (id)
-    );
-*/
 
 INSERT INTO MedSightData (AllergyTriggerDairy, AllergyTriggerEggs, AllergyTriggerFish, AllergyTriggerSoy, AllergyTriggerSweets, AllergyTriggerNuts, AllergyTriggerWheat, PainLocationMuscular, PainLocationSkeletal, PainLocationEpidermis, SliderStressSlider, SymptomIntensitySlider, AutoLocation, Humidity, Pollen, Pollution, TimeStamp, AirQualityIndex, PollenIndex)
 VALUES 
