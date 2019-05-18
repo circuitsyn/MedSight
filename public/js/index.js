@@ -33,7 +33,7 @@ $(document).ready(function() {
     }
   }
   
-});
+
 // ========== END GEOLOCATION ========= //
 
 // ========== BEGIN QUOTE OF THE DAY ========== 
@@ -189,3 +189,5 @@ if (window.location.pathname == "/") {
   getLocation();
   getQuote();
 }
+
+});
