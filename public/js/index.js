@@ -18,7 +18,6 @@ $(document).ready(function() {
           method: "POST",
           data: data.coords
         }).then(function(data) {
-          console.log("weatherData object:", data);
           $("#autoLocation").append(data.location);
           $("#autoHumidity").append(data.humidity);
           $("#autoPollution").append(data.airQuality);
@@ -45,8 +44,6 @@ $(document).ready(function() {
     }).done(function(data) {
       var quote = data.contents.quotes[0].quote;
       var author = data.contents.quotes[0].author
-      console.log("quote:", data.contents.quotes[0].quote);
-      console.log("author:", data.contents.quotes[0].author);
       $("#healthFact").append(quote);
       $("#quoteAuthor").append(author);
       });
@@ -184,7 +181,6 @@ else {
 // =========Modal Show on Page Load End =====================//
 
 // API function calls limited to main landing page to prevent ID grab issue
-console.log("path: ", window.location.pathname);
 if (window.location.pathname == "/") {
   getLocation();
   getQuote();
