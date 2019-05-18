@@ -183,9 +183,8 @@ else {
 
 // =========Modal Show on Page Load End =====================//
 
-console.log("path: ", window.location.pathname);
-
+// API function calls limited to main landing page to prevent ID grab issue
 if (window.location.pathname == "/") {
-getLocation();
-getQuote();
+  getLocation();
+  getQuote();
 }
