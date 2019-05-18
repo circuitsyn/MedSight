@@ -4,6 +4,7 @@ var airQualVal = "";
 var visitTest;
 
 $(document).ready(function() {
+  
   var x = document.getElementById("autoLocation");
 
   //function to get location key from accuweather api
@@ -28,10 +29,10 @@ $(document).ready(function() {
         });
       });
     } else {
-      x.innerHTML = "Geolocation is not supported by this browser.";
+      x.innerHTML = "Geolocation gathering is not supported by this browser.";
     }
   }
-  getLocation();
+  
 });
 // ========== END GEOLOCATION ========= //
 
@@ -50,7 +51,7 @@ $(document).ready(function() {
       $("#quoteAuthor").append(author);
       });
     }
-  getQuote();
+  
 
 // ======================= END QUOTE OF THE DAY ========================= //  
 
@@ -181,3 +182,10 @@ else {
 }
 
 // =========Modal Show on Page Load End =====================//
+
+console.log("path: ", window.location.pathname);
+
+if (window.location.pathname == "/") {
+getLocation();
+getQuote();
+}

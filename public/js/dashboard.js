@@ -48,8 +48,8 @@ $(document).ready(function() {
 
     // -- bar chart update group start --
     //function to animate the change in pie chart data once update is clicked
-    function barChartShift() {
-        getRefinedBarChartData(allergyArr);
+    function barGraphShift() {
+        getRefinedBarGraphData(allergyArr);
         
         Plotly.animate('pieChartAllergy', {
           data: [{values: allergyArr}],
@@ -66,13 +66,13 @@ $(document).ready(function() {
         })
       };
 
-    //function to get refined pie chart allergy data
-    function getRefinedBarChartData(allergyArr){
+    //function to get refined bar graph allergy data
+    function getRefinedBarGraphData(allergyArr){
         
-        var value = $('#symptomRange').val().trim();
+        var value = $('#symptomRangeAP').val().trim();
         
     $.get("/api/cards/" + value, function(data) {
-        buildAllergyArr(data);
+        pollAirBarGraph(data);
         });
         return allergyArr;
     };
@@ -432,7 +432,7 @@ $(document).ready(function() {
     //Humidity vs Symp Update Button Listener
     $('#AirPollenUpdate').on("click", function(e){
         e.preventDefault();
-        barChartShift();
+        barGraphShift();
       });
 
 
